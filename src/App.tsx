@@ -4,19 +4,19 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Printer, 
-  Layout, 
-  Image as ImageIcon, 
-  FileText, 
-  CheckCircle2, 
-  MessageSquare, 
-  Upload, 
-  ArrowRight, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Menu, 
+import {
+  Printer,
+  Layout,
+  Image as ImageIcon,
+  FileText,
+  CheckCircle2,
+  MessageSquare,
+  Upload,
+  ArrowRight,
+  Phone,
+  Mail,
+  MapPin,
+  Menu,
   X,
   Star,
   Zap,
@@ -88,23 +88,23 @@ const GraphicZoneWebsite = () => {
   return (
     <div className="bg-white font-sans text-slate-900 scroll-smooth">
       {/* Top Bar */}
-      <div className="bg-slate-900 text-white py-2.5 px-8 text-[10px] uppercase tracking-[0.2em] font-bold flex justify-between items-center">
-        <div className="flex gap-6">
-          <span className="flex items-center gap-2"><ShieldCheck className="w-3 h-3 text-indigo-400" /> ISO 9001 Certified</span>
+      <div className="bg-slate-900 text-white py-2.5 px-4 sm:px-8 text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold flex justify-between items-center">
+        <div className="flex gap-3 sm:gap-6">
+          <span className="flex items-center gap-1 sm:gap-2"><ShieldCheck className="w-3 h-3 text-indigo-400" /> <span className="hidden min-[400px]:inline">ISO 9001 Certified</span><span className="min-[400px]:hidden">Certified</span></span>
           <span className="hidden sm:flex items-center gap-2"><Clock className="w-3 h-3 text-indigo-400" /> 24/7 Production</span>
         </div>
-        <div className="flex gap-6">
+        <div className="flex gap-3 sm:gap-6">
           <a href="tel:+1800PRINT" className="hover:text-indigo-400 transition-colors">+1 800 GRAPHIC</a>
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className={`sticky top-0 z-50 transition-all duration-300 px-8 py-4 flex justify-between items-center ${isScrolled ? 'bg-white shadow-lg' : 'bg-white border-b border-slate-100'}`}>
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <div className="bg-indigo-600 p-2 rounded-lg">
-            <Printer className="w-6 h-6 text-white" />
+      <nav className={`sticky top-0 z-50 transition-all duration-300 px-4 sm:px-6 md:px-8 py-3 md:py-4 flex justify-between items-center ${isScrolled ? 'bg-white shadow-lg' : 'bg-white border-b border-slate-100'}`}>
+        <div className="flex items-center gap-2 sm:gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="bg-indigo-600 p-1.5 sm:p-2 rounded-lg">
+            <Printer className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </div>
-          <span className="text-2xl font-bold tracking-tight text-slate-900">
+          <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-slate-900">
             Graphic<span className="text-indigo-600">Zone</span>
           </span>
         </div>
@@ -117,16 +117,17 @@ const GraphicZoneWebsite = () => {
           <button onClick={() => scrollToSection('contact')} className="hover:text-indigo-600 transition-colors">Contact</button>
         </div>
 
-        <div className="flex items-center gap-4">
-          <button className="hidden sm:block text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors uppercase tracking-widest">Client Login</button>
-          <button 
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+          <button className="hidden md:block text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors uppercase tracking-widest">Client Login</button>
+          <button
             onClick={() => scrollToSection('contact')}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-600/20"
+            className="bg-indigo-600 text-white px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-600/20"
           >
-            Request Quote
+            <span className="hidden min-[380px]:inline">Request Quote</span>
+            <span className="min-[380px]:hidden">Quote</span>
           </button>
-          <button className="lg:hidden text-slate-900" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            {mobileMenuOpen ? <X /> : <Menu />}
+          <button className="lg:hidden text-slate-900 p-1" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </nav>
@@ -138,15 +139,15 @@ const GraphicZoneWebsite = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white pt-24 px-8 lg:hidden"
+            className="fixed inset-0 z-40 bg-white pt-20 sm:pt-24 px-6 sm:px-8 lg:hidden overflow-y-auto"
           >
-            <div className="flex flex-col gap-8 text-lg font-bold text-slate-900 uppercase tracking-widest">
-              <button onClick={() => scrollToSection('services')} className="text-left">Services</button>
-              <button onClick={() => scrollToSection('portfolio')} className="text-left">Portfolio</button>
-              <button onClick={() => scrollToSection('process')} className="text-left">Process</button>
-              <button onClick={() => scrollToSection('contact')} className="text-left">Contact</button>
+            <div className="flex flex-col gap-6 sm:gap-8 text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wide sm:tracking-widest">
+              <button onClick={() => scrollToSection('services')} className="text-left hover:text-indigo-600 transition-colors py-2">Services</button>
+              <button onClick={() => scrollToSection('portfolio')} className="text-left hover:text-indigo-600 transition-colors py-2">Portfolio</button>
+              <button onClick={() => scrollToSection('process')} className="text-left hover:text-indigo-600 transition-colors py-2">Process</button>
+              <button onClick={() => scrollToSection('contact')} className="text-left hover:text-indigo-600 transition-colors py-2">Contact</button>
               <hr className="border-slate-100" />
-              <button className="text-left text-slate-400">Client Login</button>
+              <button className="text-left text-slate-400 hover:text-indigo-600 transition-colors py-2">Client Login</button>
             </div>
           </motion.div>
         )}
@@ -172,7 +173,7 @@ const GraphicZoneWebsite = () => {
               Trusted by global corporations for high-volume, quality-assured printing, branding, and large-format solutions. We deliver excellence at scale.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-xl shadow-slate-900/20"
               >
@@ -228,7 +229,7 @@ const GraphicZoneWebsite = () => {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-4">{service.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-8">{service.desc}</p>
-                <button 
+                <button
                   onClick={() => scrollToSection('contact')}
                   className="text-indigo-600 text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all"
                 >
@@ -261,9 +262,9 @@ const GraphicZoneWebsite = () => {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">{item.title}</h3>
                   <div className="flex items-center justify-between">
                     <div className="flex gap-1">
-                      {[1,2,3,4,5].map(i => <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />)}
+                      {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />)}
                     </div>
-                    <button 
+                    <button
                       onClick={() => scrollToSection('contact')}
                       className="text-slate-400 hover:text-indigo-600 transition-colors"
                     >
@@ -351,7 +352,7 @@ const GraphicZoneWebsite = () => {
                 <p className="text-sm font-bold text-indigo-600">Drop Design Files Here</p>
                 <p className="text-[10px] text-indigo-400 mt-1 uppercase tracking-widest font-bold">PDF, AI, or High-Res JPG</p>
               </div>
-              <button 
+              <button
                 disabled={formStatus !== 'idle'}
                 className="w-full bg-indigo-600 text-white py-5 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-600/20 disabled:opacity-50"
               >
