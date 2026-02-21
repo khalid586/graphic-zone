@@ -1,0 +1,7 @@
+{
+  "name": "Graphic Zone - Design & Printing Solutions",
+  "description": "Professional printing and graphic design portfolio for banners, magazines, branding, and high-quality print materials.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
