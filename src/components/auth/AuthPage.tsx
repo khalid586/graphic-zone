@@ -1,0 +1,249 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'motion/react';
+import {
+    Printer,
+    Package,
+    Palette,
+    ShieldCheck,
+    Clock,
+    Truck,
+} from 'lucide-react';
+import { Separator } from '@/components/ui/separator';
+import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
+
+type AuthTab = 'login' | 'signup';
+
+const GoogleIcon = () => (
+    <svg viewBox="0 0 24 24" width="18" height="18">
+        <path
+            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
+            fill="#4285F4"
+        />
+        <path
+            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+            fill="#34A853"
+        />
+        <path
+            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+            fill="#FBBC05"
+        />
+        <path
+            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+            fill="#EA4335"
+        />
+    </svg>
+);
+
+const BrandPanel = () => (
+    <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-full h-full"
+                style={{
+                    backgroundImage: `radial-gradient(circle at 25% 25%, rgba(99,102,241,0.3) 0%, transparent 50%),
+                                      radial-gradient(circle at 75% 75%, rgba(99,102,241,0.2) 0%, transparent 50%)`,
+                }}
+            />
+            <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div className="relative z-10 flex flex-col justify-between p-12 xl:p-16 w-full">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-3 group">
+                <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10 group-hover:bg-white/15 transition-colors">
+                    <Printer className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xl font-bold text-white tracking-tight">
+                    Graphic Zone
+                </span>
+            </Link>
+
+            {/* Center illustration */}
+            <div className="flex-1 flex flex-col items-center justify-center py-12">
+                {/* Icon composition */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="relative mb-12"
+                >
+                    <div className="w-32 h-32 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+                        <Printer className="w-16 h-16 text-indigo-400" />
+                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                        className="absolute -top-3 -right-3 w-12 h-12 rounded-2xl bg-indigo-500/20 backdrop-blur-sm border border-indigo-400/20 flex items-center justify-center"
+                    >
+                        <Palette className="w-6 h-6 text-indigo-300" />
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.8 }}
+                        className="absolute -bottom-3 -left-3 w-12 h-12 rounded-2xl bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/20 flex items-center justify-center"
+                    >
+                        <Package className="w-6 h-6 text-emerald-300" />
+                    </motion.div>
+                </motion.div>
+
+                {/* Marketing text */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="text-center max-w-sm"
+                >
+                    <h2 className="text-2xl xl:text-3xl font-bold text-white mb-4 leading-tight">
+                        Your prints, your way.
+                    </h2>
+                    <p className="text-slate-400 text-base leading-relaxed">
+                        Track orders, manage payments, and access your designs — all from one dashboard.
+                    </p>
+                </motion.div>
+            </div>
+
+            {/* Bottom trust indicators */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex items-center gap-6 text-sm"
+            >
+                <div className="flex items-center gap-2 text-slate-400">
+                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                    <span>Secure</span>
+                </div>
+                <Separator orientation="vertical" className="h-4 bg-slate-700" />
+                <div className="flex items-center gap-2 text-slate-400">
+                    <Clock className="w-4 h-4 text-indigo-400" />
+                    <span>24/7 Access</span>
+                </div>
+                <Separator orientation="vertical" className="h-4 bg-slate-700" />
+                <div className="flex items-center gap-2 text-slate-400">
+                    <Truck className="w-4 h-4 text-amber-400" />
+                    <span>Order Tracking</span>
+                </div>
+            </motion.div>
+        </div>
+    </div>
+);
+
+const AuthPage = () => {
+    const [activeTab, setActiveTab] = useState<AuthTab>('login');
+
+    return (
+        <div className="min-h-screen flex bg-white">
+            {/* Left — Brand Panel */}
+            <BrandPanel />
+
+            {/* Right — Auth Forms */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-10 lg:p-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-full max-w-md"
+                >
+                    {/* Mobile logo */}
+                    <div className="lg:hidden flex items-center justify-center gap-3 mb-10">
+                        <Link href="/" className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
+                                <Printer className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="text-xl font-bold text-slate-900 tracking-tight">
+                                Graphic Zone
+                            </span>
+                        </Link>
+                    </div>
+
+                    {/* Heading */}
+                    <div className="mb-8">
+                        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
+                            {activeTab === 'login' ? 'Welcome back' : 'Create an account'}
+                        </h1>
+                        <p className="text-slate-500 text-sm">
+                            {activeTab === 'login'
+                                ? 'Sign in to your account to continue.'
+                                : 'Get started with your free account today.'}
+                        </p>
+                    </div>
+
+                    {/* Google Login */}
+                    <button
+                        type="button"
+                        className="w-full h-11 flex items-center justify-center gap-3 border border-slate-200 rounded-lg bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium transition-colors duration-200 mb-6"
+                    >
+                        <GoogleIcon />
+                        Continue with Google
+                    </button>
+
+                    {/* Divider */}
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="flex-1 h-px bg-slate-200" />
+                        <span className="text-xs text-slate-400 font-medium uppercase tracking-wider">
+                            or
+                        </span>
+                        <div className="flex-1 h-px bg-slate-200" />
+                    </div>
+
+                    {/* Tabs */}
+                    <div className="flex bg-slate-100 rounded-lg p-1 mb-6">
+                        {(['login', 'signup'] as AuthTab[]).map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab)}
+                                className={`relative flex-1 py-2.5 text-sm font-semibold rounded-md transition-all duration-200 ${activeTab === tab
+                                    ? 'bg-white text-slate-900 shadow-sm'
+                                    : 'text-slate-500 hover:text-slate-700'
+                                    }`}
+                            >
+                                {tab === 'login' ? 'Sign In' : 'Sign Up'}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Form area */}
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, x: activeTab === 'login' ? -10 : 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: activeTab === 'login' ? 10 : -10 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            {activeTab === 'login' ? <LoginForm /> : <SignupForm />}
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {/* Footer text */}
+                    <p className="text-center text-xs text-slate-400 mt-8">
+                        By continuing, you agree to our{' '}
+                        <button type="button" className="text-indigo-600 hover:text-indigo-700 font-medium">
+                            Terms of Service
+                        </button>{' '}
+                        and{' '}
+                        <button type="button" className="text-indigo-600 hover:text-indigo-700 font-medium">
+                            Privacy Policy
+                        </button>
+                        .
+                    </p>
+                </motion.div>
+            </div>
+        </div>
+    );
+};
+
+export default AuthPage;

@@ -1,0 +1,75 @@
+'use client';
+
+import Link from 'next/link';
+import { Tag, Calendar, User } from 'lucide-react';
+import { motion } from 'motion/react';
+import type { Project } from '../../types';
+import { Badge } from '@/components/ui/badge';
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+
+interface ProjectHeroProps {
+    project: Project;
+}
+
+const ProjectHero = ({ project }: ProjectHeroProps) => (
+    <section className="relative">
+        <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden">
+            <img src={project.heroImg} alt={project.title} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
+
+            {/* Hero Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 md:p-16 max-w-7xl mx-auto">
+                <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+                    <div className="flex flex-wrap items-center gap-3 mb-4">
+                        <Badge className="bg-indigo-600 text-white border-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest gap-1.5">
+                            <Tag className="w-3 h-3" /> {project.category}
+                        </Badge>
+                        <Badge variant="secondary" className="bg-white/15 text-white border-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm gap-1.5">
+                            <Calendar className="w-3 h-3" /> {project.date}
+                        </Badge>
+                    </div>
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 leading-[1.1]">
+                        {project.title}
+                    </h1>
+                    {project.client && (
+                        <p className="text-white/70 text-sm sm:text-base flex items-center gap-2">
+                            <User className="w-4 h-4 text-indigo-400" /> Client: <span className="font-bold text-white">{project.client}</span>
+                        </p>
+                    )}
+                </motion.div>
+            </div>
+        </div>
+
+        {/* Breadcrumb */}
+        <div className="bg-slate-50 border-b border-slate-100">
+            <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-16 py-4">
+                <Breadcrumb>
+                    <BreadcrumbList className="text-xs font-medium">
+                        <BreadcrumbItem>
+                            <BreadcrumbLink asChild>
+                                <Link href="/" className="hover:text-indigo-600">Home</Link>
+                            </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            <span className="text-slate-400">Portfolio</span>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            <BreadcrumbPage className="font-bold">{project.title}</BreadcrumbPage>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
+            </div>
+        </div>
+    </section>
+);
+
+export default ProjectHero;

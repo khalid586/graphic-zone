@@ -1,0 +1,109 @@
+'use client';
+
+import { useState, useEffect, use } from 'react';
+import Link from 'next/link';
+import { motion } from 'motion/react';
+import { PROJECT_DATA } from '@/data/projects';
+import Lightbox from '@/components/ui/Lightbox';
+import SectionLabel from '@/components/ui/SectionLabel';
+import ProjectHero from '@/components/project/ProjectHero';
+import ProjectGallery from '@/components/project/ProjectGallery';
+import ProjectServices from '@/components/project/ProjectServices';
+import ProjectMaterials from '@/components/project/ProjectMaterials';
+import ProjectChallenges from '@/components/project/ProjectChallenges';
+import ProjectSidebar from '@/components/project/ProjectSidebar';
+import ProjectMobileSidebar from '@/components/project/ProjectMobileSidebar';
+import RelatedProjects from '@/components/project/RelatedProjects';
+import StartProjectCTA from '@/components/project/StartProjectCTA';
+
+interface ProjectPageProps {
+    params: Promise<{ id: string }>;
+}
+
+const ProjectPage = ({ params }: ProjectPageProps) => {
+    const { id } = use(params);
+    const project = PROJECT_DATA[id || '1'];
+
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIdx, setLightboxIdx] = useState(0);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [id]);
+
+    if (!project) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-slate-50">
+                <div className="text-center">
+                    <p className="text-6xl font-black text-slate-200 mb-4">404</p>
+                    <p className="text-xl font-bold text-slate-600 mb-8">Project not found</p>
+                    <Link
+                        href="/"
+                        className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-indigo-700 transition-all"
+                    >
+                        Back to Home
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
+    const relatedProjects = Object.values(PROJECT_DATA).filter((p) => p.id !== project.id);
+
+    const openLightbox = (idx: number) => {
+        setLightboxIdx(idx);
+        setLightboxOpen(true);
+    };
+
+    return (
+        <div className="bg-white text-slate-900 scroll-smooth">
+            <Lightbox
+                images={project.gallery}
+                currentIndex={lightboxIdx}
+                isOpen={lightboxOpen}
+                onClose={() => setLightboxOpen(false)}
+                onPrev={() => setLightboxIdx((prev) => (prev - 1 + project.gallery.length) % project.gallery.length)}
+                onNext={() => setLightboxIdx((prev) => (prev + 1) % project.gallery.length)}
+                altPrefix={project.title}
+            />
+
+            <ProjectHero project={project} />
+
+            {/* Main Content */}
+            <section id="details" className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 py-12 md:py-20">
+                <div className="grid lg:grid-cols-[1fr_360px] gap-12 xl:gap-20">
+                    {/* Left Column */}
+                    <div className="min-w-0">
+                        {/* Description */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="mb-16"
+                        >
+                            <SectionLabel>Project Overview</SectionLabel>
+                            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-6">About This Project</h2>
+                            <p className="text-slate-500 text-base sm:text-lg leading-relaxed">{project.description}</p>
+                        </motion.div>
+
+                        <ProjectGallery images={project.gallery} title={project.title} onImageClick={openLightbox} />
+                        <ProjectServices services={project.services} />
+                        <ProjectMaterials materials={project.materials} />
+                        <ProjectChallenges challenges={project.challenges} />
+                    </div>
+
+                    {/* Right Column */}
+                    <ProjectSidebar project={project} />
+                </div>
+
+                <ProjectMobileSidebar project={project} />
+            </section>
+
+            <RelatedProjects projects={relatedProjects} />
+            <StartProjectCTA />
+        </div>
+    );
+};
+
+export default ProjectPage;
