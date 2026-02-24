@@ -84,7 +84,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
                             <Phone className="w-3.5 h-3.5" /> {user.phone}
                         </span>
                         <span className="flex items-center gap-1.5">
-                            <CalendarDays className="w-3.5 h-3.5" /> Member since {user.memberSince}
+                            <CalendarDays className="w-3.5 h-3.5" /> সদস্য হয়েছেন {user.memberSince} থেকে
                         </span>
                     </div>
                 </div>
@@ -93,7 +93,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
                     variant="outline"
                     className="self-start bg-white/10 border-white/15 text-white hover:bg-white/20 hover:text-white rounded-lg text-xs font-semibold uppercase tracking-wider gap-2 shrink-0"
                 >
-                    <Pencil className="w-3.5 h-3.5" /> Edit Profile
+                    <Pencil className="w-3.5 h-3.5" /> প্রোফাইল সম্পাদনা
                 </Button>
             </div>
 
@@ -101,19 +101,19 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <StatCard
                     icon={ShoppingBag}
-                    label="Total Orders"
+                    label="মোট অর্ডার"
                     value={String(user.totalOrders)}
                     color="bg-indigo-100 text-indigo-600"
                 />
                 <StatCard
                     icon={DollarSign}
-                    label="Total Spent"
+                    label="মোট খরচ"
                     value={formatCurrency(user.totalSpent)}
                     color="bg-emerald-100 text-emerald-600"
                 />
                 <StatCard
                     icon={Clock}
-                    label="Pending"
+                    label="বাকি আছে"
                     value={String(user.pendingOrders)}
                     color="bg-amber-100 text-amber-600"
                 />

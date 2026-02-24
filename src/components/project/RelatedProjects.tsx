@@ -12,7 +12,7 @@ interface RelatedProjectsProps {
 }
 
 const RelatedProjects = ({ projects }: RelatedProjectsProps) => (
-    <section id="related" className="py-16 md:py-24 px-4 sm:px-8 bg-slate-50">
+    <section id="related" className="py-16 md:py-24 px-6 sm:px-8 bg-slate-50">
         <div className="max-w-7xl mx-auto">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -22,14 +22,14 @@ const RelatedProjects = ({ projects }: RelatedProjectsProps) => (
             >
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>
-                        <SectionLabel>More Work</SectionLabel>
-                        <p className="text-3xl sm:text-4xl font-black text-slate-900">Related Projects</p>
+                        <SectionLabel>আরও কাজ</SectionLabel>
+                        <p className="text-3xl sm:text-4xl font-black text-slate-900">সম্পর্কিত প্রকল্পসমূহ</p>
                     </div>
                     <Link
                         href="/"
                         className="text-slate-400 font-bold text-xs uppercase tracking-widest border-b-2 border-slate-200 pb-1 hover:text-indigo-600 hover:border-indigo-600 transition-all"
                     >
-                        View All Work
+                        সব কাজ দেখুন
                     </Link>
                 </div>
 

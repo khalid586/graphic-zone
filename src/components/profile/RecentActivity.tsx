@@ -36,8 +36,8 @@ const RecentActivity = ({ activities }: RecentActivityProps) => {
             className="bg-white rounded-2xl border border-slate-200 overflow-hidden"
         >
             <div className="px-5 sm:px-6 py-5 border-b border-slate-100">
-                <h2 className="text-lg font-bold text-slate-900">Recent Activity</h2>
-                <p className="text-sm text-slate-500">Latest updates on your account</p>
+                <h2 className="text-lg font-bold text-slate-900">সাম্প্রতিক কার্যকলাপ</h2>
+                <p className="text-sm text-slate-500">আপনার অ্যাকাউন্টের সর্বশেষ আপডেট</p>
             </div>
 
             <div className="divide-y divide-slate-100">
@@ -69,7 +69,7 @@ const RecentActivity = ({ activities }: RecentActivityProps) => {
 
             {activities.length === 0 && (
                 <div className="flex flex-col items-center justify-center py-12 px-6">
-                    <p className="text-sm text-slate-500">No recent activity</p>
+                    <p className="text-sm text-slate-500">কোনো সাম্প্রতিক কার্যকলাপ নেই</p>
                 </div>
             )}
         </motion.div>

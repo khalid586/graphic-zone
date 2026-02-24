@@ -14,24 +14,24 @@ const ProjectMobileSidebar = ({ project }: ProjectMobileSidebarProps) => (
         {/* Mobile Project Summary */}
         <Card className="rounded-3xl border-slate-100 shadow-lg overflow-hidden p-0 gap-0">
             <CardHeader className="bg-slate-900 p-6 rounded-none">
-                <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-2">Project Summary</p>
+                <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-2">প্রকল্প সারসংক্ষেপ</p>
                 <h3 className="text-xl font-bold text-white">{project.title}</h3>
             </CardHeader>
             <CardContent className="p-6 grid grid-cols-2 gap-4">
                 <div>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Category</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">ক্যাটাগরি</p>
                     <p className="font-bold text-slate-700">{project.category}</p>
                 </div>
                 <div>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Client</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">ক্লায়েন্ট</p>
                     <p className="font-bold text-slate-700">{project.client}</p>
                 </div>
                 <div>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Completed</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">সম্পন্ন</p>
                     <p className="font-bold text-slate-700">{project.date}</p>
                 </div>
                 <div>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Rating</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">রেটিং</p>
                     <div className="flex gap-0.5">
                         {[1, 2, 3, 4, 5].map((i) => (
                             <Star key={i} className={`w-4 h-4 ${i <= project.rating ? 'text-yellow-400 fill-yellow-400' : 'text-slate-200'}`} />
@@ -53,10 +53,10 @@ const ProjectMobileSidebar = ({ project }: ProjectMobileSidebarProps) => (
         {/* Mobile CTAs */}
         <div className="grid grid-cols-2 gap-3">
             <Button asChild className="bg-indigo-600 text-white px-4 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 h-auto">
-                <Link href="/#contact">Request Design</Link>
+                <Link href="/#contact">ডিজাইন চাই</Link>
             </Button>
             <Button asChild className="bg-slate-900 text-white px-4 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-slate-800 h-auto">
-                <Link href="/#contact">Contact Us</Link>
+                <Link href="/#contact">যোগাযোগ করুন</Link>
             </Button>
         </div>
     </div>

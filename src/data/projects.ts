@@ -3,13 +3,13 @@ import type { Project } from '../types';
 export const PROJECT_DATA: Record<string, Project> = {
     '1': {
         id: 1,
-        title: 'Eco Packaging Rebrand',
-        category: 'Branding',
-        client: 'GreenLeaf Organics',
-        date: 'January 2026',
+        title: 'ইকো প্যাকেজিং রিব্র্যান্ড',
+        category: 'ব্র্যান্ডিং',
+        client: 'গ্রীনলিফ অর্গানিক্স',
+        date: 'জানুয়ারি ২০২৬',
         heroImg: 'https://picsum.photos/seed/eco-hero/1600/900',
         description:
-            'GreenLeaf Organics approached us to completely reimagine their packaging identity. The goal was to create a cohesive, sustainable brand presence that would stand out on retail shelves while communicating their commitment to environmental responsibility. We developed a comprehensive system spanning product packaging, shipping materials, and retail displays — all using eco-friendly substrates and soy-based inks.',
+            'গ্রীনলিফ অর্গানিক্স তাদের প্যাকেজিং আইডেন্টিটি সম্পূর্ণরূপে নতুন করে কল্পনা করতে আমাদের কাছে এসেছিলো। লক্ষ্য ছিল একটি সুসংহত, টেকসই ব্র্যান্ড উপস্থিতি তৈরি করা যা রিটেইল শেলফে আলাদা হয়ে দাঁড়াবে এবং পরিবেশগত দায়িত্বের প্রতি তাদের প্রতিশ্রুতি প্রকাশ করবে। আমরা পণ্য প্যাকেজিং, শিপিং ম্যাটেরিয়াল এবং রিটেইল ডিসপ্লে জুড়ে একটি সম্পূর্ণ সিস্টেম তৈরি করেছি — সবই ইকো-ফ্রেন্ডলি সাবস্ট্রেট এবং সয়া-ভিত্তিক কালি ব্যবহার করে।',
         gallery: [
             'https://picsum.photos/seed/eco1/800/600',
             'https://picsum.photos/seed/eco2/800/600',
@@ -18,36 +18,36 @@ export const PROJECT_DATA: Record<string, Project> = {
             'https://picsum.photos/seed/eco5/800/600',
             'https://picsum.photos/seed/eco6/800/600',
         ],
-        services: ['Brand Strategy', 'Package Design', 'Print Production', 'Sustainable Material Sourcing', 'Retail Display Design'],
+        services: ['ব্র্যান্ড স্ট্রাটেজি', 'প্যাকেজ ডিজাইন', 'প্রিন্ট প্রোডাকশন', 'টেকসই উপকরণ সোর্সিং', 'রিটেইল ডিসপ্লে ডিজাইন'],
         materials: {
-            paper: '100% Recycled Kraft Board (350gsm)',
-            size: 'Multiple SKUs — ranging from 4×6" to 12×16"',
-            method: 'Offset Lithography with Soy-Based Inks + Spot UV',
+            paper: '১০০% রিসাইকেলড ক্রাফ্ট বোর্ড (৩৫০gsm)',
+            size: 'বিভিন্ন SKU — 4×6" থেকে 12×16"',
+            method: 'অফসেট লিথোগ্রাফি + সয়া-ভিত্তিক কালি + স্পট UV',
         },
         challenges: [
             {
-                title: 'Sustainable Without Sacrificing Quality',
+                title: 'মান না কমিয়ে টেকসই',
                 description:
-                    'The client needed fully recyclable packaging that still felt premium. We sourced uncoated recycled kraft paired with a subtle spot UV varnish on the logo to create a tactile, high-end finish without lamination.',
+                    'ক্লায়েন্টের পুরোপুরি রিসাইকেলযোগ্য প্যাকেজিং দরকার ছিল যা এখনও প্রিমিয়াম মনে হয়। আমরা আনকোটেড রিসাইকেলড ক্রাফ্ট ব্যবহার করে লোগোতে সূক্ষ্ম স্পট UV ভার্নিশ দিয়ে একটি স্পর্শযোগ্য, উচ্চ-মানের ফিনিশ তৈরি করেছি।',
             },
             {
-                title: 'Consistent Color Across SKUs',
+                title: 'SKU জুড়ে সুসংগত রঙ',
                 description:
-                    'With 14 product variants each needing distinct color-coded packaging, achieving consistent Pantone matching on recycled stock required extensive press proofing and custom ink formulation.',
+                    '১৪টি পণ্যের প্রতিটির জন্য আলাদা রঙ-কোডেড প্যাকেজিং দরকার, রিসাইকেলড স্টকে সুসংগত প্যান্টোন ম্যাচিং করতে ব্যাপক প্রেস প্রুফিং এবং কাস্টম ইঙ্ক ফর্মুলেশন প্রয়োজন হয়েছিল।',
             },
         ],
-        tags: ['Packaging', 'Eco-Friendly', 'Retail', 'Sustainability', 'Offset Print'],
+        tags: ['প্যাকেজিং', 'ইকো-ফ্রেন্ডলি', 'রিটেইল', 'টেকসই', 'অফসেট প্রিন্ট'],
         rating: 5,
     },
     '2': {
         id: 2,
-        title: 'Tech Mag — Issue 24',
-        category: 'Editorial',
-        client: 'FutureTech Media',
-        date: 'November 2025',
+        title: 'টেক ম্যাগ — সংখ্যা ২৪',
+        category: 'এডিটোরিয়াল',
+        client: 'ফিউচারটেক মিডিয়া',
+        date: 'নভেম্বর ২০২৫',
         heroImg: 'https://picsum.photos/seed/mag-hero/1600/900',
         description:
-            'FutureTech Media entrusted us with the complete design and production of their flagship quarterly magazine. Issue 24 focused on the future of AI in everyday life, requiring a bold editorial design language that balanced dense informational content with breathtaking visual storytelling. We handled everything from typography and layout to pre-press and final binding.',
+            'ফিউচারটেক মিডিয়া তাদের প্রধান ত্রৈমাসিক ম্যাগাজিনের সম্পূর্ণ ডিজাইন এবং প্রোডাকশনের দায়িত্ব আমাদের উপর ন্যস্ত করেছিল। সংখ্যা ২৪ দৈনন্দিন জীবনে AI এর ভবিষ্যতের উপর ফোকাস করেছিল, যার জন্য একটি সাহসী এডিটোরিয়াল ডিজাইন ভাষা প্রয়োজন ছিল যা ঘন তথ্যবহুল বিষয়বস্তু এবং চমৎকার ভিজুয়াল স্টোরিটেলিংয়ের মধ্যে ভারসাম্য রাখে। আমরা টাইপোগ্রাফি এবং লেআউট থেকে প্রি-প্রেস এবং চূড়ান্ত বাইন্ডিং পর্যন্ত সবকিছু সামলেছি।',
         gallery: [
             'https://picsum.photos/seed/mag1/800/600',
             'https://picsum.photos/seed/mag2/800/600',
@@ -56,36 +56,36 @@ export const PROJECT_DATA: Record<string, Project> = {
             'https://picsum.photos/seed/mag5/800/600',
             'https://picsum.photos/seed/mag6/800/600',
         ],
-        services: ['Editorial Design', 'Typography', 'Pre-Press Production', 'Perfect Binding', 'Color Management'],
+        services: ['এডিটোরিয়াল ডিজাইন', 'টাইপোগ্রাফি', 'প্রি-প্রেস প্রোডাকশন', 'পারফেক্ট বাইন্ডিং', 'কালার ম্যানেজমেন্ট'],
         materials: {
-            paper: '170gsm Gloss Art Paper (Interior) + 300gsm Board (Cover)',
-            size: '8.5 × 11" — 96 Pages',
-            method: 'Heatset Web Offset + Gloss Lamination on Cover',
+            paper: '১৭০gsm গ্লস আর্ট পেপার (ভেতর) + ৩০০gsm বোর্ড (কভার)',
+            size: '8.5 × 11" — ৯৬ পৃষ্ঠা',
+            method: 'হীটসেট ওয়েব অফসেট + কভারে গ্লস ল্যামিনেশন',
         },
         challenges: [
             {
-                title: 'Tight Turnaround',
+                title: 'সংক্ষিপ্ত সময়সীমা',
                 description:
-                    'Content finalization ran two weeks behind schedule. We restructured the production timeline, running pre-press on approved sections while final pages were still in design, hitting the newsstand date without compromise.',
+                    'কন্টেন্ট চূড়ান্তকরণ দুই সপ্তাহ দেরিতে হয়েছিল। আমরা প্রোডাকশন টাইমলাইন পুনর্গঠন করেছি, অনুমোদিত সেকশনগুলোতে প্রি-প্রেস চালিয়ে যেতে পেরেছি যখন চূড়ান্ত পৃষ্ঠাগুলো এখনও ডিজাইনে ছিল।',
             },
             {
-                title: 'Rich Photography Reproduction',
+                title: 'সমৃদ্ধ ফটোগ্রাফি রিপ্রোডাকশন',
                 description:
-                    'The issue featured 40+ high-resolution photographic spreads. We used stochastic screening to achieve photographic-quality reproduction with smoother gradients and finer detail than conventional halftone.',
+                    'এই সংখ্যায় ৪০+ হাই-রেজলিউশন ফটোগ্রাফিক স্প্রেড ছিল। আমরা স্টোকাস্টিক স্ক্রিনিং ব্যবহার করেছি যা প্রচলিত হাফটোনের তুলনায় মসৃণতর গ্রেডিয়েন্ট এবং সূক্ষ্মতর বিবরণ দেয়।',
             },
         ],
-        tags: ['Magazine', 'Editorial', 'Typography', 'Glossy', 'Perfect Binding'],
+        tags: ['ম্যাগাজিন', 'এডিটোরিয়াল', 'টাইপোগ্রাফি', 'গ্লসি', 'পারফেক্ট বাইন্ডিং'],
         rating: 5,
     },
     '3': {
         id: 3,
-        title: 'Event Banners — Tech Summit 2026',
-        category: 'Large Format',
-        client: 'Global Tech Alliance',
-        date: 'December 2025',
+        title: 'ইভেন্ট ব্যানার — টেক সামিট ২০২৬',
+        category: 'লার্জ ফরম্যাট',
+        client: 'গ্লোবাল টেক অ্যালায়েন্স',
+        date: 'ডিসেম্বর ২০২৫',
         heroImg: 'https://picsum.photos/seed/banner-hero/1600/900',
         description:
-            'The Global Tech Summit required a comprehensive suite of large-format graphics spanning a 50,000 sq ft convention center. From towering entrance arches to wayfinding signage, stage backdrops, and branded photo walls — every element needed to reinforce the summit\'s "Innovation Without Borders" theme while maintaining navigational clarity for 8,000+ attendees.',
+            'গ্লোবাল টেক সামিটের জন্য ৫০,০০০ বর্গফুট কনভেনশন সেন্টার জুড়ে ব্যাপক লার্জ-ফরম্যাট গ্রাফিক্সের একটি সম্পূর্ণ স্যুট প্রয়োজন ছিল। প্রবেশদ্বারের উঁচু আর্চ থেকে পথনির্দেশক সাইনেজ, স্টেজ ব্যাকড্রপ এবং ব্র্যান্ডেড ফটো ওয়াল — প্রতিটি উপাদানকে সামিটের "সীমাহীন উদ্ভাবন" থিমকে শক্তিশালী করতে হয়েছিল এবং ৮,০০০+ উপস্থিতদের জন্য ন্যাভিগেশনাল স্পষ্টতা বজায় রাখতে হয়েছিল।',
         gallery: [
             'https://picsum.photos/seed/ban1/800/600',
             'https://picsum.photos/seed/ban2/800/600',
@@ -94,36 +94,36 @@ export const PROJECT_DATA: Record<string, Project> = {
             'https://picsum.photos/seed/ban5/800/600',
             'https://picsum.photos/seed/ban6/800/600',
         ],
-        services: ['Large Format Design', 'Vinyl Printing', 'Installation Coordination', 'Wayfinding Systems', 'Stage Backdrop Production'],
+        services: ['লার্জ ফরম্যাট ডিজাইন', 'ভিনাইল প্রিন্টিং', 'ইনস্টলেশন সমন্বয়', 'পথনির্দেশক সিস্টেম', 'স্টেজ ব্যাকড্রপ প্রোডাকশন'],
         materials: {
-            paper: '13oz Vinyl Mesh + Fabric Tension Displays',
-            size: 'Ranges from 2×3 ft pull-ups to 40×12 ft stage backdrops',
-            method: 'UV-Cured Solvent Printing (1440 dpi)',
+            paper: '১৩oz ভিনাইল মেশ + ফ্যাব্রিক টেনশন ডিসপ্লে',
+            size: '2×3 ফুট পুল-আপ থেকে 40×12 ফুট স্টেজ ব্যাকড্রপ',
+            method: 'UV-কিউর্ড সলভেন্ট প্রিন্টিং (1440 dpi)',
         },
         challenges: [
             {
-                title: 'Venue Logistics',
+                title: 'ভেন্যু লজিস্টিক্স',
                 description:
-                    'Installation windows were extremely tight — only 18 hours before doors opened. We pre-fabricated modular panels and coordinated a 12-person install team with detailed floor plans to execute flawlessly.',
+                    'ইনস্টলেশনের জন্য সময় ছিল অত্যন্ত সীমিত — দরজা খোলার মাত্র ১৮ ঘণ্টা আগে। আমরা মডুলার প্যানেল প্রি-ফ্যাব্রিকেট করে ১২ জনের ইনস্টল টিম নিয়ে বিস্তারিত ফ্লোর প্ল্যান অনুযায়ী নিখুঁতভাবে সম্পন্ন করেছি।',
             },
             {
-                title: 'Indoor & Outdoor Durability',
+                title: 'ইনডোর ও আউটডোর স্থায়িত্ব',
                 description:
-                    'Entrance graphics were exposed to weather while interior pieces needed fire-retardant certification. We used different substrates for each zone — UV-resistant vinyl outdoors, FR-certified fabric indoors.',
+                    'প্রবেশদ্বারের গ্রাফিক্স আবহাওয়ার সংস্পর্শে ছিল অথচ অভ্যন্তরীণ পিসগুলোর ফায়ার-রিটার্ডেন্ট সার্টিফিকেশন দরকার ছিল। আমরা প্রতিটি জোনের জন্য আলাদা সাবস্ট্রেট ব্যবহার করেছি — বাইরে UV-রেজিস্ট্যান্ট ভিনাইল, ভেতরে FR-সার্টিফাইড ফ্যাব্রিক।',
             },
         ],
-        tags: ['Banners', 'Event', 'Large Format', 'Vinyl', 'Installation'],
+        tags: ['ব্যানার', 'ইভেন্ট', 'লার্জ ফরম্যাট', 'ভিনাইল', 'ইনস্টলেশন'],
         rating: 5,
     },
     '4': {
         id: 4,
-        title: 'Premium Business Cards',
-        category: 'Printing',
-        client: 'Meridian Capital Partners',
-        date: 'October 2025',
+        title: 'প্রিমিয়াম বিজনেস কার্ড',
+        category: 'প্রিন্টিং',
+        client: 'মেরিডিয়ান ক্যাপিটাল পার্টনার্স',
+        date: 'অক্টোবর ২০২৫',
         heroImg: 'https://picsum.photos/seed/card-hero/1600/900',
         description:
-            'Meridian Capital Partners required business cards that would make a lasting first impression in high-stakes executive meetings. We designed and produced a triple-layered card with edge painting, debossing, and selective foil stamping — crafting a card that feels as substantial as the firm\'s reputation.',
+            'মেরিডিয়ান ক্যাপিটাল পার্টনার্সের এমন বিজনেস কার্ড দরকার ছিল যা উচ্চ-পর্যায়ের এক্সিকিউটিভ মিটিংয়ে স্থায়ী প্রথম ছাপ ফেলতে পারে। আমরা এজ পেইন্টিং, ডিবসিং এবং সিলেক্টিভ ফয়েল স্ট্যাম্পিংয়ের সাথে ট্রিপল-লেয়ার কার্ড ডিজাইন ও তৈরি করেছি — এমন একটি কার্ড তৈরি করেছি যা ফার্মের সুনামের মতোই শক্তিশালী অনুভূতি দেয়।',
         gallery: [
             'https://picsum.photos/seed/card1/800/600',
             'https://picsum.photos/seed/card2/800/600',
@@ -132,36 +132,36 @@ export const PROJECT_DATA: Record<string, Project> = {
             'https://picsum.photos/seed/card5/800/600',
             'https://picsum.photos/seed/card6/800/600',
         ],
-        services: ['Card Design', 'Foil Stamping', 'Debossing', 'Edge Painting', 'Premium Finishing'],
+        services: ['কার্ড ডিজাইন', 'ফয়েল স্ট্যাম্পিং', 'ডিবসিং', 'এজ পেইন্টিং', 'প্রিমিয়াম ফিনিশিং'],
         materials: {
-            paper: 'Triple-Layer 900gsm Cotton (Crane Lettra)',
-            size: '3.5 × 2" (Standard US)',
-            method: 'Letterpress + Hot Foil Stamping + Edge Painting',
+            paper: 'ট্রিপল-লেয়ার ৯০০gsm কটন (ক্রেন লেট্রা)',
+            size: '৩.৫ × ২" (স্ট্যান্ডার্ড US)',
+            method: 'লেটারপ্রেস + হট ফয়েল স্ট্যাম্পিং + এজ পেইন্টিং',
         },
         challenges: [
             {
-                title: 'Multi-Process Registration',
+                title: 'মাল্টি-প্রসেস রেজিস্ট্রেশন',
                 description:
-                    'Combining letterpress debossing, gold foil, and edge painting in a single card required perfect registration across three separate press runs. We built custom jigs and ran test batches to ensure sub-millimeter alignment.',
+                    'একটি কার্ডে লেটারপ্রেস ডিবসিং, গোল্ড ফয়েল এবং এজ পেইন্টিং একত্রিত করতে তিনবার আলাদা প্রেস রানে নিখুঁত রেজিস্ট্রেশন দরকার ছিল। আমরা কাস্টম জিগ তৈরি করে টেস্ট ব্যাচ চালিয়ে সাব-মিলিমিটার অ্যালাইনমেন্ট নিশ্চিত করেছি।',
             },
             {
-                title: 'Consistency at Scale',
+                title: 'স্কেলে সামঞ্জস্য',
                 description:
-                    'With 12 executives each needing personalized cards, maintaining identical foil coverage and impression depth across 6,000 cards demanded meticulous quality control and hand-inspection.',
+                    '১২ জন এক্সিকিউটিভের প্রত্যেকের পার্সনালাইজড কার্ড দরকার, ৬,০০০ কার্ডে একই রকম ফয়েল কভারেজ ও ইম্প্রেশন ডেপ্থ বজায় রাখতে নিরবচ্ছিন্ন কোয়ালিটি কন্ট্রোল ও হ্যান্ড ইনস্পেকশন প্রয়োজন ছিল।',
             },
         ],
-        tags: ['Business Cards', 'Letterpress', 'Foil', 'Premium', 'Corporate'],
+        tags: ['বিজনেস কার্ড', 'লেটারপ্রেস', 'ফয়েল', 'প্রিমিয়াম', 'কর্পোরেট'],
         rating: 5,
     },
     '5': {
         id: 5,
-        title: 'Restaurant Brand Identity',
-        category: 'Branding',
-        client: 'Sakura Fine Dining',
-        date: 'September 2025',
+        title: 'রেস্টুরেন্ট ব্র্যান্ড আইডেন্টিটি',
+        category: 'ব্র্যান্ডিং',
+        client: 'সাকুরা ফাইন ডাইনিং',
+        date: 'সেপ্টেম্বর ২০২৫',
         heroImg: 'https://picsum.photos/seed/rest-hero/1600/900',
         description:
-            'Sakura Fine Dining needed a complete brand identity that honored Japanese culinary traditions while feeling contemporary and luxurious. We created a brand system spanning logo, menu design, business collateral, signage, and packaging — all unified by a restrained color palette, custom typography, and meticulous print finishing.',
+            'সাকুরা ফাইন ডাইনিংয়ের একটি সম্পূর্ণ ব্র্যান্ড আইডেন্টিটি দরকার ছিল যা জাপানি রন্ধন পরম্পরাকে সম্মান করার পাশাপাশি সমসাময়িক ও লাক্সারিয়াস অনুভূতি দিতে পারে। আমরা লোগো, মেনু ডিজাইন, বিজনেস কোল্যাটারাল, সাইনেজ এবং প্যাকেজিং নিয়ে একটি ব্র্যান্ড সিস্টেম তৈরি করেছি — সবকিছু একটি সংযত কালার প্যালেট, কাস্টম টাইপোগ্রাফি এবং নিখুঁত প্রিন্ট ফিনিশিং দ্বারা একীভূত।',
         gallery: [
             'https://picsum.photos/seed/rest1/800/600',
             'https://picsum.photos/seed/rest2/800/600',
@@ -170,36 +170,36 @@ export const PROJECT_DATA: Record<string, Project> = {
             'https://picsum.photos/seed/rest5/800/600',
             'https://picsum.photos/seed/rest6/800/600',
         ],
-        services: ['Logo Design', 'Menu Design', 'Stationery Suite', 'Interior Signage', 'Packaging Design'],
+        services: ['লোগো ডিজাইন', 'মেনু ডিজাইন', 'স্টেশনারি স্যুট', 'ইন্টেরিয়র সাইনেজ', 'প্যাকেজিং ডিজাইন'],
         materials: {
-            paper: 'Uncoated 280gsm Mohawk Superfine + Metallic Accent Stock',
-            size: 'Various — Menu 9×14", Cards 3.5×2", Signage Custom',
-            method: 'Digital Offset + Blind Debossing + Rose Gold Foil',
+            paper: 'আনকোটেড ২৮০gsm মোহক সুপারফাইন + মেটালিক অ্যাক্সেন্ট স্টক',
+            size: 'বিভিন্ন — মেনু 9×14", কার্ড 3.5×2", সাইনেজ কাস্টম',
+            method: 'ডিজিটাল অফসেট + ব্লাইন্ড ডিবসিং + রোজ গোল্ড ফয়েল',
         },
         challenges: [
             {
-                title: 'Cultural Sensitivity in Design',
+                title: 'ডিজাইনে সাংস্কৃতিক সংবেদনশীলতা',
                 description:
-                    'Balancing authentic Japanese aesthetic with western fine-dining expectations required deep research and multiple rounds of stakeholder review with both the owner and a cultural consultant.',
+                    'জাপানি নন্দনতত্ত্ব এবং পশ্চিমা ফাইন-ডাইনিংয়ের প্রত্যাশার মধ্যে ভারসাম্য রক্ষা করতে বিস্তারিত গবেষণা এবং মালিক ও সাংস্কৃতিক পরামর্শক উভয়ের সাথে বিভিন্ন দফায় স্টেকহোল্ডার রিভিউ প্রয়োজন ছিল।',
             },
             {
-                title: 'Multi-Format Consistency',
+                title: 'মাল্টি-ফরম্যাট সামঞ্জস্য',
                 description:
-                    'The identity spanned print, signage, fabric (napkins), and digital screens. We built an exhaustive brand guideline document ensuring consistent reproduction across every medium.',
+                    'আইডেন্টিটি প্রিন্ট, সাইনেজ, ফ্যাব্রিক (ন্যাপকিন) এবং ডিজিটাল স্ক্রিন জুড়ে বিস্তৃত ছিল। আমরা একটি বিস্তারিত ব্র্যান্ড গাইডলাইন তৈরি করেছি যা প্রতিটি মাধ্যমে সুসঙ্গত পুনরুৎপাদন নিশ্চিত করে।',
             },
         ],
-        tags: ['Restaurant', 'Logo', 'Menu Design', 'Branding', 'Fine Dining'],
+        tags: ['রেস্টুরেন্ট', 'লোগো', 'মেনু ডিজাইন', 'ব্র্যান্ডিং', 'ফাইন ডাইনিং'],
         rating: 5,
     },
     '6': {
         id: 6,
-        title: 'Annual Report 2025',
-        category: 'Editorial',
-        client: 'Pinnacle Holdings Inc.',
-        date: 'March 2025',
+        title: 'বার্ষিক প্রতিবেদন ২০২৫',
+        category: 'এডিটোরিয়াল',
+        client: 'পিন্যাকল হোল্ডিংস ইনক.',
+        date: 'মার্চ ২০২৫',
         heroImg: 'https://picsum.photos/seed/report-hero/1600/900',
         description:
-            'Pinnacle Holdings required a prestigious annual report that would command attention in boardrooms and regulatory offices alike. We designed a 120-page document featuring data visualization, executive photography, and financial infographics — printed on premium stock with a soft-touch laminated cover and PUR binding for lasting durability.',
+            'পিন্যাকল হোল্ডিংসের একটি মর্যাদাপূর্ণ বার্ষিক প্রতিবেদন দরকার ছিল যা বোর্ডরুম এবং নিয়ন্ত্রক কার্যালয় উভয়ে সমানভাবে দৃষ্টি আকর্ষণ করবে। আমরা ডেটা ভিজুয়ালাইজেশন, এক্সিকিউটিভ ফটোগ্রাফি এবং ফিন্যান্সিয়াল ইনফোগ্রাফিক্সসহ ১২০ পৃষ্ঠার একটি ডকুমেন্ট ডিজাইন করেছি — প্রিমিয়াম স্টকে মুদ্রিত, সফ্ট-টাচ ল্যামিনেটেড কভার এবং দীর্ঘস্থায়ী PUR বাইন্ডিংয়ের সাথে।',
         gallery: [
             'https://picsum.photos/seed/rep1/800/600',
             'https://picsum.photos/seed/rep2/800/600',
@@ -208,25 +208,25 @@ export const PROJECT_DATA: Record<string, Project> = {
             'https://picsum.photos/seed/rep5/800/600',
             'https://picsum.photos/seed/rep6/800/600',
         ],
-        services: ['Report Design', 'Data Visualization', 'Infographic Design', 'Pre-Press', 'PUR Binding'],
+        services: ['রিপোর্ট ডিজাইন', 'ডেটা ভিজুয়ালাইজেশন', 'ইনফোগ্রাফিক ডিজাইন', 'প্রি-প্রেস', 'PUR বাইন্ডিং'],
         materials: {
-            paper: '150gsm Silk Interior + 350gsm Soft-Touch Laminated Cover',
-            size: 'A4 (210 × 297mm) — 120 Pages',
-            method: 'Sheet-Fed Offset + Soft-Touch Lamination + PUR Binding',
+            paper: '১৫০gsm সিল্ক ইন্টেরিয়র + ৩৫০gsm সফ্ট-টাচ ল্যামিনেটেড কভার',
+            size: 'A4 (210 × 297mm) — ১২০ পৃষ্ঠা',
+            method: 'শীট-ফেড অফসেট + সফ্ট-টাচ ল্যামিনেশন + PUR বাইন্ডিং',
         },
         challenges: [
             {
-                title: 'Last-Minute Financial Data',
+                title: 'শেষ মুহূর্তের আর্থিক তথ্য',
                 description:
-                    'Audit finalization came just 72 hours before print deadline. We built the report with modular data sections that could be swapped without reflowing the entire document, allowing a rapid turnaround.',
+                    'অডিট চূড়ান্তকরণ মুদ্রণের সময়সীমার মাত্র ৭২ ঘণ্টা আগে সম্পন্ন হয়েছিল। আমরা মডুলার ডেটা সেকশন দিয়ে রিপোর্ট তৈরি করেছিলাম যা সম্পূর্ণ ডকুমেন্ট রিফ্লো না করেই দ্রুত পরিবর্তন করা যেত।',
             },
             {
-                title: 'Complex Data Visualization',
+                title: 'জটিল ডেটা ভিজুয়ালাইজেশন',
                 description:
-                    'The report included 35+ charts and infographics. We worked closely with the finance team to translate complex datasets into clear, visually compelling graphics that maintained accuracy.',
+                    'রিপোর্টে ৩৫+ চার্ট ও ইনফোগ্রাফিক্স ছিল। আমরা ফিন্যান্স টিমের সাথে ঘনিষ্ঠভাবে কাজ করে জটিল ডেটাসেটগুলোকে স্পষ্ট, দৃষ্টিনন্দন গ্রাফিক্সে রূপান্তরিত করেছি যা সঠিকতা বজায় রেখেছে।',
             },
         ],
-        tags: ['Annual Report', 'Corporate', 'Data Viz', 'Infographics', 'Binding'],
+        tags: ['বার্ষিক প্রতিবেদন', 'কর্পোরেট', 'ডেটা ভিজ', 'ইনফোগ্রাফিক্স', 'বাইন্ডিং'],
         rating: 5,
     },
 };

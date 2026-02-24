@@ -5,16 +5,16 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-    title: 'Graphic Zone - Design & Printing Solutions',
-    description: 'Trusted by global corporations for high-volume, quality-assured printing, branding, and large-format solutions.',
+    title: 'গ্রাফিক জোন - ডিজাইন ও প্রিন্টিং সমাধান',
+    description: 'উচ্চ-মানের প্রিন্টিং, ব্র্যান্ডিং এবং লার্জ-ফরম্যাট সমাধানে বিশ্বব্যাপী কর্পোরেশনগুলোর আস্থা।',
 };
 
 const NAV_ITEMS = [
-    { label: 'Home', action: '/' },
-    { label: 'Services', action: '/#services' },
-    { label: 'Portfolio', action: '/#portfolio' },
-    { label: 'Process', action: '/#process' },
-    { label: 'Contact', action: '/#contact' },
+    { label: 'হোম', action: '/' },
+    { label: 'সেবাসমূহ', action: '/#services' },
+    { label: 'পোর্টফোলিও', action: '/#portfolio' },
+    { label: 'প্রক্রিয়া', action: '/#process' },
+    { label: 'যোগাযোগ', action: '/#contact' },
 ];
 
 export default function RootLayout({
@@ -23,16 +23,16 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
+        <html lang="bn">
             <head>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
             </head>
             <body className="font-sans antialiased">
                 <div className="min-h-screen selection:bg-indigo-600 selection:text-white flex flex-col">
-                    <TopBar />
-                    <Navbar navItems={NAV_ITEMS} ctaLabel="Request Quote" ctaAction="/#contact" />
+                    {/* <TopBar /> */}
+                    <Navbar navItems={NAV_ITEMS} ctaLabel="কোটেশন চাই" ctaAction="/#contact" />
                     <main className="flex-1">
                         {children}
                     </main>

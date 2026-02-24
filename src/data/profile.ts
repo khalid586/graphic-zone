@@ -1,11 +1,11 @@
 import type { Order, ActivityItem, UserProfile } from '@/types/profile';
 
 export const MOCK_USER: UserProfile = {
-    name: 'Adebayo Johnson',
-    email: 'adebayo.johnson@example.com',
-    phone: '+234 801 234 5678',
+    name: 'রহিম উদ্দীন',
+    email: 'rahim.uddin@example.com',
+    phone: '+৮৮০ ১৭১২ ৩৪৫ ৬৭৮',
     avatar: 'https://picsum.photos/seed/avatar1/200/200',
-    memberSince: 'March 2024',
+    memberSince: 'মার্চ ২০২৪',
     totalOrders: 47,
     totalSpent: 2_845_000,
     pendingOrders: 3,
@@ -14,7 +14,7 @@ export const MOCK_USER: UserProfile = {
 export const MOCK_ORDERS: Order[] = [
     {
         id: 'GZ-2026-0147',
-        projectName: 'Annual Report — Zenith Corp',
+        projectName: 'বার্ষিক প্রতিবেদন — জেনিথ কর্প',
         orderDate: '2026-02-18',
         status: 'Processing',
         paymentStatus: 'Paid',
@@ -23,7 +23,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0139',
-        projectName: 'Business Cards — TechHub',
+        projectName: 'বিজনেস কার্ড — টেকহাব',
         orderDate: '2026-02-12',
         status: 'Completed',
         paymentStatus: 'Paid',
@@ -32,7 +32,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0134',
-        projectName: 'Event Banners — Lagos Summit',
+        projectName: 'ইভেন্ট ব্যানার — ঢাকা সামিট',
         orderDate: '2026-02-08',
         status: 'Completed',
         paymentStatus: 'Paid',
@@ -41,7 +41,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0128',
-        projectName: 'Brochures — GreenLeaf Organics',
+        projectName: 'ব্রোশিওর — গ্রীনলিফ অর্গানিক্স',
         orderDate: '2026-02-01',
         status: 'Pending',
         paymentStatus: 'Unpaid',
@@ -50,7 +50,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0121',
-        projectName: 'Flyer Design — FitLife Gym',
+        projectName: 'ফ্লায়ার ডিজাইন — ফিটলাইফ জিম',
         orderDate: '2026-01-25',
         status: 'Completed',
         paymentStatus: 'Paid',
@@ -59,7 +59,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0115',
-        projectName: 'Package Labels — AquaPure',
+        projectName: 'প্যাকেজ লেবেল — অ্যাকুয়াপিউর',
         orderDate: '2026-01-18',
         status: 'Cancelled',
         paymentStatus: 'Refunded',
@@ -68,7 +68,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0108',
-        projectName: 'Sticker Sheets — KiddoPlay',
+        projectName: 'স্টিকার শীট — কিডোপ্লে',
         orderDate: '2026-01-10',
         status: 'Completed',
         paymentStatus: 'Paid',
@@ -77,7 +77,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2025-0302',
-        projectName: 'Wall Calendar — Horizon Bank',
+        projectName: 'ওয়াল ক্যালেন্ডার — হরাইজন ব্যাংক',
         orderDate: '2025-12-20',
         status: 'Pending',
         paymentStatus: 'Partial',
@@ -89,37 +89,37 @@ export const MOCK_ORDERS: Order[] = [
 export const MOCK_ACTIVITY: ActivityItem[] = [
     {
         id: 1,
-        action: 'Order Processing',
-        description: 'GZ-2026-0147 has entered the production stage.',
-        timestamp: '2 hours ago',
+        action: 'অর্ডার প্রক্রিয়াকরণ',
+        description: 'GZ-2026-0147 প্রোডাকশন পর্যায়ে প্রবেশ করেছে।',
+        timestamp: '২ ঘণ্টা আগে',
         icon: 'order',
     },
     {
         id: 2,
-        action: 'Payment Received',
-        description: '৳285,000 payment confirmed for Annual Report order.',
-        timestamp: '5 hours ago',
+        action: 'পেমেন্ট প্রাপ্ত',
+        description: 'বার্ষিক প্রতিবেদন অর্ডারের জন্য ৳২৮৫,০০০ পেমেন্ট নিশ্চিত হয়েছে।',
+        timestamp: '৫ ঘণ্টা আগে',
         icon: 'payment',
     },
     {
         id: 3,
-        action: 'Invoice Downloaded',
-        description: 'Invoice for GZ-2026-0139 was downloaded.',
-        timestamp: '1 day ago',
+        action: 'ইনভয়েস ডাউনলোড',
+        description: 'GZ-2026-0139 এর ইনভয়েস ডাউনলোড করা হয়েছে।',
+        timestamp: '১ দিন আগে',
         icon: 'download',
     },
     {
         id: 4,
-        action: 'Order Completed',
-        description: 'Event Banners — Lagos Summit has been delivered.',
-        timestamp: '2 days ago',
+        action: 'অর্ডার সম্পন্ন',
+        description: 'ইভেন্ট ব্যানার — ঢাকা সামিট ডেলিভারি সম্পন্ন হয়েছে।',
+        timestamp: '২ দিন আগে',
         icon: 'update',
     },
     {
         id: 5,
-        action: 'Order Cancelled',
-        description: 'Package Labels — AquaPure was cancelled and refunded.',
-        timestamp: '5 days ago',
+        action: 'অর্ডার বাতিল',
+        description: 'প্যাকেজ লেবেল — অ্যাকুয়াপিউর বাতিল এবং রিফান্ড করা হয়েছে।',
+        timestamp: '৫ দিন আগে',
         icon: 'order',
     },
 ];

@@ -16,11 +16,11 @@ const scrollToContact = () => {
 };
 
 const Services = ({ onLearnMore }: ServicesProps = {}) => (
-    <section id="services" className="py-24 px-8 bg-white">
+    <section id="services" className="py-24 px-6 sm:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
-                <h2 className="text-indigo-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-4">Our Expertise</h2>
-                <p className="text-4xl font-black text-slate-900">Corporate Service Suite</p>
+                <h2 className="text-indigo-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-4">আমাদের দক্ষতা</h2>
+                <p className="text-4xl font-black text-slate-900">কর্পোরেট সেবা স্যুট</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {SERVICES.map((service) => (
@@ -39,7 +39,7 @@ const Services = ({ onLearnMore }: ServicesProps = {}) => (
                                 onClick={onLearnMore ?? scrollToContact}
                                 className="text-indigo-600 text-xs font-bold uppercase tracking-widest p-0 h-auto hover:bg-transparent hover:gap-3 gap-2 transition-all"
                             >
-                                Learn More <ArrowRight className="w-4 h-4" />
+                                আরও জানুন <ArrowRight className="w-4 h-4" />
                             </Button>
                         </CardContent>
                     </Card>

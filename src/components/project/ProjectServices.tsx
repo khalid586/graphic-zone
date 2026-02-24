@@ -17,8 +17,8 @@ const ProjectServices = ({ services }: ProjectServicesProps) => (
         transition={{ duration: 0.6 }}
         className="mb-16"
     >
-        <SectionLabel>What We Did</SectionLabel>
-        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-8">Services Provided</h2>
+        <SectionLabel>আমরা যা করেছি</SectionLabel>
+        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-8">প্রদত্ত সেবাসমূহ</h2>
         <div className="grid sm:grid-cols-2 gap-4">
             {services.map((service, idx) => (
                 <Card key={idx} className="flex-row items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/50 transition-all group shadow-none">

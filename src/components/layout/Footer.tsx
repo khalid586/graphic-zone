@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
 const Footer = () => (
-    <footer className="bg-slate-950 text-slate-500 py-16 px-4 sm:px-8 border-t border-white/5">
+    <footer className="bg-slate-950 text-slate-500 py-16 px-6 sm:px-8 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-12 mb-12">
                 <Link href="/" className="flex items-center gap-3">
@@ -16,7 +16,7 @@ const Footer = () => (
                     </span>
                 </Link>
                 <div className="flex gap-4">
-                    {['Privacy', 'Terms', 'Cookies', 'Sitemap'].map((label) => (
+                    {['গোপনীয়তা', 'শর্তাবলী', 'কুকিজ', 'সাইটম্যাপ'].map((label) => (
                         <Button
                             key={label}
                             variant="ghost"
@@ -40,7 +40,7 @@ const Footer = () => (
             </div>
             <Separator className="bg-white/5 mb-12" />
             <div className="text-center">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em]">© 2026 Graphic Zone Corporation. All rights reserved.</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em]">© ২০২৬ গ্রাফিক জোন কর্পোরেশন। সর্বস্বত্ব সংরক্ষিত।</p>
             </div>
         </div>
     </footer>

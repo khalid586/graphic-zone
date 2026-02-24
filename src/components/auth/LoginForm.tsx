@@ -23,18 +23,18 @@ const LoginForm = () => {
         const newErrors: FormErrors = {};
 
         if (!emailOrPhone.trim()) {
-            newErrors.emailOrPhone = 'Email or phone number is required';
+            newErrors.emailOrPhone = 'ইমেইল বা ফোন নম্বর প্রয়োজন';
         } else if (
             !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailOrPhone) &&
             !/^\+?[\d\s-]{7,15}$/.test(emailOrPhone)
         ) {
-            newErrors.emailOrPhone = 'Enter a valid email or phone number';
+            newErrors.emailOrPhone = 'সঠিক ইমেইল বা ফোন নম্বর দিন';
         }
 
         if (!password) {
-            newErrors.password = 'Password is required';
+            newErrors.password = 'পাসওয়ার্ড প্রয়োজন';
         } else if (password.length < 6) {
-            newErrors.password = 'Password must be at least 6 characters';
+            newErrors.password = 'পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে';
         }
 
         setErrors(newErrors);
@@ -56,12 +56,12 @@ const LoginForm = () => {
             {/* Email or Phone */}
             <div className="space-y-2">
                 <Label htmlFor="login-email" className="text-slate-700 text-sm font-medium">
-                    Email or Phone
+                    ইমেইল বা ফোন
                 </Label>
                 <Input
                     id="login-email"
                     type="text"
-                    placeholder="you@example.com or +234..."
+                    placeholder="example@mail.com বা +৮৮০..."
                     value={emailOrPhone}
                     onChange={(e) => {
                         setEmailOrPhone(e.target.value);
@@ -78,13 +78,13 @@ const LoginForm = () => {
             {/* Password */}
             <div className="space-y-2">
                 <Label htmlFor="login-password" className="text-slate-700 text-sm font-medium">
-                    Password
+                    পাসওয়ার্ড
                 </Label>
                 <div className="relative">
                     <Input
                         id="login-password"
                         type={showPassword ? 'text' : 'password'}
-                        placeholder="Enter your password"
+                        placeholder="আপনার পাসওয়ার্ড দিন"
                         value={password}
                         onChange={(e) => {
                             setPassword(e.target.value);
@@ -116,14 +116,14 @@ const LoginForm = () => {
                         className="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 cursor-pointer accent-indigo-600"
                     />
                     <span className="text-sm text-slate-600 group-hover:text-slate-800 transition-colors">
-                        Remember me
+                        মনে রাখুন
                     </span>
                 </label>
                 <button
                     type="button"
                     className="text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors"
                 >
-                    Forgot password?
+                    পাসওয়ার্ড ভুলে গেছেন?
                 </button>
             </div>
 
@@ -139,11 +139,11 @@ const LoginForm = () => {
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                         </svg>
-                        Signing in...
+                        সাইন ইন হচ্ছে...
                     </span>
                 ) : (
                     <span className="flex items-center gap-2">
-                        <LogIn className="w-4 h-4" /> Sign In
+                        <LogIn className="w-4 h-4" /> সাইন ইন
                     </span>
                 )}
             </Button>

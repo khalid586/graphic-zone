@@ -5,16 +5,16 @@ const TopBar = () => (
         <div className="flex gap-3 sm:gap-6">
             <span className="flex items-center gap-1 sm:gap-2">
                 <ShieldCheck className="w-3 h-3 text-indigo-400" />{' '}
-                <span className="hidden min-[400px]:inline">ISO 9001 Certified</span>
-                <span className="min-[400px]:hidden">Certified</span>
+                <span className="hidden min-[400px]:inline">ISO 9001 সার্টিফাইড</span>
+                <span className="min-[400px]:hidden">সার্টিফাইড</span>
             </span>
             <span className="hidden sm:flex items-center gap-2">
-                <Clock className="w-3 h-3 text-indigo-400" /> 24/7 Production
+                <Clock className="w-3 h-3 text-indigo-400" /> ২৪/৭ প্রোডাকশন
             </span>
         </div>
         <div className="flex gap-3 sm:gap-6">
-            <a href="tel:+1800PRINT" className="hover:text-indigo-400 transition-colors">
-                +1 800 GRAPHIC
+            <a href="tel:+8801XXXXXXXXX" className="hover:text-indigo-400 transition-colors">
+                +৮৮ ০১XXXXXXXXX
             </a>
         </div>
     </div>

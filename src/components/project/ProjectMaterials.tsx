@@ -11,9 +11,9 @@ interface ProjectMaterialsProps {
 }
 
 const MATERIAL_CARDS = [
-    { key: 'paper', label: 'Paper / Substrate', icon: FileText },
-    { key: 'size', label: 'Dimensions', icon: Ruler },
-    { key: 'method', label: 'Print Method', icon: Palette },
+    { key: 'paper', label: 'কাগজ / সাবস্ট্রেট', icon: FileText },
+    { key: 'size', label: 'মাপ', icon: Ruler },
+    { key: 'method', label: 'প্রিন্ট পদ্ধতি', icon: Palette },
 ] as const;
 
 const ProjectMaterials = ({ materials }: ProjectMaterialsProps) => (
@@ -24,8 +24,8 @@ const ProjectMaterials = ({ materials }: ProjectMaterialsProps) => (
         transition={{ duration: 0.6 }}
         className="mb-16"
     >
-        <SectionLabel>Production Specs</SectionLabel>
-        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-8">Materials & Methods</h2>
+        <SectionLabel>প্রোডাকশন স্পেকস</SectionLabel>
+        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-8">উপকরণ ও পদ্ধতি</h2>
         <div className="grid sm:grid-cols-3 gap-4">
             {MATERIAL_CARDS.map(({ key, label, icon: Icon }) => (
                 <Card key={key} className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-100 shadow-none gap-0">

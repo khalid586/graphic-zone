@@ -18,8 +18,8 @@ const ProjectChallenges = ({ challenges }: ProjectChallengesProps) => (
         transition={{ duration: 0.6 }}
         className="mb-8"
     >
-        <SectionLabel>Behind The Scenes</SectionLabel>
-        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-8">Challenges & Solutions</h2>
+        <SectionLabel>নেপথ্য কথা</SectionLabel>
+        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-8">চ্যালেন্জ ও সমাধান</h2>
         <div className="space-y-6">
             {challenges.map((challenge, idx) => (
                 <Card key={idx} className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-slate-50 border border-indigo-100 shadow-none gap-0">

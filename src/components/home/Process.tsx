@@ -3,7 +3,7 @@
 import { PROCESS } from '../../data/constants';
 
 const Process = () => (
-    <section id="process" className="py-24 px-8 bg-white">
+    <section id="process" className="py-24 px-6 sm:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-4 gap-12">
                 {PROCESS.map((p, idx) => (

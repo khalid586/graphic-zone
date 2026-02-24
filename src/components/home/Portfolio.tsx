@@ -7,15 +7,15 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 const Portfolio = () => (
-    <section id="portfolio" className="py-24 px-8 bg-slate-50">
+    <section id="portfolio" className="py-24 px-6 sm:px-8 bg-slate-50">
         <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                 <div>
-                    <h2 className="text-indigo-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-4">Case Studies</h2>
-                    <p className="text-4xl font-black text-slate-900">Proven Results.</p>
+                    <h2 className="text-indigo-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-4">কেস স্টাডি</h2>
+                    <p className="text-4xl font-black text-slate-900">প্রমাণিত ফলাফল।</p>
                 </div>
                 <button className="text-slate-400 font-bold text-xs uppercase tracking-widest border-b-2 border-slate-200 pb-1 hover:text-indigo-600 hover:border-indigo-600 transition-all">
-                    View All Work
+                    সব কাজ দেখুন
                 </button>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

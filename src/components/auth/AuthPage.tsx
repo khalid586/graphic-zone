@@ -59,18 +59,10 @@ const BrandPanel = () => (
         </div>
 
         <div className="relative z-10 flex flex-col justify-between p-12 xl:p-16 w-full">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10 group-hover:bg-white/15 transition-colors">
-                    <Printer className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-bold text-white tracking-tight">
-                    Graphic Zone
-                </span>
-            </Link>
+
 
             {/* Center illustration */}
-            <div className="flex-1 flex flex-col items-center justify-center py-12">
+            < div className="flex-1 flex flex-col items-center justify-center py-12">
                 {/* Icon composition */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -107,10 +99,10 @@ const BrandPanel = () => (
                     className="text-center max-w-sm"
                 >
                     <h2 className="text-2xl xl:text-3xl font-bold text-white mb-4 leading-tight">
-                        Your prints, your way.
+                        আপনার প্রিন্ট, আপনার মতো।
                     </h2>
                     <p className="text-slate-400 text-base leading-relaxed">
-                        Track orders, manage payments, and access your designs — all from one dashboard.
+                        অর্ডার ট্র্যাক করুন, পেমেন্ট ম্যানেজ করুন এবং আপনার ডিজাইন অ্যাক্সেস করুন — সব একটি ড্যাশবোর্ড থেকে।
                     </p>
                 </motion.div>
             </div>
@@ -124,21 +116,21 @@ const BrandPanel = () => (
             >
                 <div className="flex items-center gap-2 text-slate-400">
                     <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                    <span>Secure</span>
+                    <span>নিরাপদ</span>
                 </div>
                 <Separator orientation="vertical" className="h-4 bg-slate-700" />
                 <div className="flex items-center gap-2 text-slate-400">
                     <Clock className="w-4 h-4 text-indigo-400" />
-                    <span>24/7 Access</span>
+                    <span>২৪/৭ অ্যাক্সেস</span>
                 </div>
                 <Separator orientation="vertical" className="h-4 bg-slate-700" />
                 <div className="flex items-center gap-2 text-slate-400">
                     <Truck className="w-4 h-4 text-amber-400" />
-                    <span>Order Tracking</span>
+                    <span>অর্ডার ট্র্যাকিং</span>
                 </div>
             </motion.div>
         </div>
-    </div>
+    </div >
 );
 
 const AuthPage = () => {
@@ -172,12 +164,12 @@ const AuthPage = () => {
                     {/* Heading */}
                     <div className="mb-8">
                         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
-                            {activeTab === 'login' ? 'Welcome back' : 'Create an account'}
+                            {activeTab === 'login' ? 'আবার স্বাগতম' : 'অ্যাকাউন্ট তৈরি করুন'}
                         </h1>
                         <p className="text-slate-500 text-sm">
                             {activeTab === 'login'
-                                ? 'Sign in to your account to continue.'
-                                : 'Get started with your free account today.'}
+                                ? 'চালিয়ে যেতে আপনার অ্যাকাউন্টে সাইন ইন করুন।'
+                                : 'আজই আপনার বিনামূল্যে অ্যাকাউন্ট শুরু করুন।'}
                         </p>
                     </div>
 
@@ -187,14 +179,14 @@ const AuthPage = () => {
                         className="w-full h-11 flex items-center justify-center gap-3 border border-slate-200 rounded-lg bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium transition-colors duration-200 mb-6"
                     >
                         <GoogleIcon />
-                        Continue with Google
+                        গুগল দিয়ে চালিয়ে যান
                     </button>
 
                     {/* Divider */}
                     <div className="flex items-center gap-4 mb-6">
                         <div className="flex-1 h-px bg-slate-200" />
                         <span className="text-xs text-slate-400 font-medium uppercase tracking-wider">
-                            or
+                            অথবা
                         </span>
                         <div className="flex-1 h-px bg-slate-200" />
                     </div>
@@ -210,7 +202,7 @@ const AuthPage = () => {
                                     : 'text-slate-500 hover:text-slate-700'
                                     }`}
                             >
-                                {tab === 'login' ? 'Sign In' : 'Sign Up'}
+                                {tab === 'login' ? 'সাইন ইন' : 'সাইন আপ'}
                             </button>
                         ))}
                     </div>
@@ -230,15 +222,15 @@ const AuthPage = () => {
 
                     {/* Footer text */}
                     <p className="text-center text-xs text-slate-400 mt-8">
-                        By continuing, you agree to our{' '}
+                        চালিয়ে যাওয়ার মাধ্যমে, আপনি আমাদের{' '}
                         <button type="button" className="text-indigo-600 hover:text-indigo-700 font-medium">
-                            Terms of Service
+                            সেবার শর্তাবলী
                         </button>{' '}
-                        and{' '}
+                        এবং{' '}
                         <button type="button" className="text-indigo-600 hover:text-indigo-700 font-medium">
-                            Privacy Policy
+                            গোপনীয়তা নীতি
                         </button>
-                        .
+                        তে সম্মত হচ্ছেন।
                     </p>
                 </motion.div>
             </div>

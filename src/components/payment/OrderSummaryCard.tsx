@@ -17,7 +17,7 @@ interface OrderSummaryCardProps {
 const formatCurrency = (n: number) => '৳' + n.toLocaleString('en-BD');
 
 const formatDate = (d: string) =>
-    new Date(d).toLocaleDateString('en-GB', {
+    new Date(d).toLocaleDateString('bn-BD', {
         day: 'numeric',
         month: 'long',
         year: 'numeric',
@@ -36,8 +36,8 @@ const OrderSummaryCard = ({ order }: OrderSummaryCardProps) => (
                     <FileText className="w-5 h-5 text-indigo-600" />
                 </div>
                 <div>
-                    <h2 className="text-base font-bold text-slate-900">Order Summary</h2>
-                    <p className="text-xs text-slate-500">Review your order details below</p>
+                    <h2 className="text-base font-bold text-slate-900">অর্ডার সারসংক্ষেপ</h2>
+                    <p className="text-xs text-slate-500">নিচে আপনার অর্ডারের বিবরণ দেখুন</p>
                 </div>
             </div>
         </div>
@@ -48,21 +48,21 @@ const OrderSummaryCard = ({ order }: OrderSummaryCardProps) => (
                 <div className="flex items-center gap-2.5">
                     <Hash className="w-4 h-4 text-slate-400" />
                     <div>
-                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Order ID</p>
+                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">অর্ডার আইডি</p>
                         <p className="text-sm font-bold text-indigo-600">{order.id}</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-2.5">
                     <Package className="w-4 h-4 text-slate-400" />
                     <div>
-                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Project</p>
+                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">প্রকল্প</p>
                         <p className="text-sm font-semibold text-slate-900">{order.projectName}</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-2.5">
                     <Calendar className="w-4 h-4 text-slate-400" />
                     <div>
-                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Order Date</p>
+                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">অর্ডারের তারিখ</p>
                         <p className="text-sm text-slate-700">{formatDate(order.orderDate)}</p>
                     </div>
                 </div>
@@ -73,16 +73,16 @@ const OrderSummaryCard = ({ order }: OrderSummaryCardProps) => (
             {/* Amount breakdown */}
             <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-500">Total Amount</span>
+                    <span className="text-sm text-slate-500">মোট পরিমাণ</span>
                     <span className="text-sm font-semibold text-slate-900">{formatCurrency(order.totalAmount)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-500">Paid Amount</span>
+                    <span className="text-sm text-slate-500">পরিশোধিত পরিমাণ</span>
                     <span className="text-sm font-semibold text-emerald-600">{formatCurrency(order.paidAmount)}</span>
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-slate-900">Remaining Due</span>
+                    <span className="text-sm font-bold text-slate-900">বাকি পরিমাণ</span>
                     <span className="text-lg font-bold text-slate-900">{formatCurrency(order.remainingDue)}</span>
                 </div>
             </div>

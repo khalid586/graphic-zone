@@ -57,7 +57,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                     transition={{ delay: 0.3 }}
                     className={`text-2xl font-bold mb-2 ${isSuccess ? 'text-emerald-900' : 'text-red-900'}`}
                 >
-                    {isSuccess ? 'Payment Successful!' : 'Payment Failed'}
+                    {isSuccess ? 'পেমেন্ট সফল!' : 'পেমেন্ট ব্যর্থ'}
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
@@ -66,27 +66,27 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                     className={`text-sm ${isSuccess ? 'text-emerald-700' : 'text-red-700'}`}
                 >
                     {isSuccess
-                        ? 'Your payment has been processed successfully.'
-                        : 'Something went wrong. Your payment could not be completed.'}
+                        ? 'আপনার পেমেন্ট সফলভাবে প্রক্রিয়া হয়েছে।'
+                        : 'কিছু ভুল হয়েছে। আপনার পেমেন্ট সম্পন্ন করা যায়নি।'}
                 </motion.p>
             </div>
 
             {/* Details */}
             <div className="px-6 py-5 space-y-3 border-b border-slate-100">
                 <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">Order ID</span>
+                    <span className="text-slate-500">অর্ডার আইডি</span>
                     <span className="font-semibold text-indigo-600">{order.id}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">Project</span>
+                    <span className="text-slate-500">প্রকল্প</span>
                     <span className="font-medium text-slate-900">{order.projectName}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">Amount</span>
+                    <span className="text-slate-500">পরিমাণ</span>
                     <span className="font-bold text-slate-900">{formatCurrency(order.remainingDue)}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">Status</span>
+                    <span className="text-slate-500">স্ট্যাটাস</span>
                     <span
                         className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold ${isSuccess
                             ? 'bg-emerald-50 text-emerald-700'
@@ -97,12 +97,12 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                             className={`w-1.5 h-1.5 rounded-full ${isSuccess ? 'bg-emerald-500' : 'bg-red-500'
                                 }`}
                         />
-                        {isSuccess ? 'Paid' : 'Failed'}
+                        {isSuccess ? 'পরিশোধিত' : 'ব্যর্থ'}
                     </span>
                 </div>
                 {isSuccess && (
                     <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-500">Transaction ID</span>
+                        <span className="text-slate-500">ট্রান্যাকশন আইডি</span>
                         <span className="font-mono text-xs text-slate-600">TXN-{Date.now().toString(36).toUpperCase()}</span>
                     </div>
                 )}
@@ -116,7 +116,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                             variant="outline"
                             className="w-full h-11 rounded-xl border-slate-200 text-slate-700 font-semibold text-sm gap-2"
                         >
-                            <Download className="w-4 h-4" /> Download Receipt
+                            <Download className="w-4 h-4" /> রসিদ ডাউনলোড
                         </Button>
                         <div className="flex gap-3">
                             <Button
@@ -125,7 +125,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                                 className="flex-1 h-10 rounded-xl text-slate-500 text-sm gap-2"
                             >
                                 <Link href="/profile">
-                                    <FileText className="w-4 h-4" /> My Orders
+                                    <FileText className="w-4 h-4" /> আমার অর্ডার
                                 </Link>
                             </Button>
                             <Button
@@ -134,7 +134,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                                 className="flex-1 h-10 rounded-xl text-slate-500 text-sm gap-2"
                             >
                                 <Link href="/">
-                                    <Home className="w-4 h-4" /> Home
+                                    <Home className="w-4 h-4" /> হোম
                                 </Link>
                             </Button>
                         </div>
@@ -145,7 +145,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                             onClick={onRetry}
                             className="w-full h-11 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-semibold text-sm gap-2 shadow-lg shadow-slate-900/20"
                         >
-                            <RotateCcw className="w-4 h-4" /> Try Again
+                            <RotateCcw className="w-4 h-4" /> আবার চেষ্টা করুন
                         </Button>
                         <div className="flex gap-3">
                             <Button
@@ -154,7 +154,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                                 className="flex-1 h-10 rounded-xl text-slate-500 text-sm gap-2"
                             >
                                 <Link href="/profile">
-                                    <ArrowRight className="w-4 h-4" /> My Orders
+                                    <ArrowRight className="w-4 h-4" /> আমার অর্ডার
                                 </Link>
                             </Button>
                             <Button
@@ -163,7 +163,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                                 className="flex-1 h-10 rounded-xl text-slate-500 text-sm gap-2"
                             >
                                 <Link href="/">
-                                    <Home className="w-4 h-4" /> Home
+                                    <Home className="w-4 h-4" /> হোম
                                 </Link>
                             </Button>
                         </div>

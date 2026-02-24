@@ -29,8 +29,8 @@ const PaymentMethods = ({ methods, selected, onSelect }: PaymentMethodsProps) =>
         className="bg-white rounded-2xl border border-slate-200 overflow-hidden"
     >
         <div className="px-5 sm:px-6 py-5 border-b border-slate-100">
-            <h2 className="text-base font-bold text-slate-900">Payment Method</h2>
-            <p className="text-xs text-slate-500">Choose how you&apos;d like to pay via SSLCommerz</p>
+            <h2 className="text-base font-bold text-slate-900">পেমেন্ট পদ্ধতি</h2>
+            <p className="text-xs text-slate-500">SSLCommerz এর মাধ্যমে কিভাবে পে করতে চান তা বেছে নিন</p>
         </div>
 
         <div className="px-5 sm:px-6 py-5 space-y-3">
@@ -90,7 +90,7 @@ const PaymentMethods = ({ methods, selected, onSelect }: PaymentMethodsProps) =>
                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                     <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                 </svg>
-                <span>Secured by <span className="font-semibold text-slate-600">SSLCommerz</span></span>
+                <span>Secured by <span className="font-semibold text-slate-600">SSLCommerz</span> দ্বারা সুরক্ষিত</span>
             </div>
         </div>
     </motion.div>

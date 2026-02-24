@@ -30,8 +30,8 @@ const ProjectGallery = ({ images, title, onImageClick }: ProjectGalleryProps) =>
         >
             <div className="flex items-center justify-between mb-8">
                 <div>
-                    <SectionLabel>Project Gallery</SectionLabel>
-                    <h2 className="text-3xl sm:text-4xl font-black text-slate-900">Visual Showcase</h2>
+                    <SectionLabel>প্রকল্প গ্যালারি</SectionLabel>
+                    <h2 className="text-3xl sm:text-4xl font-black text-slate-900">ভিজুয়াল শোকেস</h2>
                 </div>
                 <Button
                     variant="outline"
