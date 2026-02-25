@@ -1,6 +1,6 @@
 'use client';
 
-import { PROCESS } from '../../data/constants';
+import { PROCESS } from '@/data/constants';
 
 const Process = () => (
     <section id="process" className="py-24 px-6 sm:px-8 bg-white">

@@ -1,4 +1,4 @@
-import PaymentPage from '@/components/payment/PaymentPage';
+import { PaymentPage } from '@/components/payment';
 
 export const metadata = {
     title: 'পেমেন্ট সম্পন্ন করুন | গ্রাফিক জোন',

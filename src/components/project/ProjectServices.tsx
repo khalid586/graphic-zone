@@ -1,12 +1,13 @@
 'use client';
 
+import { memo } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
-import SectionLabel from '../ui/SectionLabel';
+import SectionLabel from '@/components/ui/SectionLabel';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface ProjectServicesProps {
-    services: string[];
+    services: readonly string[];
 }
 
 const ProjectServices = ({ services }: ProjectServicesProps) => (
@@ -34,4 +35,4 @@ const ProjectServices = ({ services }: ProjectServicesProps) => (
     </motion.div>
 );
 
-export default ProjectServices;
+export default memo(ProjectServices);

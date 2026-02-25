@@ -1,4 +1,4 @@
-import AuthPage from '@/components/auth/AuthPage';
+import { AuthPage } from '@/components/auth';
 
 export const metadata = {
     title: 'লগইন | গ্রাফিক জোন',

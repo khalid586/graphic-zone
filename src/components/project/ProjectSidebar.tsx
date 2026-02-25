@@ -3,21 +3,50 @@ import { Tag, User, Calendar, Layers, Star, Palette, Phone, MessageSquare } from
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import type { Project } from '../../types';
+import type { Project } from '@/types';
 
 interface ProjectSidebarProps {
     project: Project;
 }
 
+/* ── Shared sub-components ── */
+
+const SummaryHeader = ({ title }: { title: string }) => (
+    <CardHeader className="bg-slate-900 p-6 rounded-none">
+        <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-2">প্রকল্প সারসংক্ষেপ</p>
+        <h3 className="text-xl font-bold text-white">{title}</h3>
+    </CardHeader>
+);
+
+const StarRating = ({ rating }: { rating: number }) => (
+    <div className="flex gap-0.5">
+        {[1, 2, 3, 4, 5].map((i) => (
+            <Star key={i} className={`w-4 h-4 ${i <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-slate-200'}`} />
+        ))}
+    </div>
+);
+
+const TagList = ({ tags }: { tags: readonly string[] }) => (
+    <div className="flex flex-wrap gap-2">
+        {tags.map((tag, idx) => (
+            <Badge
+                key={idx}
+                variant="secondary"
+                className="rounded-full bg-slate-100 text-slate-600 text-xs font-bold hover:bg-indigo-100 hover:text-indigo-600 transition-all cursor-default border-0"
+            >
+                {tag}
+            </Badge>
+        ))}
+    </div>
+);
+
+/* ── Desktop Sidebar (hidden on mobile) ── */
+
 const ProjectSidebar = ({ project }: ProjectSidebarProps) => (
     <aside className="hidden lg:block">
         <div className="sticky top-28 space-y-6">
-            {/* Project Summary Card */}
             <Card className="rounded-3xl border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden p-0 gap-0">
-                <CardHeader className="bg-slate-900 p-6 rounded-none">
-                    <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-2">প্রকল্প সারসংক্ষেপ</p>
-                    <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                </CardHeader>
+                <SummaryHeader title={project.title} />
                 <CardContent className="p-6 space-y-5">
                     {[
                         { icon: Tag, label: 'ক্যাটাগরি', value: project.category },
@@ -41,35 +70,19 @@ const ProjectSidebar = ({ project }: ProjectSidebarProps) => (
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">ক্লায়েন্ট রেটিং</p>
-                            <div className="flex gap-0.5">
-                                {[1, 2, 3, 4, 5].map((i) => (
-                                    <Star key={i} className={`w-4 h-4 ${i <= project.rating ? 'text-yellow-400 fill-yellow-400' : 'text-slate-200'}`} />
-                                ))}
-                            </div>
+                            <StarRating rating={project.rating} />
                         </div>
                     </div>
                 </CardContent>
             </Card>
 
-            {/* Tags */}
             <Card className="rounded-3xl border-slate-100 p-6 shadow-none gap-0">
                 <CardContent className="p-0">
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">ট্যাগসমূহ</p>
-                    <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, idx) => (
-                            <Badge
-                                key={idx}
-                                variant="secondary"
-                                className="rounded-full bg-slate-100 text-slate-600 text-xs font-bold hover:bg-indigo-100 hover:text-indigo-600 transition-all cursor-default border-0"
-                            >
-                                {tag}
-                            </Badge>
-                        ))}
-                    </div>
+                    <TagList tags={project.tags} />
                 </CardContent>
             </Card>
 
-            {/* CTAs */}
             <div className="space-y-3">
                 <Button asChild className="w-full bg-indigo-600 text-white px-6 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-indigo-700 shadow-xl shadow-indigo-600/20 h-auto">
                     <Link href="/#contact">
@@ -94,4 +107,42 @@ const ProjectSidebar = ({ project }: ProjectSidebarProps) => (
     </aside>
 );
 
+/* ── Mobile Sidebar (hidden on desktop) ── */
+
+const ProjectMobileSidebar = ({ project }: ProjectSidebarProps) => (
+    <div className="lg:hidden mt-12 space-y-6">
+        <Card className="rounded-3xl border-slate-100 shadow-lg overflow-hidden p-0 gap-0">
+            <SummaryHeader title={project.title} />
+            <CardContent className="p-6 grid grid-cols-2 gap-4">
+                <div>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">ক্যাটাগরি</p>
+                    <p className="font-bold text-slate-700">{project.category}</p>
+                </div>
+                <div>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">ক্লায়েন্ট</p>
+                    <p className="font-bold text-slate-700">{project.client}</p>
+                </div>
+                <div>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">সম্পন্ন</p>
+                    <p className="font-bold text-slate-700">{project.date}</p>
+                </div>
+                <div>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">রেটিং</p>
+                    <StarRating rating={project.rating} />
+                </div>
+            </CardContent>
+        </Card>
+        <TagList tags={project.tags} />
+        <div className="grid grid-cols-2 gap-3">
+            <Button asChild className="bg-indigo-600 text-white px-4 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 h-auto">
+                <Link href="/#contact">ডিজাইন চাই</Link>
+            </Button>
+            <Button asChild className="bg-slate-900 text-white px-4 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-slate-800 h-auto">
+                <Link href="/#contact">যোগাযোগ করুন</Link>
+            </Button>
+        </div>
+    </div>
+);
+
+export { ProjectSidebar, ProjectMobileSidebar };
 export default ProjectSidebar;

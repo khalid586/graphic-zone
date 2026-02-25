@@ -1,21 +1,24 @@
 import type { Metadata } from 'next';
+import { Hind_Siliguri, Manrope } from 'next/font/google';
 import '../index.css';
-import TopBar from '@/components/layout/TopBar';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
+import { Navbar, Footer } from '@/components/layout';
+import { PRIMARY_NAV, CTA, DEFAULT_METADATA } from '@/config';
 
-export const metadata: Metadata = {
-    title: 'গ্রাফিক জোন - ডিজাইন ও প্রিন্টিং সমাধান',
-    description: 'উচ্চ-মানের প্রিন্টিং, ব্র্যান্ডিং এবং লার্জ-ফরম্যাট সমাধানে বিশ্বব্যাপী কর্পোরেশনগুলোর আস্থা।',
-};
+const hindSiliguri = Hind_Siliguri({
+    subsets: ['bengali', 'latin'],
+    weight: ['300', '400', '500', '600', '700'],
+    variable: '--font-hind-siliguri',
+    display: 'swap',
+});
 
-const NAV_ITEMS = [
-    { label: 'হোম', action: '/' },
-    { label: 'সেবাসমূহ', action: '/#services' },
-    { label: 'পোর্টফোলিও', action: '/#portfolio' },
-    { label: 'প্রক্রিয়া', action: '/#process' },
-    { label: 'যোগাযোগ', action: '/#contact' },
-];
+const manrope = Manrope({
+    subsets: ['latin'],
+    weight: ['300', '400', '500', '600', '700', '800'],
+    variable: '--font-manrope',
+    display: 'swap',
+});
+
+export const metadata: Metadata = DEFAULT_METADATA;
 
 export default function RootLayout({
     children,
@@ -23,17 +26,17 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="bn">
-            <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-            </head>
+        <html lang="bn" className={`${hindSiliguri.variable} ${manrope.variable}`}>
             <body className="font-sans antialiased">
                 <div className="min-h-screen selection:bg-indigo-600 selection:text-white flex flex-col">
-                    {/* <TopBar /> */}
-                    <Navbar navItems={NAV_ITEMS} ctaLabel="কোটেশন চাই" ctaAction="/#contact" />
-                    <main className="flex-1">
+                    <a
+                        href="#main-content"
+                        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-indigo-600 focus:text-white focus:rounded-br-xl focus:outline-none"
+                    >
+                        প্রধান বিষয়বস্তুতে যান
+                    </a>
+                    <Navbar navItems={PRIMARY_NAV} ctaLabel={CTA.label} ctaAction={CTA.action} />
+                    <main id="main-content" className="flex-1">
                         {children}
                     </main>
                     <Footer />

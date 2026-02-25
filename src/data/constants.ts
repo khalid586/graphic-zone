@@ -1,13 +1,10 @@
-'use client';
-
-import { Layout, Printer, Image as ImageIcon, FileText } from 'lucide-react';
 import type { ServiceItem, PortfolioItem, ProcessStep } from '../types';
 
 export const SERVICES: ServiceItem[] = [
-    { id: 'branding', title: 'ব্র্যান্ড আইডেন্টিটি', desc: 'লোগো ডিজাইন, স্টেশনারি এবং ব্র্যান্ড গাইডলাইন যা আপনার উপস্থিতি সংজ্ঞায়িত করে।', icon: <Layout /> },
-    { id: 'printing', title: 'ডিজিটাল প্রিন্ট', desc: 'প্রিমিয়াম ফিনিশ সহ উচ্চ-মানের বিজনেস কার্ড, ফ্লায়ার এবং ব্রোশিওর।', icon: <Printer /> },
-    { id: 'banners', title: 'লার্জ ফরম্যাট', desc: 'ভিনাইল ব্যানার, এক্স-স্ট্যান্ড এবং দোকানের সাইনবোর্ড যা দৃষ্টি আকর্ষণ করে।', icon: <ImageIcon /> },
-    { id: 'magazines', title: 'এডিটোরিয়াল', desc: 'ম্যাগাজিন এবং বার্ষিক প্রতিবেদনের জন্য পেশাদার লেআউট এবং প্রিন্টিং।', icon: <FileText /> },
+    { id: 'branding', title: 'ব্র্যান্ড আইডেন্টিটি', desc: 'লোগো ডিজাইন, স্টেশনারি এবং ব্র্যান্ড গাইডলাইন যা আপনার উপস্থিতি সংজ্ঞায়িত করে।', icon: 'Layout' },
+    { id: 'printing', title: 'ডিজিটাল প্রিন্ট', desc: 'প্রিমিয়াম ফিনিশ সহ উচ্চ-মানের বিজনেস কার্ড, ফ্লায়ার এবং ব্রোশিওর।', icon: 'Printer' },
+    { id: 'banners', title: 'লার্জ ফরম্যাট', desc: 'ভিনাইল ব্যানার, এক্স-স্ট্যান্ড এবং দোকানের সাইনবোর্ড যা দৃষ্টি আকর্ষণ করে।', icon: 'Image' },
+    { id: 'magazines', title: 'এডিটোরিয়াল', desc: 'ম্যাগাজিন এবং বার্ষিক প্রতিবেদনের জন্য পেশাদার লেআউট এবং প্রিন্টিং।', icon: 'FileText' },
 ];
 
 export const PORTFOLIO: PortfolioItem[] = [

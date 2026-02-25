@@ -3,7 +3,7 @@ import { Star } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import type { Project } from '../../types';
+import type { Project } from '@/types';
 
 interface ProjectMobileSidebarProps {
     project: Project;

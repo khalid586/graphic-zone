@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Star, ArrowRight } from 'lucide-react';
-import { PORTFOLIO } from '../../data/constants';
+import { PORTFOLIO } from '@/data/constants';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -23,8 +24,10 @@ const Portfolio = () => (
                     <Link key={item.id} href={`/project/${item.id}`}>
                         <Card className="group overflow-hidden shadow-sm hover:shadow-xl transition-all rounded-3xl border-0 p-0 gap-0">
                             <div className="aspect-[4/3] overflow-hidden">
-                                <img
+                                <Image
                                     src={item.img}
+                                    width={800}
+                                    height={600}
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     alt={item.title}
                                 />

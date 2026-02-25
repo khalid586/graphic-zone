@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import {
@@ -12,6 +13,7 @@ import {
     Download,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { formatCurrency, generateTransactionId } from '@/lib/format';
 import type { PaymentOrder } from '@/types/payment';
 
 interface PaymentResultProps {
@@ -20,10 +22,9 @@ interface PaymentResultProps {
     onRetry?: () => void;
 }
 
-const formatCurrency = (n: number) => '৳' + n.toLocaleString('en-BD');
-
 const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
     const isSuccess = state === 'success';
+    const transactionId = useMemo(generateTransactionId, []);
 
     return (
         <motion.div
@@ -103,7 +104,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                 {isSuccess && (
                     <div className="flex items-center justify-between text-sm">
                         <span className="text-slate-500">ট্রান্যাকশন আইডি</span>
-                        <span className="font-mono text-xs text-slate-600">TXN-{Date.now().toString(36).toUpperCase()}</span>
+                        <span className="font-mono text-xs text-slate-600">{transactionId}</span>
                     </div>
                 )}
             </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import { motion } from 'motion/react';
 import {
     Package,
@@ -76,4 +77,4 @@ const RecentActivity = ({ activities }: RecentActivityProps) => {
     );
 };
 
-export default RecentActivity;
+export default memo(RecentActivity);

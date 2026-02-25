@@ -5,12 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Hind Siliguri", "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Playfair Display", serif;
-  --font-tech: "Space Grotesk", sans-serif;
-  --font-editorial: "Cormorant Garamond", serif;
+  --font-sans: var(--font-hind-siliguri), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-  --font-modern: "Outfit", sans-serif;
 }
 
 /* Custom scrollbar for a cleaner look */

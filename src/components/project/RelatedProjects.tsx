@@ -1,11 +1,13 @@
 'use client';
 
+import { memo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'motion/react';
-import SectionLabel from '../ui/SectionLabel';
+import SectionLabel from '@/components/ui/SectionLabel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import type { Project } from '../../types';
+import type { Project } from '@/types';
 
 interface RelatedProjectsProps {
     projects: Project[];
@@ -46,11 +48,13 @@ const RelatedProjects = ({ projects }: RelatedProjectsProps) => (
                                 className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] snap-start"
                             >
                                 <Card className="group overflow-hidden shadow-sm hover:shadow-xl transition-all rounded-3xl border-0 p-0 gap-0 h-full">
-                                    <div className="aspect-[4/3] overflow-hidden">
-                                        <img
+                                    <div className="aspect-[4/3] overflow-hidden relative">
+                                        <Image
                                             src={item.heroImg}
                                             alt={item.title}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                            fill
+                                            sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, 360px"
+                                            className="object-cover group-hover:scale-110 transition-transform duration-700"
                                         />
                                     </div>
                                     <CardContent className="p-6">
@@ -70,4 +74,4 @@ const RelatedProjects = ({ projects }: RelatedProjectsProps) => (
     </section>
 );
 
-export default RelatedProjects;
+export default memo(RelatedProjects);

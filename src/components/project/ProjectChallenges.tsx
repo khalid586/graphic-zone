@@ -1,13 +1,14 @@
 'use client';
 
+import { memo } from 'react';
 import { Lightbulb } from 'lucide-react';
 import { motion } from 'motion/react';
-import SectionLabel from '../ui/SectionLabel';
+import SectionLabel from '@/components/ui/SectionLabel';
 import { Card, CardContent } from '@/components/ui/card';
-import type { ProjectChallenge } from '../../types';
+import type { ProjectChallenge } from '@/types';
 
 interface ProjectChallengesProps {
-    challenges: ProjectChallenge[];
+    challenges: readonly ProjectChallenge[];
 }
 
 const ProjectChallenges = ({ challenges }: ProjectChallengesProps) => (
@@ -38,4 +39,4 @@ const ProjectChallenges = ({ challenges }: ProjectChallengesProps) => (
     </motion.div>
 );
 
-export default ProjectChallenges;
+export default memo(ProjectChallenges);

@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import {
@@ -12,14 +13,12 @@ import {
     Clock,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { formatCurrency } from '@/lib/format';
 import type { UserProfile } from '@/types/profile';
 
 interface ProfileHeaderProps {
     user: UserProfile;
 }
-
-const formatCurrency = (n: number) =>
-    '৳' + n.toLocaleString('en-BD');
 
 const StatCard = ({
     icon: Icon,
@@ -122,4 +121,4 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
     </motion.div>
 );
 
-export default ProfileHeader;
+export default memo(ProfileHeader);

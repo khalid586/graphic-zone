@@ -1,12 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
-import {
-    CreditCard,
-    Smartphone,
-    Landmark,
-    Check,
-} from 'lucide-react';
+import { Check } from 'lucide-react';
+import { PAYMENT_METHOD_ICONS } from '@/config';
 import type { PaymentMethod, PaymentMethodOption } from '@/types/payment';
 
 interface PaymentMethodsProps {
@@ -14,12 +10,6 @@ interface PaymentMethodsProps {
     selected: PaymentMethod;
     onSelect: (method: PaymentMethod) => void;
 }
-
-const iconMap: Record<PaymentMethod, React.ElementType> = {
-    card: CreditCard,
-    mobile: Smartphone,
-    internet: Landmark,
-};
 
 const PaymentMethods = ({ methods, selected, onSelect }: PaymentMethodsProps) => (
     <motion.div
@@ -35,7 +25,7 @@ const PaymentMethods = ({ methods, selected, onSelect }: PaymentMethodsProps) =>
 
         <div className="px-5 sm:px-6 py-5 space-y-3">
             {methods.map((method) => {
-                const Icon = iconMap[method.id];
+                const Icon = PAYMENT_METHOD_ICONS[method.id];
                 const isActive = selected === method.id;
                 return (
                     <button

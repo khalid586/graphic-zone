@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Printer, Instagram, Twitter, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { FOOTER_LINKS } from '@/config';
 
 const Footer = () => (
     <footer className="bg-slate-950 text-slate-500 py-16 px-6 sm:px-8 border-t border-white/5">
@@ -16,7 +17,7 @@ const Footer = () => (
                     </span>
                 </Link>
                 <div className="flex gap-4">
-                    {['গোপনীয়তা', 'শর্তাবলী', 'কুকিজ', 'সাইটম্যাপ'].map((label) => (
+                    {FOOTER_LINKS.map((label) => (
                         <Button
                             key={label}
                             variant="ghost"

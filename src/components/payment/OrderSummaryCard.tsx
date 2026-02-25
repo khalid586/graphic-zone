@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import { motion } from 'motion/react';
 import {
     FileText,
@@ -8,20 +9,12 @@ import {
     Package,
 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import { formatCurrency, formatDateLong as formatDate } from '@/lib/format';
 import type { PaymentOrder } from '@/types/payment';
 
 interface OrderSummaryCardProps {
     order: PaymentOrder;
 }
-
-const formatCurrency = (n: number) => '৳' + n.toLocaleString('en-BD');
-
-const formatDate = (d: string) =>
-    new Date(d).toLocaleDateString('bn-BD', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-    });
 
 const OrderSummaryCard = ({ order }: OrderSummaryCardProps) => (
     <motion.div
@@ -90,4 +83,4 @@ const OrderSummaryCard = ({ order }: OrderSummaryCardProps) => (
     </motion.div>
 );
 
-export default OrderSummaryCard;
+export default memo(OrderSummaryCard);

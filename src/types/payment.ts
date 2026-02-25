@@ -1,21 +1,41 @@
-export type PaymentMethod = 'card' | 'mobile' | 'internet';
+/**
+ * Payment domain types.
+ *
+ * The const-object + typeof pattern gives us both a runtime value
+ * (for iteration/validation) and a union type — without duplication.
+ */
+
+export const PAYMENT_METHODS_ENUM = {
+    card: 'card',
+    mobile: 'mobile',
+    internet: 'internet',
+} as const;
+
+export type PaymentMethod = (typeof PAYMENT_METHODS_ENUM)[keyof typeof PAYMENT_METHODS_ENUM];
 
 export interface PaymentMethodOption {
-    id: PaymentMethod;
-    label: string;
-    description: string;
-    providers: string[];
+    readonly id: PaymentMethod;
+    readonly label: string;
+    readonly description: string;
+    readonly providers: readonly string[];
 }
+
+export const PAYMENT_STATES = {
+    form: 'form',
+    processing: 'processing',
+    success: 'success',
+    failed: 'failed',
+} as const;
+
+export type PaymentState = (typeof PAYMENT_STATES)[keyof typeof PAYMENT_STATES];
 
 export interface PaymentOrder {
-    id: string;
-    projectName: string;
-    totalAmount: number;
-    paidAmount: number;
-    remainingDue: number;
-    orderDate: string;
-    items: number;
-    status: 'Pending' | 'Processing';
+    readonly id: string;
+    readonly projectName: string;
+    readonly totalAmount: number;
+    readonly paidAmount: number;
+    readonly remainingDue: number;
+    readonly orderDate: string;
+    readonly items: number;
+    readonly status: 'Pending' | 'Processing';
 }
-
-export type PaymentState = 'form' | 'processing' | 'success' | 'failed';

@@ -1,19 +1,16 @@
 'use client';
 
 import { ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { scrollToContact } from '@/lib/navigation';
 
 interface HeroProps {
     onCtaClick?: () => void;
 }
-
-const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-};
 
 const Hero = ({ onCtaClick }: HeroProps = {}) => (
     <section className="relative py-24 md:py-32 px-6 sm:px-8 bg-slate-50 overflow-hidden">
@@ -67,7 +64,14 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                 className="relative"
             >
                 <div className="bg-white p-4 rounded-[2rem] shadow-2xl relative z-10">
-                    <img src="https://picsum.photos/seed/corp-print/800/600" className="w-full h-full object-cover rounded-[1.5rem]" alt="প্রিন্টিং যন্ত্রপাতি" />
+                    <Image
+                        src="https://picsum.photos/seed/corp-print/800/600"
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-cover rounded-[1.5rem]"
+                        alt="প্রিন্টিং যন্ত্রপাতি"
+                        priority
+                    />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-indigo-600 text-white p-8 rounded-2xl shadow-xl z-20 hidden md:block">
                     <ShieldCheck className="w-10 h-10 mb-4" />

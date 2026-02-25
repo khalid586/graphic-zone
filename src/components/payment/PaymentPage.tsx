@@ -14,20 +14,22 @@ import OrderSummaryCard from './OrderSummaryCard';
 import PaymentMethods from './PaymentMethods';
 import PaymentResult from './PaymentResult';
 import { MOCK_PAYMENT_ORDER, PAYMENT_METHODS } from '@/data/payment';
+import { formatCurrency } from '@/lib/format';
 import type { PaymentMethod, PaymentState } from '@/types/payment';
 
 const PaymentPage = () => {
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('card');
     const [paymentState, setPaymentState] = useState<PaymentState>('form');
 
-    const formatCurrency = (n: number) => '৳' + n.toLocaleString('en-BD');
-
     const handlePayNow = async () => {
         setPaymentState('processing');
         // Simulate SSLCommerz payment gateway processing
         await new Promise((resolve) => setTimeout(resolve, 3000));
-        // Randomly succeed or fail for demo purposes (80% success)
-        const success = Math.random() > 0.2;
+        // Use crypto for better randomness in demo (80% success rate)
+        // TODO: Replace with actual SSLCommerz IPN callback in production
+        const bytes = new Uint8Array(1);
+        globalThis.crypto.getRandomValues(bytes);
+        const success = bytes[0] >= 51; // 204/255 ≈ 80% success
         setPaymentState(success ? 'success' : 'failed');
     };
 

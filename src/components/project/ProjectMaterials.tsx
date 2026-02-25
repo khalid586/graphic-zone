@@ -1,10 +1,11 @@
 'use client';
 
+import { memo } from 'react';
 import { FileText, Ruler, Palette } from 'lucide-react';
 import { motion } from 'motion/react';
-import SectionLabel from '../ui/SectionLabel';
+import SectionLabel from '@/components/ui/SectionLabel';
 import { Card, CardContent } from '@/components/ui/card';
-import type { ProjectMaterials as MaterialsType } from '../../types';
+import type { ProjectMaterials as MaterialsType } from '@/types';
 
 interface ProjectMaterialsProps {
     materials: MaterialsType;
@@ -42,4 +43,4 @@ const ProjectMaterials = ({ materials }: ProjectMaterialsProps) => (
     </motion.div>
 );
 
-export default ProjectMaterials;
+export default memo(ProjectMaterials);

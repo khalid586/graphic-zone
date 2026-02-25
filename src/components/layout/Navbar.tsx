@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Printer, Menu, X } from 'lucide-react';
+import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { Button } from '@/components/ui/button';
 import {
     Sheet,
@@ -11,28 +12,20 @@ import {
     SheetTitle,
 } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
+import type { NavItem } from '@/config';
 
-export interface NavItem {
-    label: string;
-    action: string | (() => void);
-}
+export type { NavItem };
 
 interface NavbarProps {
-    navItems: NavItem[];
+    navItems: readonly NavItem[];
     ctaLabel?: string;
     ctaAction?: string | (() => void);
     showBackButton?: boolean;
 }
 
 const Navbar = ({ navItems, ctaLabel = 'কোটেশন চাই', ctaAction, showBackButton = false }: NavbarProps) => {
-    const [isScrolled, setIsScrolled] = useState(false);
+    const isScrolled = useScrollPosition(50);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 50);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const handleNavAction = (action: string | (() => void)) => {
         if (typeof action === 'function') {

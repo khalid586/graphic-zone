@@ -1,4 +1,4 @@
-import ProfileDashboard from '@/components/profile/ProfileDashboard';
+import { ProfileDashboard } from '@/components/profile';
 
 export const metadata = {
     title: 'আমার প্রোফাইল | গ্রাফিক জোন',

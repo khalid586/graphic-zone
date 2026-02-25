@@ -5,14 +5,16 @@ import { Eye, EyeOff, UserPlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import {
+    type FormErrors,
+    INPUT_BASE_CLASS as inputBaseClass,
+    INPUT_ERROR_CLASS as inputErrorClass,
+    isValidEmail,
+    isValidPhone,
+} from '@/lib/form';
 
-interface FormErrors {
-    fullName?: string;
-    email?: string;
-    phone?: string;
-    password?: string;
-    confirmPassword?: string;
-}
+type SignupErrors = FormErrors<'fullName' | 'email' | 'phone' | 'password' | 'confirmPassword'>;
 
 const SignupForm = () => {
     const [fullName, setFullName] = useState('');
@@ -22,11 +24,11 @@ const SignupForm = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [errors, setErrors] = useState<FormErrors>({});
+    const [errors, setErrors] = useState<SignupErrors>({});
     const [isLoading, setIsLoading] = useState(false);
 
     const validate = (): boolean => {
-        const newErrors: FormErrors = {};
+        const newErrors: SignupErrors = {};
 
         if (!fullName.trim()) {
             newErrors.fullName = 'পূর্ণ নাম প্রয়োজন';
@@ -36,13 +38,13 @@ const SignupForm = () => {
 
         if (!email.trim()) {
             newErrors.email = 'ইমেইল প্রয়োজন';
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        } else if (!isValidEmail(email)) {
             newErrors.email = 'সঠিক ইমেইল ঠিকানা দিন';
         }
 
         if (!phone.trim()) {
             newErrors.phone = 'ফোন নম্বর প্রয়োজন';
-        } else if (!/^\+?[\d\s-]{7,15}$/.test(phone)) {
+        } else if (!isValidPhone(phone)) {
             newErrors.phone = 'সঠিক ফোন নম্বর দিন';
         }
 
@@ -62,7 +64,7 @@ const SignupForm = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const clearFieldError = (field: keyof FormErrors) => {
+    const clearFieldError = (field: keyof SignupErrors) => {
         if (errors[field]) {
             setErrors((prev) => ({ ...prev, [field]: undefined }));
         }
@@ -77,9 +79,6 @@ const SignupForm = () => {
         await new Promise((resolve) => setTimeout(resolve, 1500));
         setIsLoading(false);
     };
-
-    const inputBaseClass = 'h-11 rounded-lg bg-slate-50 border-slate-200 placeholder:text-slate-400 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/20';
-    const inputErrorClass = 'border-red-400 focus-visible:border-red-400 focus-visible:ring-red-400/20';
 
     return (
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -166,6 +165,7 @@ const SignupForm = () => {
                     <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
+                        aria-label={showPassword ? 'পাসওয়ার্ড লুকান' : 'পাসওয়ার্ড দেখান'}
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
                     >
                         {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -196,6 +196,7 @@ const SignupForm = () => {
                     <button
                         type="button"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        aria-label={showConfirmPassword ? 'পাসওয়ার্ড লুকান' : 'পাসওয়ার্ড দেখান'}
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
                     >
                         {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -214,10 +215,7 @@ const SignupForm = () => {
             >
                 {isLoading ? (
                     <span className="flex items-center gap-2">
-                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                        </svg>
+                        <LoadingSpinner size={16} />
                         অ্যাকাউন্ট তৈরি হচ্ছে...
                     </span>
                 ) : (

@@ -1,8 +1,4 @@
-import Hero from '@/components/home/Hero';
-import Services from '@/components/home/Services';
-import Portfolio from '@/components/home/Portfolio';
-import Process from '@/components/home/Process';
-import Contact from '@/components/home/Contact';
+import { Hero, Services, Portfolio, Process, Contact } from '@/components/home';
 
 const HomePage = () => {
     return (

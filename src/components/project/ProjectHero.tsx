@@ -1,9 +1,11 @@
 'use client';
 
+import { memo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Tag, Calendar, User } from 'lucide-react';
 import { motion } from 'motion/react';
-import type { Project } from '../../types';
+import type { Project } from '@/types';
 import { Badge } from '@/components/ui/badge';
 import {
     Breadcrumb,
@@ -21,7 +23,14 @@ interface ProjectHeroProps {
 const ProjectHero = ({ project }: ProjectHeroProps) => (
     <section className="relative">
         <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden">
-            <img src={project.heroImg} alt={project.title} className="w-full h-full object-cover" />
+            <Image
+                src={project.heroImg}
+                alt={project.title}
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
 
             {/* Hero Content */}
@@ -74,4 +83,4 @@ const ProjectHero = ({ project }: ProjectHeroProps) => (
     </section>
 );
 
-export default ProjectHero;
+export default memo(ProjectHero);

@@ -5,29 +5,31 @@ import { Eye, EyeOff, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import { type FormErrors, inputClassName, isValidEmail, isValidPhone } from '@/lib/form';
 
-interface FormErrors {
-    emailOrPhone?: string;
-    password?: string;
-}
+type LoginErrors = FormErrors<'emailOrPhone' | 'password'>;
 
 const LoginForm = () => {
     const [emailOrPhone, setEmailOrPhone] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
-    const [errors, setErrors] = useState<FormErrors>({});
+    const [errors, setErrors] = useState<LoginErrors>({});
     const [isLoading, setIsLoading] = useState(false);
 
+    const clearFieldError = (field: keyof LoginErrors) => {
+        if (errors[field]) {
+            setErrors((prev) => ({ ...prev, [field]: undefined }));
+        }
+    };
+
     const validate = (): boolean => {
-        const newErrors: FormErrors = {};
+        const newErrors: LoginErrors = {};
 
         if (!emailOrPhone.trim()) {
             newErrors.emailOrPhone = 'ইমেইল বা ফোন নম্বর প্রয়োজন';
-        } else if (
-            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailOrPhone) &&
-            !/^\+?[\d\s-]{7,15}$/.test(emailOrPhone)
-        ) {
+        } else if (!isValidEmail(emailOrPhone) && !isValidPhone(emailOrPhone)) {
             newErrors.emailOrPhone = 'সঠিক ইমেইল বা ফোন নম্বর দিন';
         }
 
@@ -65,10 +67,9 @@ const LoginForm = () => {
                     value={emailOrPhone}
                     onChange={(e) => {
                         setEmailOrPhone(e.target.value);
-                        if (errors.emailOrPhone) setErrors((prev) => ({ ...prev, emailOrPhone: undefined }));
+                        clearFieldError('emailOrPhone');
                     }}
-                    className={`h-11 rounded-lg bg-slate-50 border-slate-200 placeholder:text-slate-400 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/20 ${errors.emailOrPhone ? 'border-red-400 focus-visible:border-red-400 focus-visible:ring-red-400/20' : ''
-                        }`}
+                    className={inputClassName(!!errors.emailOrPhone)}
                 />
                 {errors.emailOrPhone && (
                     <p className="text-xs text-red-500 mt-1">{errors.emailOrPhone}</p>
@@ -88,14 +89,14 @@ const LoginForm = () => {
                         value={password}
                         onChange={(e) => {
                             setPassword(e.target.value);
-                            if (errors.password) setErrors((prev) => ({ ...prev, password: undefined }));
+                            clearFieldError('password');
                         }}
-                        className={`h-11 rounded-lg bg-slate-50 border-slate-200 placeholder:text-slate-400 pr-10 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/20 ${errors.password ? 'border-red-400 focus-visible:border-red-400 focus-visible:ring-red-400/20' : ''
-                            }`}
+                        className={`${inputClassName(!!errors.password)} pr-10`}
                     />
                     <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
+                        aria-label={showPassword ? 'পাসওয়ার্ড লুকান' : 'পাসওয়ার্ড দেখান'}
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
                     >
                         {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -135,10 +136,7 @@ const LoginForm = () => {
             >
                 {isLoading ? (
                     <span className="flex items-center gap-2">
-                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                        </svg>
+                        <LoadingSpinner size={16} />
                         সাইন ইন হচ্ছে...
                     </span>
                 ) : (
