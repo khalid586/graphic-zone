@@ -26,3 +26,22 @@ export const formatDateShort = (dateStr: string): string =>
 /** Generate a unique transaction ID from timestamp + random suffix */
 export const generateTransactionId = (): string =>
     'TXN-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+
+/** Format a Date object to time string (e.g., "২:৩০ PM") */
+export const formatTime = (date: Date): string =>
+    date.toLocaleTimeString('bn-BD', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+    });
+
+/** Format a Date object to date and time string */
+export const formatDateTime = (date: Date): string =>
+    date.toLocaleDateString('bn-BD', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+    });

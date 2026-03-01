@@ -65,7 +65,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
             >
                 <div className="bg-white p-4 rounded-[2rem] shadow-2xl relative z-10">
                     <Image
-                        src="https://picsum.photos/seed/corp-print/800/600"
+                        src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&h=600&fit=crop&q=80"
                         width={800}
                         height={600}
                         className="w-full h-full object-cover rounded-[1.5rem]"
@@ -73,10 +73,10 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                         priority
                     />
                 </div>
-                <div className="absolute -bottom-6 -left-6 bg-indigo-600 text-white p-8 rounded-2xl shadow-xl z-20 hidden md:block">
-                    <ShieldCheck className="w-10 h-10 mb-4" />
-                    <p className="font-bold text-xl">১০০% মানসম্মত</p>
-                    <p className="text-indigo-100 text-xs">ম্যানুয়াল পরিদর্শন নিশ্চিত</p>
+                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-indigo-600 text-white p-4 md:p-8 rounded-xl md:rounded-2xl shadow-xl z-20">
+                    <ShieldCheck className="w-6 h-6 md:w-10 md:h-10 mb-2 md:mb-4" />
+                    <p className="font-bold text-sm md:text-xl">১০০% মানসম্মত</p>
+                    <p className="text-indigo-100 text-[10px] md:text-xs">ম্যানুয়াল পরিদর্শন নিশ্চিত</p>
                 </div>
                 <div className="absolute -top-6 -right-6 w-32 h-32 bg-indigo-100 rounded-full blur-3xl -z-10" />
             </motion.div>

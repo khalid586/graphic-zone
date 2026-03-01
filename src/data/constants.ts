@@ -8,12 +8,12 @@ export const SERVICES: ServiceItem[] = [
 ];
 
 export const PORTFOLIO: PortfolioItem[] = [
-    { id: 1, title: 'ইকো প্যাকেজিং', cat: 'ব্র্যান্ডিং', img: 'https://picsum.photos/seed/p1/800/1000' },
-    { id: 2, title: 'টেক ম্যাগ', cat: 'এডিটোরিয়াল', img: 'https://picsum.photos/seed/p2/800/1000' },
-    { id: 3, title: 'ইভেন্ট ব্যানার', cat: 'লার্জ ফরম্যাট', img: 'https://picsum.photos/seed/p3/800/1000' },
-    { id: 4, title: 'প্রিমিয়াম কার্ড', cat: 'প্রিন্টিং', img: 'https://picsum.photos/seed/p4/800/1000' },
-    { id: 5, title: 'রেস্তোরাঁ আইডেন্টিটি', cat: 'ব্র্যান্ডিং', img: 'https://picsum.photos/seed/p5/800/1000' },
-    { id: 6, title: 'বার্ষিক প্রতিবেদন', cat: 'এডিটোরিয়াল', img: 'https://picsum.photos/seed/p6/800/1000' },
+    { id: 1, title: 'ইকো প্যাকেজিং', cat: 'ব্র্যান্ডিং', img: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&h=1000&fit=crop&q=80' },
+    { id: 2, title: 'টেক ম্যাগ', cat: 'এডিটোরিয়াল', img: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&h=1000&fit=crop&q=80' },
+    { id: 3, title: 'ইভেন্ট ব্যানার', cat: 'লার্জ ফরম্যাট', img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=1000&fit=crop' },
+    { id: 4, title: 'প্রিমিয়াম কার্ড', cat: 'প্রিন্টিং', img: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&h=1000&fit=crop' },
+    { id: 5, title: 'রেস্তোরাঁ আইডেন্টিটি', cat: 'ব্র্যান্ডিং', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=1000&fit=crop' },
+    { id: 6, title: 'বার্ষিক প্রতিবেদন', cat: 'এডিটোরিয়াল', img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=1000&fit=crop' },
 ];
 
 export const PROCESS: ProcessStep[] = [

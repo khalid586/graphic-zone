@@ -21,21 +21,21 @@ interface ProjectHeroProps {
 }
 
 const ProjectHero = ({ project }: ProjectHeroProps) => (
-    <section className="relative">
-        <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden">
-            <Image
-                src={project.heroImg}
-                alt={project.title}
-                fill
-                sizes="100vw"
-                className="object-cover"
-                priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
+    <section className="relative px-6 sm:px-8">
+        <div className="max-w-7xl mx-auto">
+            <div className="relative h-[35vh] sm:h-[50vh] md:h-[60vh] overflow-hidden rounded-2xl mt-6">
+                <Image
+                    src={project.heroImg}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1400px"
+                    className="object-cover"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
 
-            {/* Hero Content */}
-            <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-8 py-6 sm:py-10 md:py-16">
-                <div className="max-w-7xl mx-auto">
+                {/* Hero Content */}
+                <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-8 py-6 sm:py-10 md:py-16">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
                         <div className="flex flex-wrap items-center gap-3 mb-4">
                             <Badge className="bg-indigo-600 text-white border-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest gap-1.5">
@@ -56,11 +56,9 @@ const ProjectHero = ({ project }: ProjectHeroProps) => (
                     </motion.div>
                 </div>
             </div>
-        </div>
 
-        {/* Breadcrumb */}
-        <div className="bg-slate-50 border-b border-slate-100 px-6 sm:px-8">
-            <div className="max-w-7xl mx-auto py-4">
+            {/* Breadcrumb */}
+            <div className="bg-slate-50 border-b border-slate-100 rounded-b-2xl px-6 sm:px-8 py-4">
                 <Breadcrumb>
                     <BreadcrumbList className="text-xs font-medium">
                         <BreadcrumbItem>
