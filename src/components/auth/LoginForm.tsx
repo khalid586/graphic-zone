@@ -6,12 +6,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
-import { type FormErrors, inputClassName, isValidEmail, isValidPhone } from '@/lib/form';
+import { type FormErrors, inputClassName } from '@/lib/form';
 
-type LoginErrors = FormErrors<'emailOrPhone' | 'password'>;
+type LoginErrors = FormErrors<'userId' | 'password'>;
 
 const LoginForm = () => {
-    const [emailOrPhone, setEmailOrPhone] = useState('');
+    const [userId, setUserId] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
@@ -27,10 +27,8 @@ const LoginForm = () => {
     const validate = (): boolean => {
         const newErrors: LoginErrors = {};
 
-        if (!emailOrPhone.trim()) {
-            newErrors.emailOrPhone = 'ইমেইল বা ফোন নম্বর প্রয়োজন';
-        } else if (!isValidEmail(emailOrPhone) && !isValidPhone(emailOrPhone)) {
-            newErrors.emailOrPhone = 'সঠিক ইমেইল বা ফোন নম্বর দিন';
+        if (!userId.trim()) {
+            newErrors.userId = 'ইউজার আইডি প্রয়োজন';
         }
 
         if (!password) {
@@ -55,24 +53,24 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Email or Phone */}
+            {/* User ID */}
             <div className="space-y-2">
-                <Label htmlFor="login-email" className="text-slate-700 text-sm font-medium">
-                    ইমেইল বা ফোন
+                <Label htmlFor="login-userId" className="text-slate-700 text-sm font-medium">
+                    ইউজার আইডি
                 </Label>
                 <Input
-                    id="login-email"
+                    id="login-userId"
                     type="text"
-                    placeholder="example@mail.com বা +৮৮০..."
-                    value={emailOrPhone}
+                    placeholder="আপনার ইউজার আইডি দিন"
+                    value={userId}
                     onChange={(e) => {
-                        setEmailOrPhone(e.target.value);
-                        clearFieldError('emailOrPhone');
+                        setUserId(e.target.value);
+                        clearFieldError('userId');
                     }}
-                    className={inputClassName(!!errors.emailOrPhone)}
+                    className={inputClassName(!!errors.userId)}
                 />
-                {errors.emailOrPhone && (
-                    <p className="text-xs text-red-500 mt-1">{errors.emailOrPhone}</p>
+                {errors.userId && (
+                    <p className="text-xs text-red-500 mt-1">{errors.userId}</p>
                 )}
             </div>
 
@@ -120,12 +118,12 @@ const LoginForm = () => {
                         মনে রাখুন
                     </span>
                 </label>
-                <button
+                {/* <button
                     type="button"
                     className="text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors"
                 >
                     পাসওয়ার্ড ভুলে গেছেন?
-                </button>
+                </button> */}
             </div>
 
             {/* Login Button */}

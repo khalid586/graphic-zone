@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import {
     Printer,
     Package,
@@ -12,11 +11,7 @@ import {
     Truck,
 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import GoogleIcon from '@/components/ui/icons/GoogleIcon';
 import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
-
-type AuthTab = 'login' | 'signup';
 
 const BrandPanel = () => (
     <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900">
@@ -114,8 +109,6 @@ const BrandPanel = () => (
 );
 
 const AuthPage = () => {
-    const [activeTab, setActiveTab] = useState<AuthTab>('login');
-
     return (
         <div className="min-h-screen flex bg-white">
             {/* Left — Brand Panel */}
@@ -129,76 +122,18 @@ const AuthPage = () => {
                     transition={{ duration: 0.6 }}
                     className="w-full max-w-md"
                 >
-                    {/* Mobile logo */}
-                    <div className="lg:hidden flex items-center justify-center gap-3 mb-10">
-                        <Link href="/" className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
-                                <Printer className="w-5 h-5 text-white" />
-                            </div>
-                            <span className="text-xl font-bold text-slate-900 tracking-tight">
-                                Graphic Zone
-                            </span>
-                        </Link>
-                    </div>
-
                     {/* Heading */}
                     <div className="mb-8">
                         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
-                            {activeTab === 'login' ? 'আবার স্বাগতম' : 'অ্যাকাউন্ট তৈরি করুন'}
+                            আবার স্বাগতম
                         </h1>
                         <p className="text-slate-500 text-sm">
-                            {activeTab === 'login'
-                                ? 'চালিয়ে যেতে আপনার অ্যাকাউন্টে সাইন ইন করুন।'
-                                : 'আজই আপনার বিনামূল্যে অ্যাকাউন্ট শুরু করুন।'}
+                            চালিয়ে যেতে আপনার অ্যাকাউন্টে সাইন ইন করুন।
                         </p>
                     </div>
 
-                    {/* Google Login */}
-                    <button
-                        type="button"
-                        className="w-full h-11 flex items-center justify-center gap-3 border border-slate-200 rounded-lg bg-white hover:bg-slate-50 text-slate-700 text-sm font-medium transition-colors duration-200 mb-6"
-                    >
-                        <GoogleIcon />
-                        গুগল দিয়ে চালিয়ে যান
-                    </button>
-
-                    {/* Divider */}
-                    <div className="flex items-center gap-4 mb-6">
-                        <div className="flex-1 h-px bg-slate-200" />
-                        <span className="text-xs text-slate-400 font-medium uppercase tracking-wider">
-                            অথবা
-                        </span>
-                        <div className="flex-1 h-px bg-slate-200" />
-                    </div>
-
-                    {/* Tabs */}
-                    <div className="flex bg-slate-100 rounded-lg p-1 mb-6">
-                        {(['login', 'signup'] as AuthTab[]).map((tab) => (
-                            <button
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                className={`relative flex-1 py-2.5 text-sm font-semibold rounded-md transition-all duration-200 ${activeTab === tab
-                                    ? 'bg-white text-slate-900 shadow-sm'
-                                    : 'text-slate-500 hover:text-slate-700'
-                                    }`}
-                            >
-                                {tab === 'login' ? 'সাইন ইন' : 'সাইন আপ'}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Form area */}
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeTab}
-                            initial={{ opacity: 0, x: activeTab === 'login' ? -10 : 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: activeTab === 'login' ? 10 : -10 }}
-                            transition={{ duration: 0.2 }}
-                        >
-                            {activeTab === 'login' ? <LoginForm /> : <SignupForm />}
-                        </motion.div>
-                    </AnimatePresence>
+                    {/* Login Form */}
+                    <LoginForm />
 
                     {/* Footer text */}
                     <p className="text-center text-xs text-slate-400 mt-8">
