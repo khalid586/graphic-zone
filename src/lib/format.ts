@@ -27,9 +27,9 @@ export const formatDateShort = (dateStr: string): string =>
 export const generateTransactionId = (): string =>
     'TXN-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
 
-/** Format a Date object to time string (e.g., "২:৩০ PM") */
+/** Format a Date object to time string (e.g., "2:30 PM") */
 export const formatTime = (date: Date): string =>
-    date.toLocaleTimeString('bn-BD', {
+    date.toLocaleTimeString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
         hour12: true,
