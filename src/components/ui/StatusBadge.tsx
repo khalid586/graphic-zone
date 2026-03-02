@@ -8,7 +8,7 @@
 
 import { memo } from 'react';
 
-interface StatusBadgeProps {
+type StatusBadgeProps = {
     /** Display label (Bengali) */
     readonly label: string;
     /** Background class, e.g. 'bg-emerald-50' */
@@ -30,4 +30,6 @@ const StatusBadge = memo(({ label, bg, text, dot }: StatusBadgeProps) => (
 
 StatusBadge.displayName = 'StatusBadge';
 
-export default StatusBadge;
+export { StatusBadge };
+
+

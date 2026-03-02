@@ -1,5 +1,6 @@
-export { default as BillingPage } from './BillingPage';
-export { default as BillingForm } from './BillingForm';
-export { default as BillingItemRow } from './BillingItemRow';
-export { default as BillingSummary } from './BillingSummary';
-export { default as BillingSuccess } from './BillingSuccess';
+export { BillingPage } from './BillingPage';
+export { BillingForm } from './BillingForm';
+export { BillingItemRow } from './BillingItemRow';
+export { BillingSummary } from './BillingSummary';
+export { BillingSuccess } from './BillingSuccess';
+

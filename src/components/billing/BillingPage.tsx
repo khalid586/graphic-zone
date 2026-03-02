@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FileText } from 'lucide-react';
-import BillingForm from './BillingForm';
-import BillingSummary from './BillingSummary';
-import BillingSuccess from './BillingSuccess';
+import { BillingForm } from './BillingForm';
+import { BillingSummary } from './BillingSummary';
+import { BillingSuccess } from './BillingSuccess';
 import type { BillingFormData, BillingItem, Bill } from '@/types/billing';
 
 const BillingPage = () => {
@@ -147,4 +147,6 @@ const BillingPage = () => {
     );
 };
 
-export default BillingPage;
+export { BillingPage };
+
+

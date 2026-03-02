@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import { Hind_Siliguri, Manrope } from 'next/font/google';
 import '../index.css';
 import { Navbar, Footer } from '@/components/layout';
@@ -23,7 +24,7 @@ export const metadata: Metadata = DEFAULT_METADATA;
 export default function RootLayout({
     children,
 }: {
-    children: React.ReactNode;
+    children: ReactNode;
 }) {
     return (
         <html lang="bn" className={`${hindSiliguri.variable} ${manrope.variable}`}>

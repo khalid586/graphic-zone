@@ -145,4 +145,15 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  button,
+  a[role="button"],
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  a[role="button"]:disabled {
+    cursor: not-allowed;
+  }
 }

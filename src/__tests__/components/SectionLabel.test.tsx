@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import SectionLabel from '@/components/ui/SectionLabel';
+import { SectionLabel } from '@/components/ui/SectionLabel';
 
 describe('SectionLabel', () => {
     it('renders children text', () => {
@@ -21,3 +21,4 @@ describe('SectionLabel', () => {
         expect(el.className).toContain('uppercase');
     });
 });
+

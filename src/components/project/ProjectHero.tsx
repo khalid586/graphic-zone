@@ -16,7 +16,7 @@ import {
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 
-interface ProjectHeroProps {
+type ProjectHeroProps = {
     project: Project;
 }
 
@@ -81,4 +81,5 @@ const ProjectHero = ({ project }: ProjectHeroProps) => (
     </section>
 );
 
-export default memo(ProjectHero);
+export { ProjectHero };
+

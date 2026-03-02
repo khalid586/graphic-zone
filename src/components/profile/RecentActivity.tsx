@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import type { ActivityItem } from '@/types/profile';
 
-interface RecentActivityProps {
+type RecentActivityProps = {
     activities: ActivityItem[];
 }
 
@@ -77,4 +77,7 @@ const RecentActivity = ({ activities }: RecentActivityProps) => {
     );
 };
 
-export default memo(RecentActivity);
+const MemoizedRecentActivity = memo(RecentActivity);
+export { MemoizedRecentActivity as RecentActivity };
+
+

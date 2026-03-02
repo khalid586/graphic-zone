@@ -1,6 +1,6 @@
 'use client';
 
-import ErrorFallback from '@/components/ui/ErrorFallback';
+import { ErrorFallback } from '@/components/ui/ErrorFallback';
 
 export default function GlobalError({
     error,
@@ -11,3 +11,4 @@ export default function GlobalError({
 }) {
     return <ErrorFallback error={error} reset={reset} source="GlobalErrorBoundary" />;
 }
+

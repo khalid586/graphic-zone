@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Phone, Mail, MessageSquare, Upload } from 'lucide-react';
+import { useState, type FormEvent } from 'react';
+import { Phone, Mail, MessageSquare, Upload, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { BRAND } from '@/config';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -17,7 +18,7 @@ import {
 const Contact = () => {
     const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setFormStatus('sending');
         setTimeout(() => {
@@ -42,7 +43,12 @@ const Contact = () => {
                             </div>
                             <div>
                                 <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">সরাসরি লাইন</p>
-                                <p className="text-xl font-bold">+৮৮ ০১XXXXXXXXX</p>
+                                <a href={`tel:${BRAND.contactPhone.replace(/[^+0-9]/g, '')}`} className="text-xl font-bold hover:text-indigo-400 transition-colors block">
+                                    {BRAND.contactPhone}
+                                </a>
+                                <a href={`tel:${BRAND.contactPhoneSecondary.replace(/[^+0-9]/g, '')}`} className="text-lg font-semibold text-slate-400 hover:text-indigo-400 transition-colors block">
+                                    {BRAND.contactPhoneSecondary}
+                                </a>
                             </div>
                         </div>
                         <div className="flex items-center gap-6">
@@ -51,13 +57,24 @@ const Contact = () => {
                             </div>
                             <div>
                                 <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">ইমেইল সাপোর্ট</p>
-                                <p className="text-xl font-bold">hello@graphiczone.com</p>
+                                <a href={`mailto:${BRAND.contactEmail}`} className="text-xl font-bold hover:text-indigo-400 transition-colors block">
+                                    {BRAND.contactEmail}
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <Button className="bg-green-600 text-white px-6 py-3 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-green-700 h-auto">
-                        <MessageSquare className="w-5 h-5" /> হোয়াটসঅ্যাপ সাপোর্ট
-                    </Button>
+                    <div className="flex gap-4">
+                        <Button asChild className="bg-green-600 text-white px-6 py-3 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-green-700 h-auto">
+                            <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                                <MessageSquare className="w-5 h-5" /> হোয়াটসঅ্যাপ এ যোগাযোগ করুন
+                            </a>
+                        </Button>
+                        <Button asChild className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-blue-700 h-auto">
+                            <a href={BRAND.socialLinks.facebook} target="_blank" rel="noopener noreferrer">
+                                <Facebook className="w-5 h-5" /> ফেসবুক পেজ
+                            </a>
+                        </Button>
+                    </div>
                 </div>
                 <Card className="rounded-[2.5rem] p-0 border-0 shadow-2xl overflow-hidden gap-0">
                     <CardHeader className="p-10 pb-0 md:p-12 md:pb-0">
@@ -125,4 +142,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export { Contact };

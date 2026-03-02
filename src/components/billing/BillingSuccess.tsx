@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { formatTime } from '@/lib/format';
 import type { Bill } from '@/types/billing';
 
-interface BillingSuccessProps {
+type BillingSuccessProps = {
     readonly bill: Bill;
     readonly action: 'draft' | 'generated';
     onCreateNew: () => void;
@@ -110,4 +110,6 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
     );
 };
 
-export default BillingSuccess;
+export { BillingSuccess };
+
+

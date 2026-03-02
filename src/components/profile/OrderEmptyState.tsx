@@ -10,4 +10,5 @@ const OrderEmptyState = () => (
     </div>
 );
 
-export default OrderEmptyState;
+export { OrderEmptyState };
+

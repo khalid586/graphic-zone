@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
-interface LightboxProps {
+type LightboxProps = {
     images: readonly string[];
     currentIndex: number;
     isOpen: boolean;
@@ -106,4 +106,6 @@ const Lightbox = ({ images, currentIndex, isOpen, onClose, onPrev, onNext, altPr
     );
 };
 
-export default Lightbox;
+export { Lightbox };
+
+

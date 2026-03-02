@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { ORDER_FILTERS, ORDER_FILTER_LABELS } from '@/config';
 import type { OrderFilterType } from '@/config';
 
-interface OrderSearchBarProps {
+type OrderSearchBarProps = {
     readonly search: string;
     readonly onSearchChange: (value: string) => void;
     readonly filter: OrderFilterType;
@@ -86,4 +86,6 @@ const OrderSearchBar = ({
     );
 };
 
-export default OrderSearchBar;
+export { OrderSearchBar };
+
+

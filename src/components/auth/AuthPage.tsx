@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import {
-    Printer,
     Package,
     Palette,
     ShieldCheck,
@@ -11,7 +11,8 @@ import {
     Truck,
 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import LoginForm from './LoginForm';
+import { LoginForm } from './LoginForm';
+import LogoImage from '../../../assets/Logo.png';
 
 const BrandPanel = () => (
     <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900">
@@ -45,8 +46,14 @@ const BrandPanel = () => (
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="relative mb-12"
                 >
-                    <div className="w-32 h-32 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center">
-                        <Printer className="w-16 h-16 text-indigo-400" />
+                    <div className="w-32 h-32 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center p-4">
+                        <Image
+                            src={LogoImage}
+                            alt="Graphic Zone Logo"
+                            width={64}
+                            height={64}
+                            className="w-16 h-16 object-contain"
+                        />
                     </div>
                     <motion.div
                         initial={{ opacity: 0, scale: 0 }}
@@ -153,4 +160,6 @@ const AuthPage = () => {
     );
 };
 
-export default AuthPage;
+export { AuthPage };
+
+

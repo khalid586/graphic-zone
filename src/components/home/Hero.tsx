@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { scrollToContact } from '@/lib/navigation';
 
-interface HeroProps {
+type HeroProps = {
     onCtaClick?: () => void;
 }
 
@@ -84,4 +84,5 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
     </section>
 );
 
-export default Hero;
+export { Hero };
+

@@ -10,9 +10,9 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import OrderSummaryCard from './OrderSummaryCard';
-import PaymentMethods from './PaymentMethods';
-import PaymentResult from './PaymentResult';
+import { OrderSummaryCard } from './OrderSummaryCard';
+import { PaymentMethods } from './PaymentMethods';
+import { PaymentResult } from './PaymentResult';
 import { MOCK_PAYMENT_ORDER, PAYMENT_METHODS } from '@/data/payment';
 import { formatCurrency } from '@/lib/format';
 import type { PaymentMethod, PaymentState } from '@/types/payment';
@@ -183,4 +183,6 @@ const PaymentPage = () => {
     );
 };
 
-export default PaymentPage;
+export { PaymentPage };
+
+

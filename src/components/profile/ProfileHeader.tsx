@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button';
 import { formatCurrency } from '@/lib/format';
 import type { UserProfile } from '@/types/profile';
 
-interface ProfileHeaderProps {
+type ProfileHeaderProps = {
     user: UserProfile;
 }
 
@@ -121,4 +121,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
     </motion.div>
 );
 
-export default memo(ProfileHeader);
+const MemoizedProfileHeader = memo(ProfileHeader);
+export { MemoizedProfileHeader as ProfileHeader };
+
+

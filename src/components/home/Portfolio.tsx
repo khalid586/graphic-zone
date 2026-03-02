@@ -56,4 +56,4 @@ const Portfolio = () => (
     </section>
 );
 
-export default Portfolio;
+export { Portfolio };

@@ -20,4 +20,4 @@ const GoogleIcon = () => (
     </svg>
 );
 
-export default GoogleIcon;
+export { GoogleIcon };

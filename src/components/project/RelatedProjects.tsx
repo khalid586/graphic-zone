@@ -4,12 +4,12 @@ import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import SectionLabel from '@/components/ui/SectionLabel';
+import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import type { Project } from '@/types';
 
-interface RelatedProjectsProps {
+type RelatedProjectsProps = {
     projects: Project[];
 }
 
@@ -74,4 +74,6 @@ const RelatedProjects = ({ projects }: RelatedProjectsProps) => (
     </section>
 );
 
-export default memo(RelatedProjects);
+export { RelatedProjects };
+
+

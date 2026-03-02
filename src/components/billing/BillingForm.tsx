@@ -7,12 +7,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import BillingItemRow from './BillingItemRow';
+import { BillingItemRow } from './BillingItemRow';
 import { MOCK_CUSTOMERS } from '@/data/customers';
 import type { BillingFormData, BillingItem } from '@/types/billing';
 import { cn } from '@/lib/utils';
 
-interface BillingFormProps {
+type BillingFormProps = {
     onSubmit: (data: BillingFormData, action: 'draft' | 'generate') => void;
     onChange?: (data: BillingFormData) => void;
 }
@@ -346,4 +346,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
     );
 };
 
-export default BillingForm;
+export { BillingForm };
+
+
+

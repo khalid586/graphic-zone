@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button';
 import { formatCurrency, generateTransactionId } from '@/lib/format';
 import type { PaymentOrder } from '@/types/payment';
 
-interface PaymentResultProps {
+type PaymentResultProps = {
     state: 'success' | 'failed';
     order: PaymentOrder;
     onRetry?: () => void;
@@ -175,4 +175,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
     );
 };
 
-export default PaymentResult;
+export { PaymentResult };
+
+
+

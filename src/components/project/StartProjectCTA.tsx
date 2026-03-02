@@ -43,4 +43,4 @@ const StartProjectCTA = () => (
     </section>
 );
 
-export default StartProjectCTA;
+export { StartProjectCTA };

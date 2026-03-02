@@ -1,4 +1,5 @@
 import { ShieldCheck, Clock } from 'lucide-react';
+import { BRAND } from '@/config';
 
 const TopBar = () => (
     <div className="bg-slate-900 text-white py-2.5 px-4 sm:px-8 text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] font-bold flex justify-between items-center">
@@ -13,11 +14,11 @@ const TopBar = () => (
             </span>
         </div>
         <div className="flex gap-3 sm:gap-6">
-            <a href="tel:+8801XXXXXXXXX" className="hover:text-indigo-400 transition-colors">
-                +৮৮ ০১XXXXXXXXX
+            <a href={`tel:${BRAND.contactPhone.replace(/[^+0-9]/g, '')}`} className="hover:text-indigo-400 transition-colors">
+                {BRAND.contactPhone}
             </a>
         </div>
     </div>
 );
 
-export default TopBar;
+export { TopBar };

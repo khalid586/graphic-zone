@@ -1,8 +1,8 @@
 'use client';
 
-import ProfileHeader from '@/components/profile/ProfileHeader';
-import OrderHistoryTable from '@/components/profile/OrderHistoryTable';
-import RecentActivity from '@/components/profile/RecentActivity';
+import { ProfileHeader } from '@/components/profile/ProfileHeader';
+import { OrderHistoryTable } from '@/components/profile/OrderHistoryTable';
+import { RecentActivity } from '@/components/profile/RecentActivity';
 import { MOCK_USER, MOCK_ORDERS, MOCK_ACTIVITY } from '@/data/profile';
 
 const ProfileDashboard = () => {
@@ -29,4 +29,6 @@ const ProfileDashboard = () => {
     );
 };
 
-export default ProfileDashboard;
+export { ProfileDashboard };
+
+

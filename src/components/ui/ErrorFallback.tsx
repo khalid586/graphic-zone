@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { logError } from '@/lib/logger';
 
-interface ErrorFallbackProps {
+type ErrorFallbackProps = {
     /** The caught error */
     readonly error: Error & { digest?: string };
     /** Next.js reset function to retry rendering */
@@ -66,4 +66,6 @@ const ErrorFallback = ({
     );
 };
 
-export default ErrorFallback;
+export { ErrorFallback };
+
+

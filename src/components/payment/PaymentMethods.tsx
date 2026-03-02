@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 import { PAYMENT_METHOD_ICONS } from '@/config';
 import type { PaymentMethod, PaymentMethodOption } from '@/types/payment';
 
-interface PaymentMethodsProps {
+type PaymentMethodsProps = {
     methods: PaymentMethodOption[];
     selected: PaymentMethod;
     onSelect: (method: PaymentMethod) => void;
@@ -86,4 +86,7 @@ const PaymentMethods = ({ methods, selected, onSelect }: PaymentMethodsProps) =>
     </motion.div>
 );
 
-export default PaymentMethods;
+export { PaymentMethods };
+
+
+

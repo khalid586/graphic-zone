@@ -12,7 +12,7 @@ import { Separator } from '@/components/ui/separator';
 import { formatCurrency, formatDateLong as formatDate } from '@/lib/format';
 import type { PaymentOrder } from '@/types/payment';
 
-interface OrderSummaryCardProps {
+type OrderSummaryCardProps = {
     order: PaymentOrder;
 }
 
@@ -83,4 +83,8 @@ const OrderSummaryCard = ({ order }: OrderSummaryCardProps) => (
     </motion.div>
 );
 
-export default memo(OrderSummaryCard);
+const MemoizedOrderSummaryCard = memo(OrderSummaryCard);
+export { MemoizedOrderSummaryCard as OrderSummaryCard };
+
+
+

@@ -1,5 +1,5 @@
-export { default as Hero } from './Hero';
-export { default as Services } from './Services';
-export { default as Portfolio } from './Portfolio';
-export { default as Process } from './Process';
-export { default as Contact } from './Contact';
+export { Hero } from './Hero';
+export { Services } from './Services';
+export { Portfolio } from './Portfolio';
+export { Process } from './Process';
+export { Contact } from './Contact';

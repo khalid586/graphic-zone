@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import { formatCurrency } from '@/lib/format';
 import type { BillingFormData } from '@/types/billing';
 
-interface BillingSummaryProps {
+type BillingSummaryProps = {
     readonly formData: BillingFormData;
 }
 
@@ -106,4 +106,6 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
     );
 };
 
-export default BillingSummary;
+export { BillingSummary };
+
+

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 
 describe('LoadingSpinner', () => {
     it('renders an SVG element', () => {
@@ -34,3 +34,4 @@ describe('LoadingSpinner', () => {
         expect(svg?.className.baseVal).toContain('animate-spin');
     });
 });
+

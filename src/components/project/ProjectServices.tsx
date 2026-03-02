@@ -3,10 +3,10 @@
 import { memo } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
-import SectionLabel from '@/components/ui/SectionLabel';
+import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Card, CardContent } from '@/components/ui/card';
 
-interface ProjectServicesProps {
+type ProjectServicesProps = {
     services: readonly string[];
 }
 
@@ -35,4 +35,7 @@ const ProjectServices = ({ services }: ProjectServicesProps) => (
     </motion.div>
 );
 
-export default memo(ProjectServices);
+const MemoizedProjectServices = memo(ProjectServices);
+export { MemoizedProjectServices as ProjectServices };
+
+

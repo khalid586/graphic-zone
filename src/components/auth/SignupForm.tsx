@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Eye, EyeOff, UserPlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 import {
     type FormErrors,
     INPUT_BASE_CLASS as inputBaseClass,
@@ -70,7 +70,7 @@ const SignupForm = () => {
         }
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!validate()) return;
 
@@ -228,4 +228,6 @@ const SignupForm = () => {
     );
 };
 
-export default SignupForm;
+export { SignupForm };
+
+

@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-interface BillingItemRowProps {
+type BillingItemRowProps = {
     readonly id: string;
     readonly description: string;
     readonly price: number;
@@ -96,4 +96,6 @@ const BillingItemRow = ({
     );
 };
 
-export default BillingItemRow;
+export { BillingItemRow };
+
+

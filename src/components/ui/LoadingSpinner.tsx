@@ -1,4 +1,4 @@
-interface LoadingSpinnerProps {
+type LoadingSpinnerProps = {
     className?: string;
     size?: number;
 }
@@ -22,4 +22,6 @@ const LoadingSpinner = ({ className = '', size = 20 }: LoadingSpinnerProps) => (
     </svg>
 );
 
-export default LoadingSpinner;
+export { LoadingSpinner };
+
+

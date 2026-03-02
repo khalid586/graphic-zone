@@ -4,10 +4,10 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Maximize2, Grid3x3 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import SectionLabel from '@/components/ui/SectionLabel';
+import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Button } from '@/components/ui/button';
 
-interface ProjectGalleryProps {
+type ProjectGalleryProps = {
     images: readonly string[];
     title: string;
     onImageClick: (index: number) => void;
@@ -126,4 +126,6 @@ const ProjectGallery = ({ images, title, onImageClick }: ProjectGalleryProps) =>
     );
 };
 
-export default ProjectGallery;
+export { ProjectGallery };
+
+

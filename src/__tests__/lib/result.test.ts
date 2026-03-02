@@ -52,7 +52,7 @@ describe('mapResult', () => {
     it('passes through a Failure unchanged', () => {
         const error = appError('NETWORK', 'timeout');
         const result: Result<number> = fail(error);
-        const mapped = mapResult(result, (n) => n * 2);
+        const mapped = mapResult(result, (n: number) => n * 2);
         expect(mapped.ok).toBe(false);
         if (!mapped.ok) expect(mapped.error).toBe(error);
     });

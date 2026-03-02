@@ -15,11 +15,7 @@ const SERVICE_ICONS: Record<ServiceIconName, LucideIcon> = {
     FileText,
 };
 
-interface ServicesProps {
-    onLearnMore?: () => void;
-}
-
-const Services = ({ onLearnMore }: ServicesProps = {}) => (
+const Services = ({ onLearnMore }: { onLearnMore?: () => void }) => (
     <section id="services" className="py-24 px-6 sm:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
@@ -56,4 +52,6 @@ const Services = ({ onLearnMore }: ServicesProps = {}) => (
     </section>
 );
 
-export default Services;
+export { Services };
+
+

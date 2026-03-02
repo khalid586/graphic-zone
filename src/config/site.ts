@@ -15,13 +15,26 @@ export const BRAND = {
     name: 'Graphic Zone',
     nameBn: 'গ্রাফিক জোন',
     tagline: 'ডিজাইন ও প্রিন্টিং সমাধান',
-    contactEmail: 'hello@graphiczone.com',
-    contactPhone: '+৮৮ ০১XXXXXXXXX',
-    whatsappUrl: '#', // TODO: real WhatsApp deep link
+    contactEmail: 'graphiczonecumilla@gmail.com',
+    contactEmailSecondary: 'shariartuhin91@gmail.com',
+    contactPhone: '+৮৮ ০১৩১২৫৯৪২৯২',
+    contactPhoneSecondary: '+৮৮ ০১৯১২৫৯৪২৯২',
+    whatsappUrl: 'https://wa.me/8801312594292',
+    address: {
+        street: 'Victoria College Road',
+        area: 'Kandirpar',
+        city: 'Cumilla',
+        postalCode: '3500',
+        full: 'Victoria College Road, Kandirpar, Cumilla 3500',
+    },
+    owner: {
+        name: 'Alou Jafar Sherian Tuhin',
+        designation: 'Graphic Designer',
+    },
     socialLinks: {
         instagram: '#',
         twitter: '#',
-        facebook: '#',
+        facebook: 'https://facebook.com/graphiczonecumilla',
     },
 } as const;
 
@@ -51,6 +64,10 @@ export const DEFAULT_METADATA: Metadata = {
     title: 'গ্রাফিক জোন - ডিজাইন ও প্রিন্টিং সমাধান',
     description:
         'উচ্চ-মানের প্রিন্টিং, ব্র্যান্ডিং এবং লার্জ-ফরম্যাট সমাধানে বিশ্বব্যাপী কর্পোরেশনগুলোর আস্থা।',
+    icons: {
+        icon: '/Logo.png',
+        apple: '/Logo.png',
+    },
 };
 
 // ── Footer ────────────────────────────────────────────────────────

@@ -1,6 +1,6 @@
 'use client';
 
-import ErrorFallback from '@/components/ui/ErrorFallback';
+import { ErrorFallback } from '@/components/ui/ErrorFallback';
 
 export default function ProjectError({
     error,

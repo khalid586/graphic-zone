@@ -21,4 +21,4 @@ const Process = () => (
     </section>
 );
 
-export default Process;
+export { Process };

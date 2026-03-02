@@ -3,11 +3,11 @@
 import { memo } from 'react';
 import { FileText, Ruler, Palette } from 'lucide-react';
 import { motion } from 'motion/react';
-import SectionLabel from '@/components/ui/SectionLabel';
+import { SectionLabel } from '@/components/ui/SectionLabel';
 import { Card, CardContent } from '@/components/ui/card';
 import type { ProjectMaterials as MaterialsType } from '@/types';
 
-interface ProjectMaterialsProps {
+type ProjectMaterialsProps = {
     materials: MaterialsType;
 }
 
@@ -43,4 +43,7 @@ const ProjectMaterials = ({ materials }: ProjectMaterialsProps) => (
     </motion.div>
 );
 
-export default memo(ProjectMaterials);
+const MemoizedProjectMaterials = memo(ProjectMaterials);
+export { MemoizedProjectMaterials as ProjectMaterials };
+
+

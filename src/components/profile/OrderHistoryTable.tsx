@@ -10,12 +10,12 @@ import {
     PAYMENT_STATUS_LABELS,
 } from '@/config';
 import type { OrderFilterType, OrderSortField } from '@/config';
-import OrderSearchBar from './OrderSearchBar';
-import OrderDesktopTable from './OrderDesktopTable';
-import OrderMobileCards from './OrderMobileCards';
-import OrderEmptyState from './OrderEmptyState';
+import { OrderSearchBar } from './OrderSearchBar';
+import { OrderDesktopTable } from './OrderDesktopTable';
+import { OrderMobileCards } from './OrderMobileCards';
+import { OrderEmptyState } from './OrderEmptyState';
 
-interface OrderHistoryTableProps {
+type OrderHistoryTableProps = {
     readonly orders: readonly Order[];
 }
 
@@ -92,4 +92,7 @@ const OrderHistoryTable = ({ orders }: OrderHistoryTableProps) => {
     );
 };
 
-export default OrderHistoryTable;
+export { OrderHistoryTable };
+
+
+

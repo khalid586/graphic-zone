@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Printer, Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,10 +14,11 @@ import {
 } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
 import type { NavItem } from '@/config';
+import LogoImage from '../../../assets/Logo.png';
 
 export type { NavItem };
 
-interface NavbarProps {
+type NavbarProps = {
     navItems: readonly NavItem[];
     ctaLabel?: string;
     ctaAction?: string | (() => void);
@@ -49,9 +51,14 @@ const Navbar = ({ navItems, ctaLabel = 'কোটেশন চাই', ctaAction
         >
             <div className="max-w-7xl mx-auto w-full flex justify-between items-center py-3 md:py-4">
                 <Link href="/" className="flex items-center gap-2 sm:gap-3">
-                    <div className="bg-indigo-600 p-1.5 sm:p-2 rounded-lg">
-                        <Printer className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                    </div>
+                    <Image
+                        src={LogoImage}
+                        alt="Graphic Zone Logo"
+                        width={40}
+                        height={40}
+                        className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                        priority
+                    />
                     <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-slate-900">
                         Graphic<span className="text-indigo-600">Zone</span>
                     </span>
@@ -150,4 +157,5 @@ const Navbar = ({ navItems, ctaLabel = 'কোটেশন চাই', ctaAction
     );
 };
 
-export default Navbar;
+export { Navbar };
+

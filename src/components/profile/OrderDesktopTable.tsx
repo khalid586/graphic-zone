@@ -5,7 +5,7 @@ import { formatCurrency, formatDateShort as formatDate } from '@/lib/format';
 import type { Order, OrderStatus, PaymentStatus } from '@/types/profile';
 import type { StatusStyle, PaymentStyle, OrderSortField } from '@/config';
 
-interface OrderDesktopTableProps {
+type OrderDesktopTableProps = {
     readonly orders: readonly Order[];
     readonly statusConfig: Readonly<Record<OrderStatus, StatusStyle>>;
     readonly paymentConfig: Readonly<Record<PaymentStatus, PaymentStyle>>;
@@ -102,4 +102,6 @@ const OrderDesktopTable = memo(({
 
 OrderDesktopTable.displayName = 'OrderDesktopTable';
 
-export default OrderDesktopTable;
+export { OrderDesktopTable };
+
+

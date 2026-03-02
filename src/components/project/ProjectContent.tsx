@@ -4,18 +4,18 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { PROJECT_DATA } from '@/data/projects';
-import Lightbox from '@/components/ui/Lightbox';
-import SectionLabel from '@/components/ui/SectionLabel';
-import ProjectHero from '@/components/project/ProjectHero';
-import ProjectGallery from '@/components/project/ProjectGallery';
-import ProjectServices from '@/components/project/ProjectServices';
-import ProjectMaterials from '@/components/project/ProjectMaterials';
-import ProjectChallenges from '@/components/project/ProjectChallenges';
+import { Lightbox } from '@/components/ui/Lightbox';
+import { SectionLabel } from '@/components/ui/SectionLabel';
+import { ProjectHero } from '@/components/project/ProjectHero';
+import { ProjectGallery } from '@/components/project/ProjectGallery';
+import { ProjectServices } from '@/components/project/ProjectServices';
+import { ProjectMaterials } from '@/components/project/ProjectMaterials';
+import { ProjectChallenges } from '@/components/project/ProjectChallenges';
 import { ProjectSidebar, ProjectMobileSidebar } from '@/components/project/ProjectSidebar';
-import RelatedProjects from '@/components/project/RelatedProjects';
-import StartProjectCTA from '@/components/project/StartProjectCTA';
+import { RelatedProjects } from '@/components/project/RelatedProjects';
+import { StartProjectCTA } from '@/components/project/StartProjectCTA';
 
-interface ProjectContentProps {
+type ProjectContentProps = {
     id: string;
 }
 
@@ -105,4 +105,6 @@ const ProjectContent = ({ id }: ProjectContentProps) => {
     );
 };
 
-export default ProjectContent;
+export { ProjectContent };
+
+

@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import type { Project } from '@/types';
 
-interface ProjectSidebarProps {
+type ProjectSidebarProps = {
     project: Project;
 }
 
@@ -146,3 +146,4 @@ const ProjectMobileSidebar = ({ project }: ProjectSidebarProps) => (
 
 export { ProjectSidebar, ProjectMobileSidebar };
 export default ProjectSidebar;
+

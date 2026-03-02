@@ -5,7 +5,7 @@ import { formatCurrency, formatDateShort as formatDate } from '@/lib/format';
 import type { Order, OrderStatus, PaymentStatus } from '@/types/profile';
 import type { StatusStyle, PaymentStyle } from '@/config';
 
-interface OrderMobileCardsProps {
+type OrderMobileCardsProps = {
     readonly orders: readonly Order[];
     readonly statusConfig: Readonly<Record<OrderStatus, StatusStyle>>;
     readonly paymentConfig: Readonly<Record<PaymentStatus, PaymentStyle>>;
@@ -77,4 +77,6 @@ const OrderMobileCards = memo(({
 
 OrderMobileCards.displayName = 'OrderMobileCards';
 
-export default OrderMobileCards;
+export { OrderMobileCards };
+
+
