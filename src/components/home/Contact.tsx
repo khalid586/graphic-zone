@@ -19,21 +19,38 @@ const Contact = () => {
         quantity: '',
     });
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setFormStatus('sending');
-        setTimeout(() => {
-            setFormStatus('success');
-            // Clear form after showing success
-            setFormData({
-                companyName: '',
-                address: '',
-                mobile: '',
-                workDescription: '',
-                quantity: '',
+
+        try {
+            const response = await fetch('/api/send-quotation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
-            setTimeout(() => setFormStatus('idle'), 5000);
-        }, 1500);
+
+            if (response.ok) {
+                setFormStatus('success');
+                // Clear form after showing success
+                setFormData({
+                    companyName: '',
+                    address: '',
+                    mobile: '',
+                    workDescription: '',
+                    quantity: '',
+                });
+                setTimeout(() => setFormStatus('idle'), 5000);
+            } else {
+                throw new Error('Failed to send quotation');
+            }
+        } catch (error) {
+            console.error('Error submitting quotation:', error);
+            alert('কোটেশন পাঠাতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+            setFormStatus('idle');
+        }
     };
 
     return (
