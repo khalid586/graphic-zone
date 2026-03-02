@@ -40,30 +40,30 @@ const BrandPanel = () => (
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="relative mb-6 sm:mb-8 lg:mb-12"
                 >
-                    <div className="w-32 h-32 rounded-3xl bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center p-4 shadow-lg">
+                    <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center p-3 sm:p-4 shadow-lg">
                         <Image
                             src={LogoImage}
                             alt="Graphic Zone Logo"
                             width={64}
                             height={64}
-                            className="w-16 h-16 object-contain"
+                            className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
                         />
                     </div>
                     <motion.div
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.6 }}
-                        className="absolute -top-3 -right-3 w-12 h-12 rounded-2xl bg-warning/30 backdrop-blur-sm border border-warning/40 flex items-center justify-center shadow-md"
+                        className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-warning/30 backdrop-blur-sm border border-warning/40 flex items-center justify-center shadow-md"
                     >
-                        <Palette className="w-6 h-6 text-warning" />
+                        <Palette className="w-5 h-5 sm:w-6 sm:h-6 text-warning" />
                     </motion.div>
                     <motion.div
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.8 }}
-                        className="absolute -bottom-3 -left-3 w-12 h-12 rounded-2xl bg-success/30 backdrop-blur-sm border border-success/40 flex items-center justify-center shadow-md"
+                        className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-success/30 backdrop-blur-sm border border-success/40 flex items-center justify-center shadow-md"
                     >
-                        <Package className="w-6 h-6 text-success" />
+                        <Package className="w-5 h-5 sm:w-6 sm:h-6 text-success" />
                     </motion.div>
                 </motion.div>
 
@@ -72,45 +72,13 @@ const BrandPanel = () => (
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-center max-w-sm"
+                    className="text-center max-w-sm px-4"
                 >
-                    <h2 className="text-2xl xl:text-3xl font-bold text-foreground mb-4 leading-tight">
+                    <h2 className="text-xl sm:text-2xl xl:text-3xl font-bold text-foreground mb-3 sm:mb-4 leading-tight">
                         আপনার প্রিন্ট, আপনার মতো।
                     </h2>
-                    <p className="text-muted-foreground text-base leading-relaxed">
-                        অর্ডার ট্র্যাক করুন, পেমেন্ট ম্যানেজ করুন এবং আপনার ডিজাইন অ্যাক্সেস করুন — সব একটি ড্যাশবোর্ড থেকে।
-                    </p>
                 </motion.div>
             </div>
-
-            {/* Bottom trust indicators */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex items-center gap-6 text-sm bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 backdrop-blur-md px-8 py-5 rounded-2xl border border-primary/40 shadow-xl"
-            >
-                <div className="flex items-center gap-2 text-foreground font-medium">
-                    <div className="w-8 h-8 rounded-lg bg-success/20 flex items-center justify-center">
-                        <ShieldCheck className="w-4 h-4 text-success" />
-                    </div>
-                    <span>নিরাপদ</span>
-                </div>
-                <Separator orientation="vertical" className="h-5 bg-primary/50" />
-                <div className="flex items-center gap-2 text-foreground font-medium">
-                    <div className="w-8 h-8 rounded-lg bg-primary/30 flex items-center justify-center">
-                        <Clock className="w-4 h-4 text-primary" />
-                    </div>
-                    <span>২৪/৭ অ্যাক্সেস</span>
-                </div>
-                <Separator orientation="vertical" className="h-5 bg-primary/50" />
-                <div className="flex items-center gap-2 text-foreground font-medium">
-                    <div className="w-8 h-8 rounded-lg bg-warning/20 flex items-center justify-center">
-                        <Truck className="w-4 h-4 text-warning" />
-                    </div>
-                    <span>অর্ডার ট্র্যাকিং</span>
-                </div>
-            </motion.div>
         </div>
     </div >
 );
