@@ -147,13 +147,6 @@ const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => 
 
                 {/* Actions - Fixed at Bottom */}
                 <div className="px-6 py-4 bg-white border-t border-muted flex flex-col gap-3 shrink-0 no-print">
-                    <Button
-                        variant="destructive"
-                        onClick={onClose}
-                        className="w-full"
-                    >
-                        Close
-                    </Button>
                     <div className="flex flex-col sm:flex-row gap-3">
                         <Button
                             onClick={onCreateNew}
@@ -171,6 +164,13 @@ const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => 
                             Print Bill
                         </Button>
                     </div>
+                    <Button
+                        variant="outline"
+                        onClick={onClose}
+                        className="w-full"
+                    >
+                        Close
+                    </Button>
                 </div>
             </motion.div>
         </>
