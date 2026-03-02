@@ -87,8 +87,8 @@
   --popover-foreground: oklch(0.205 0 0);
 
   /* Brand colors */
-  --primary: oklch(41.326% 0.26067 266.722);
-  /* indigo-600 */
+  --primary: oklch(55% 0.22 25);
+  /* Professional red for printing/design branding */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.269 0 0);
   /* slate-800 */
@@ -146,7 +146,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+  --primary: oklch(70% 0.24 25);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);

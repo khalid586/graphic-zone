@@ -8,17 +8,14 @@ const Footer = () => (
     <footer className="bg-secondary text-muted-foreground py-16 px-6 sm:px-8 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
-                <Link href="/" className="flex items-center gap-3">
+                <Link href="/" className="flex items-center">
                     <Image
                         src={LogoImage}
                         alt="Graphic Zone Logo"
-                        width={40}
-                        height={40}
-                        className="w-10 h-10 object-contain"
+                        width={160}
+                        height={160}
+                        className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-contain"
                     />
-                    <span className="text-xl font-bold tracking-tight text-white">
-                        Graphic<span className="text-primary">Zone</span>
-                    </span>
                 </Link>
                 <div className="flex items-start gap-3 text-center md:text-left">
                     <MapPin className="w-5 h-5 text-primary/80 flex-shrink-0" />

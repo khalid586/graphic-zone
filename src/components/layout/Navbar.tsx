@@ -50,18 +50,15 @@ const Navbar = ({ navItems, ctaLabel = 'কোটেশন চাই', ctaAction
                 }`}
         >
             <div className="max-w-7xl mx-auto w-full flex justify-between items-center py-3 md:py-4">
-                <Link href="/" className="flex items-center gap-2 sm:gap-3">
+                <Link href="/" className="flex items-center">
                     <Image
                         src={LogoImage}
                         alt="Graphic Zone Logo"
-                        width={40}
-                        height={40}
-                        className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                        width={96}
+                        height={96}
+                        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
                         priority
                     />
-                    <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-foreground">
-                        Graphic<span className="text-primary">Zone</span>
-                    </span>
                 </Link>
 
                 {/* Desktop Menu */}
