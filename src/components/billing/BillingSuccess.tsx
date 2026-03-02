@@ -8,26 +8,22 @@ import type { Bill } from '@/types/billing';
 
 type BillingSuccessProps = {
     readonly bill: Bill;
-    readonly action: 'draft' | 'generated';
     onCreateNew: () => void;
     onClose: () => void;
 }
 
-const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessProps) => {
-    const title = action === 'draft' ? 'Bill Saved as Draft' : 'Bill Generated Successfully';
-    const description =
-        action === 'draft'
-            ? 'Your bill has been saved and can be edited later.'
-            : 'The bill has been generated and is ready to be sent to the customer.';
+const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => {
+    const title = 'Bill Generated Successfully';
+    const description = 'The bill has been generated and is ready to be sent to the customer.';
 
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl border border-muted shadow-lg max-w-md w-full mx-auto overflow-hidden"
+            className="bg-white rounded-2xl border border-muted shadow-lg max-w-md w-full mx-auto overflow-hidden max-h-[90vh] flex flex-col"
         >
             {/* Header */}
-            <div className="relative bg-gradient-to-br from-success/10 to-success/20 px-6 py-8 text-center border-b border-success/20">
+            <div className="relative bg-gradient-to-br from-success/10 to-success/20 px-6 py-8 text-center border-b border-success/20 shrink-0">
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
@@ -47,8 +43,8 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
                 <p className="text-sm text-muted-foreground">{description}</p>
             </div>
 
-            {/* Bill Details */}
-            <div className="px-6 py-5 space-y-4 bg-background/50">
+            {/* Bill Details - Scrollable */}
+            <div className="px-6 py-5 space-y-4 bg-background/50 overflow-y-auto flex-1">
                 {/* Basic Info */}
                 <div className="bg-white rounded-lg border border-muted p-4 space-y-3">
                     <div className="flex items-center justify-between text-sm">
@@ -120,8 +116,8 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
                 </div>
             </div>
 
-            {/* Actions */}
-            <div className="px-6 py-4 bg-white border-t border-muted flex flex-col gap-3">
+            {/* Actions - Fixed at Bottom */}
+            <div className="px-6 py-4 bg-white border-t border-muted flex flex-col gap-3 shrink-0">
                 <Button
                     variant="destructive"
                     onClick={onClose}

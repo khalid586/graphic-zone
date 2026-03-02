@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Plus, Save, FileCheck, ChevronDown, Check } from 'lucide-react';
+import { Plus, FileCheck, ChevronDown, Check } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 import { formatCurrency } from '@/lib/format';
 
 type BillingFormProps = {
-    onSubmit: (data: BillingFormData, action: 'draft' | 'generate') => void;
+    onSubmit: (data: BillingFormData) => void;
     onChange?: (data: BillingFormData) => void;
 }
 
@@ -145,47 +145,44 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
         }
     };
 
-    const validate = (action: 'draft' | 'generate'): boolean => {
+    const validate = (): boolean => {
         const newErrors: FormErrors = {};
 
-        // Only validate for 'generate', not for 'draft'
-        if (action === 'generate') {
-            if (!customerName.trim()) {
-                newErrors.customerName = 'Customer name is required';
+        if (!customerName.trim()) {
+            newErrors.customerName = 'Customer name is required';
+        }
+
+        if (!customerAddress.trim()) {
+            newErrors.customerAddress = 'Customer address is required';
+        }
+
+        const itemErrors: Record<string, string> = {};
+        let hasItems = false;
+
+        items.forEach((item) => {
+            if (item.description.trim() && item.quantity > 0 && item.rate > 0) {
+                hasItems = true;
+            } else if (!item.description.trim()) {
+                itemErrors[item.id] = 'Item description is required';
+            } else if (item.quantity <= 0) {
+                itemErrors[item.id] = 'Quantity must be greater than 0';
+            } else if (item.rate <= 0) {
+                itemErrors[item.id] = 'Rate must be greater than 0';
             }
+        });
 
-            if (!customerAddress.trim()) {
-                newErrors.customerAddress = 'Customer address is required';
-            }
-
-            const itemErrors: Record<string, string> = {};
-            let hasItems = false;
-
-            items.forEach((item) => {
-                if (item.description.trim() && item.quantity > 0 && item.rate > 0) {
-                    hasItems = true;
-                } else if (!item.description.trim()) {
-                    itemErrors[item.id] = 'Item description is required';
-                } else if (item.quantity <= 0) {
-                    itemErrors[item.id] = 'Quantity must be greater than 0';
-                } else if (item.rate <= 0) {
-                    itemErrors[item.id] = 'Rate must be greater than 0';
-                }
-            });
-
-            if (!hasItems) {
-                newErrors.items = itemErrors;
-            } else if (Object.keys(itemErrors).length > 0) {
-                newErrors.items = itemErrors;
-            }
+        if (!hasItems) {
+            newErrors.items = itemErrors;
+        } else if (Object.keys(itemErrors).length > 0) {
+            newErrors.items = itemErrors;
         }
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmitForm = async (action: 'draft' | 'generate') => {
-        if (!validate(action)) return;
+    const handleSubmitForm = async () => {
+        if (!validate()) return;
 
         setIsSubmitting(true);
 
@@ -202,7 +199,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
         // Simulate API delay
         await new Promise((resolve) => setTimeout(resolve, 800));
 
-        onSubmit(formData, action);
+        onSubmit(formData);
         setIsSubmitting(false);
     };
 
@@ -210,7 +207,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
         <form
             onSubmit={(e) => {
                 e.preventDefault();
-                handleSubmitForm('generate');
+                handleSubmitForm();
             }}
             className="space-y-6"
         >
@@ -367,19 +364,9 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             {/* Form Actions */}
             <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-muted">
                 <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => handleSubmitForm('draft')}
-                    disabled={isSubmitting}
-                    className="flex-1 sm:flex-none sm:w-auto"
-                >
-                    <Save className="w-4 h-4" />
-                    Save Draft
-                </Button>
-                <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex-1 bg-primary hover:bg-primary/90"
+                    className="w-full bg-primary hover:bg-primary/90"
                 >
                     <FileCheck className="w-4 h-4" />
                     {isSubmitting ? 'Generating...' : 'Generate Bill'}

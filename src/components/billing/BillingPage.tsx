@@ -17,14 +17,13 @@ const BillingPage = () => {
     });
     const [generatedBill, setGeneratedBill] = useState<Bill | null>(null);
     const [showSuccess, setShowSuccess] = useState(false);
-    const [successAction, setSuccessAction] = useState<'draft' | 'generated'>('generated');
     const [formKey, setFormKey] = useState(0);
 
     const handleFormChange = (data: Partial<BillingFormData>) => {
         setFormData((prev) => ({ ...prev, ...data }));
     };
 
-    const handleSubmit = (data: BillingFormData, action: 'draft' | 'generate') => {
+    const handleSubmit = (data: BillingFormData) => {
         // Calculate total
         const total = data.items.reduce((sum, item) => sum + item.amount, 0);
         const due = total - data.advance;
@@ -33,7 +32,7 @@ const BillingPage = () => {
         const bill: Bill = {
             ...data,
             id: `BILL-${Date.now()}`,
-            status: action === 'draft' ? 'draft' : 'generated',
+            status: 'generated',
             total,
             due,
             createdAt: new Date(),
@@ -41,7 +40,6 @@ const BillingPage = () => {
         };
 
         setGeneratedBill(bill);
-        setSuccessAction(action === 'draft' ? 'draft' : 'generated');
         setShowSuccess(true);
     };
 
@@ -103,7 +101,6 @@ const BillingPage = () => {
                                 <div onClick={(e) => e.stopPropagation()}>
                                     <BillingSuccess
                                         bill={generatedBill}
-                                        action={successAction}
                                         onCreateNew={handleCreateNew}
                                         onClose={handleCloseSuccess}
                                     />
