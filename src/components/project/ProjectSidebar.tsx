@@ -154,5 +154,3 @@ const ProjectMobileSidebar = ({ project }: ProjectSidebarProps) => (
 );
 
 export { ProjectSidebar, ProjectMobileSidebar };
-export default ProjectSidebar;
-
