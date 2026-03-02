@@ -8,7 +8,7 @@ const Process = () => (
             <div className="grid lg:grid-cols-4 gap-12">
                 {PROCESS.map((p, idx) => (
                     <div key={p.step} className="relative">
-                        <div className="text-8xl font-black text-muted/10 absolute -top-10 -left-4 z-0">{p.step}</div>
+                        <div className="text-8xl font-black text-primary/20 absolute -top-10 -left-4 z-0">{p.step}</div>
                         <div className="relative z-10 pt-4">
                             <h4 className="text-xl font-bold text-foreground mb-4">{p.title}</h4>
                             <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
