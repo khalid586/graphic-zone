@@ -21,7 +21,7 @@ const Footer = () => (
                     </span>
                 </Link>
                 <div className="flex items-start gap-3 text-center md:text-left">
-                    <MapPin className="w-5 h-5 text-indigo-400 mt-1 flex-shrink-0" />
+                    <MapPin className="w-5 h-5 text-indigo-400 flex-shrink-0" />
                     <div>
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">আমাদের ঠিকানা</p>
                         <p className="text-white font-semibold">{BRAND.address.street}</p>
