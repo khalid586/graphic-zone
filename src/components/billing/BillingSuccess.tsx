@@ -18,7 +18,7 @@ const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => 
 
     // Create WhatsApp message
     const createWhatsAppMessage = () => {
-        const itemsList = bill.items.map((item, idx) => 
+        const itemsList = bill.items.map((item, idx) =>
             `${idx + 1}. ${item.description}\n   ${item.quantity} × ${formatCurrency(item.rate)} = ${formatCurrency(item.amount)}`
         ).join('\n\n');
 

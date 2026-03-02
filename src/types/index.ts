@@ -41,6 +41,7 @@ export interface PortfolioItem {
     readonly id: number;
     readonly title: string;
     readonly cat: string;
+    readonly desc: string;
     readonly img: string;
 }
 
