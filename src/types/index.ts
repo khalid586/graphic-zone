@@ -2,7 +2,7 @@
  * Shared / cross-cutting types.
  *
  * ─ Branded types give compile-time safety to primitive values
- *   (e.g. you can't accidentally pass an OrderId where a ProjectId
+ *   (e.g. you can't accidentally pass an OrderId where a UserId
  *   is expected, even though both are strings at runtime).
  *
  * ─ `readonly` on every field enforces immutability at the type
@@ -22,11 +22,9 @@ declare const __brand: unique symbol;
 export type Brand<T, B extends string> = T & { readonly [__brand]: B };
 
 export type OrderId = Brand<string, 'OrderId'>;
-export type ProjectId = Brand<number, 'ProjectId'>;
 
 /** Cast helper — use at system boundaries (API responses, route params). */
 export const asOrderId = (raw: string): OrderId => raw as OrderId;
-export const asProjectId = (raw: number): ProjectId => raw as ProjectId;
 
 // ── Domain types ──────────────────────────────────────────────────
 
@@ -50,31 +48,4 @@ export interface ProcessStep {
     readonly step: string;
     readonly title: string;
     readonly desc: string;
-}
-
-export interface ProjectChallenge {
-    readonly title: string;
-    readonly description: string;
-}
-
-export interface ProjectMaterials {
-    readonly paper: string;
-    readonly size: string;
-    readonly method: string;
-}
-
-export interface Project {
-    readonly id: number;
-    readonly title: string;
-    readonly category: string;
-    readonly client: string;
-    readonly date: string;
-    readonly heroImg: string;
-    readonly description: string;
-    readonly gallery: readonly string[];
-    readonly services: readonly string[];
-    readonly materials: ProjectMaterials;
-    readonly challenges: readonly ProjectChallenge[];
-    readonly tags: readonly string[];
-    readonly rating: number;
 }

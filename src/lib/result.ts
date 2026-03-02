@@ -7,12 +7,12 @@
  * eliminate whole classes of unhandled-exception bugs.
  *
  * @example
- *   const result = await getProjectById('42');
+ *   const result = await getUserProfile();
  *   if (!result.ok) {
  *     logError(result.error);
  *     return notFound();
  *   }
- *   const project = result.data; // fully typed
+ *   const user = result.data; // fully typed
  */
 
 // ── Core types ────────────────────────────────────────────────────

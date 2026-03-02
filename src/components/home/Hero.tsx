@@ -1,12 +1,13 @@
 'use client';
 
-import { ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { scrollToContact } from '@/lib/navigation';
+import { BRAND } from '@/config';
 
 type HeroProps = {
     onCtaClick?: () => void;
@@ -39,10 +40,12 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                         বাল্ক অর্ডার করুন <ArrowRight className="w-4 h-4" />
                     </Button>
                     <Button
-                        variant="outline"
-                        className="bg-white border-2 border-slate-200 text-slate-600 px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-slate-50 h-auto"
+                        asChild
+                        className="bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-green-700 shadow-xl shadow-green-600/20 h-auto"
                     >
-                        মূল্য তালিকা ডাউনলোড
+                        <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            <MessageCircle className="w-4 h-4" /> হোয়াটসঅ্যাপে যোগাযোগ
+                        </a>
                     </Button>
                 </div>
                 <div className="mt-12 flex items-center gap-8 pt-8 border-t border-slate-200">

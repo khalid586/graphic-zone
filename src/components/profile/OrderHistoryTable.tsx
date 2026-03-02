@@ -11,8 +11,7 @@ import {
 } from '@/config';
 import type { OrderFilterType, OrderSortField } from '@/config';
 import { OrderSearchBar } from './OrderSearchBar';
-import { OrderDesktopTable } from './OrderDesktopTable';
-import { OrderMobileCards } from './OrderMobileCards';
+import { OrderTable } from './OrderTable';
 import { OrderEmptyState } from './OrderEmptyState';
 
 type OrderHistoryTableProps = {
@@ -70,21 +69,13 @@ const OrderHistoryTable = ({ orders }: OrderHistoryTableProps) => {
                 resultCount={filtered.length}
             />
 
-            <OrderDesktopTable
+            <OrderTable
                 orders={filtered}
                 statusConfig={ORDER_STATUS_STYLES}
                 paymentConfig={PAYMENT_STATUS_STYLES}
                 statusLabels={ORDER_STATUS_LABELS}
                 paymentLabels={PAYMENT_STATUS_LABELS}
                 onToggleSort={toggleSort}
-            />
-
-            <OrderMobileCards
-                orders={filtered}
-                statusConfig={ORDER_STATUS_STYLES}
-                paymentConfig={PAYMENT_STATUS_STYLES}
-                statusLabels={ORDER_STATUS_LABELS}
-                paymentLabels={PAYMENT_STATUS_LABELS}
             />
 
             {filtered.length === 0 && <OrderEmptyState />}

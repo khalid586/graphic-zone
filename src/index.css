@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: var(--font-hind-siliguri), var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), var(--font-hind-siliguri), ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 

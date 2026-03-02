@@ -2,8 +2,6 @@
  * Shared error fallback component.
  *
  * Used by both the global error boundary and route-level error pages.
- * Eliminates the duplicated error UI that existed across
- * `app/error.tsx` and `app/project/[id]/error.tsx`.
  */
 
 'use client';
