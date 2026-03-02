@@ -27,7 +27,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                 </Badge>
                 <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 leading-[1.1]">
                     আপনার ব্র্যান্ড বড় করুন <br />
-                    <span className="text-primary text-6xl md:text-7xl">গ্রাফিক জোনের সাথে।</span>
+                    <span className="text-primary text-6xl md:text-7xl">গ্রাফিক জোন এর সাথে।</span>
                 </h1>
                 <p className="text-lg text-muted-foreground mb-10 leading-relaxed max-w-xl">
                     উচ্চ-মানের <span className="text-primary font-bold">প্রিন্টিং , ব্র্যান্ডিং এবং লার্জ-ফরম্যাট </span> সমাধানে দেশব্যাপী কর্পোরেশনগুলোর আস্থা। আমরা মানসম্মত সেবা প্রদান করি।
