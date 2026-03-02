@@ -14,9 +14,9 @@ type HeroProps = {
 }
 
 const Hero = ({ onCtaClick }: HeroProps = {}) => (
-    <section className="relative py-4 md:py-10 lg:py-14 xl:py-19 px-6 sm:px-8 bg-background overflow-hidden">
+    <section className="relative py-4 md:py-10 lg:h-screen lg:flex lg:items-center lg:-mt-36 px-6 sm:px-8 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 translate-x-1/2" />
-        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center w-full">
             <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
