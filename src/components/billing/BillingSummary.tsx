@@ -26,7 +26,7 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
             <div className="border-b border-muted px-5 py-4">
                 <div className="flex items-center gap-2">
                     <FileText className="w-5 h-5 text-primary" />
-                    <h3 className="font-semibold text-foreground">Bill Preview</h3>
+                    <h3 className="font-semibold text-foreground">Invoice Preview</h3>
                 </div>
             </div>
 

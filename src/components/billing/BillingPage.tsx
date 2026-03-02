@@ -81,7 +81,7 @@ const BillingPage = () => {
                             <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                                 <FileText className="w-5 h-5 text-primary" />
                             </div>
-                            <h1 className="text-3xl font-bold text-foreground">Create Bill</h1>
+                            <h1 className="text-3xl font-bold text-foreground">Create Invoice</h1>
                         </div>
                         <p className="text-muted-foreground text-sm sm:text-base">
                             Generate invoice for customer order

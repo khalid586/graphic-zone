@@ -369,7 +369,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                     className="w-full bg-primary hover:bg-primary/90"
                 >
                     <FileCheck className="w-4 h-4" />
-                    {isSubmitting ? 'Generating...' : 'Generate Bill'}
+                    {isSubmitting ? 'Generating...' : 'Generate Invoice'}
                 </Button>
             </div>
         </form>
