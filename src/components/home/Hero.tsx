@@ -48,7 +48,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                         </a>
                     </Button>
                 </div>
-                <div className="mt-12 flex items-center gap-8 pt-8">
+                <div className="mt-8 md:mt-12 flex items-center gap-8 pt-8">
                     <div>
                         <p className="text-2xl font-black text-foreground">৫,০০০+</p>
                         <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">কর্পোরেট ক্লায়েন্ট</p>
@@ -66,7 +66,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="relative"
             >
-                <div className="bg-white p-4 rounded-[2rem] shadow-2xl relative z-10">
+                <div className="bg-white rounded-[2rem] shadow-2xl relative z-10">
                     <Image
                         src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&h=600&fit=crop&q=80"
                         width={800}
