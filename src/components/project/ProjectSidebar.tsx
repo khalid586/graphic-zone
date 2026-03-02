@@ -3,6 +3,7 @@ import { Tag, User, Calendar, Layers, Star, Palette, Phone, MessageSquare } from
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { BRAND } from '@/config/site';
 import type { Project } from '@/types';
 
 type ProjectSidebarProps = {
@@ -97,7 +98,7 @@ const ProjectSidebar = ({ project }: ProjectSidebarProps) => (
                     </Link>
                 </Button>
                 <Button asChild className="w-full bg-green-600 text-white px-6 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-green-700 h-auto">
-                    <a href="https://wa.me/1800GRAPHIC" target="_blank" rel="noopener noreferrer">
+                    <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer">
                         <MessageSquare className="w-4 h-4" />
                         হোয়াটসঅ্যাপ
                     </a>
@@ -133,12 +134,20 @@ const ProjectMobileSidebar = ({ project }: ProjectSidebarProps) => (
             </CardContent>
         </Card>
         <TagList tags={project.tags} />
-        <div className="grid grid-cols-2 gap-3">
-            <Button asChild className="bg-indigo-600 text-white px-4 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 h-auto">
-                <Link href="/#contact">ডিজাইন চাই</Link>
-            </Button>
-            <Button asChild className="bg-slate-900 text-white px-4 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-slate-800 h-auto">
-                <Link href="/#contact">যোগাযোগ করুন</Link>
+        <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-3">
+                <Button asChild className="bg-indigo-600 text-white px-4 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 h-auto">
+                    <Link href="/#contact">ডিজাইন চাই</Link>
+                </Button>
+                <Button asChild className="bg-slate-900 text-white px-4 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-slate-800 h-auto">
+                    <Link href="/#contact">যোগাযোগ করুন</Link>
+                </Button>
+            </div>
+            <Button asChild className="w-full bg-green-600 text-white px-4 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-green-700 h-auto">
+                <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    <MessageSquare className="w-4 h-4" />
+                    হোয়াটসঅ্যাপ
+                </a>
             </Button>
         </div>
     </div>

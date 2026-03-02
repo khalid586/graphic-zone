@@ -113,7 +113,7 @@ const Navbar = ({ navItems, ctaLabel = 'কোটেশন চাই', ctaAction
                                 {mobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="w-full sm:w-80 pt-12">
+                        <SheetContent side="right" className="w-full sm:w-80 pt-12 px-6">
                             <SheetTitle className="sr-only">ন্যাভিগেশন মেনু</SheetTitle>
                             <div className="flex flex-col gap-6 sm:gap-8 text-base sm:text-lg font-bold text-slate-900 uppercase tracking-wide sm:tracking-widest">
                                 {navItems.map((item) =>
