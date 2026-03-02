@@ -17,7 +17,23 @@ export async function POST(request: NextRequest) {
         }
 
         const body = await request.json();
-        const { companyName, address, mobile, workDescription, quantity } = body;
+        let { companyName, address, mobile, workDescription, quantity } = body;
+
+        // Convert Bengali numerals to English numerals
+        const bengaliToEnglish = (str: string) => {
+            if (!str) return str;
+            const bengaliNumerals = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+            const englishNumerals = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            let result = str.toString();
+            bengaliNumerals.forEach((bengali, index) => {
+                result = result.replace(new RegExp(bengali, 'g'), englishNumerals[index]);
+            });
+            return result;
+        };
+
+        // Convert Bengali numerals in mobile and quantity
+        if (mobile) mobile = bengaliToEnglish(mobile);
+        if (quantity) quantity = bengaliToEnglish(quantity);
 
         // Validate required fields
         if (!companyName || !address || !mobile || !workDescription || !quantity) {
