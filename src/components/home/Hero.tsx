@@ -48,7 +48,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                         </a>
                     </Button>
                 </div>
-                <div className="mt-12 flex items-center gap-8 pt-8 border-t border">
+                <div className="mt-12 flex items-center gap-8 pt-8">
                     <div>
                         <p className="text-2xl font-black text-foreground">৫,০০০+</p>
                         <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">কর্পোরেট ক্লায়েন্ট</p>
