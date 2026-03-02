@@ -1,4 +1,9 @@
 import { Hero, Services, Portfolio, Process, Contact } from '@/components/home';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Graphic Zone | Home',
+};
 
 const HomePage = () => {
     return (

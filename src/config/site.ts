@@ -61,7 +61,7 @@ export const CTA = {
 // ── SEO / Metadata ────────────────────────────────────────────────
 
 export const DEFAULT_METADATA: Metadata = {
-    title: 'গ্রাফিক জোন - ডিজাইন ও প্রিন্টিং সমাধান',
+    title: 'Graphic Zone',
     description:
         'উচ্চ-মানের প্রিন্টিং, ব্র্যান্ডিং এবং লার্জ-ফরম্যাট সমাধানে বিশ্বব্যাপী কর্পোরেশনগুলোর আস্থা।',
     icons: {

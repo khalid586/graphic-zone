@@ -1,7 +1,7 @@
 import { ProfileDashboard } from '@/components/profile';
 
 export const metadata = {
-    title: 'আমার প্রোফাইল | গ্রাফিক জোন',
+    title: 'Graphic Zone | Profile',
     description: 'আপনার অর্ডারের ইতিহাস দেখুন, ডেলিভারি ট্র্যাক করুন এবং আপনার গ্রাফিক জোন অ্যাকাউন্ট ম্যানেজ করুন।',
 };
 

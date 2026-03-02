@@ -1,7 +1,7 @@
 import { BillingPage } from '@/components/billing';
 
 export const metadata = {
-    title: 'Create Bill | Graphic Zone Admin',
+    title: 'Graphic Zone |Create Bill',
     description: 'Generate invoice for customer order',
 };
 

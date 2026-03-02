@@ -1,7 +1,7 @@
 import { AuthPage } from '@/components/auth';
 
 export const metadata = {
-    title: 'লগইন | গ্রাফিক জোন',
+    title: 'Graphic Zone | login',
     description: 'অর্ডার ট্র্যাক করতে, পেমেন্ট ম্যানেজ করতে এবং আপনার ডিজাইন অ্যাক্সেস করতে সাইন ইন করুন বা অ্যাকাউন্ট তৈরি করুন।',
 };
 
