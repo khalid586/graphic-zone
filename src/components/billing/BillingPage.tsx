@@ -12,7 +12,8 @@ const BillingPage = () => {
     const [formData, setFormData] = useState<BillingFormData>({
         customerName: '',
         customerAddress: '',
-        items: [{ id: crypto.randomUUID(), description: '', price: 0 }] as readonly BillingItem[],
+        items: [{ id: crypto.randomUUID(), description: '', quantity: 1, rate: 0, amount: 0 }] as readonly BillingItem[],
+        advance: 0,
     });
     const [generatedBill, setGeneratedBill] = useState<Bill | null>(null);
     const [showSuccess, setShowSuccess] = useState(false);
@@ -24,11 +25,17 @@ const BillingPage = () => {
     };
 
     const handleSubmit = (data: BillingFormData, action: 'draft' | 'generate') => {
+        // Calculate total
+        const total = data.items.reduce((sum, item) => sum + item.amount, 0);
+        const due = total - data.advance;
+
         // Create bill object
         const bill: Bill = {
             ...data,
             id: `BILL-${Date.now()}`,
             status: action === 'draft' ? 'draft' : 'generated',
+            total,
+            due,
             createdAt: new Date(),
             updatedAt: new Date(),
         };
@@ -42,7 +49,8 @@ const BillingPage = () => {
         setFormData({
             customerName: '',
             customerAddress: '',
-            items: [{ id: crypto.randomUUID(), description: '', price: 0 }] as readonly BillingItem[],
+            items: [{ id: crypto.randomUUID(), description: '', quantity: 1, rate: 0, amount: 0 }] as readonly BillingItem[],
+            advance: 0,
         });
         setGeneratedBill(null);
         setShowSuccess(false);
@@ -55,7 +63,8 @@ const BillingPage = () => {
         setFormData({
             customerName: '',
             customerAddress: '',
-            items: [{ id: crypto.randomUUID(), description: '', price: 0 }] as readonly BillingItem[],
+            items: [{ id: crypto.randomUUID(), description: '', quantity: 1, rate: 0, amount: 0 }] as readonly BillingItem[],
+            advance: 0,
         });
         setFormKey((prev) => prev + 1); // Force form to remount
     };

@@ -11,6 +11,7 @@ import { BillingItemRow } from './BillingItemRow';
 import { MOCK_CUSTOMERS } from '@/data/customers';
 import type { BillingFormData, BillingItem } from '@/types/billing';
 import { cn } from '@/lib/utils';
+import { formatCurrency } from '@/lib/format';
 
 type BillingFormProps = {
     onSubmit: (data: BillingFormData, action: 'draft' | 'generate') => void;
@@ -30,11 +31,18 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const [items, setItems] = useState<BillingItem[]>([
-        { id: crypto.randomUUID(), description: '', price: 0 },
+        { id: crypto.randomUUID(), description: '', quantity: 1, rate: 0, amount: 0 },
     ]);
+    const [advance, setAdvance] = useState(0);
     const [errors, setErrors] = useState<FormErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const onChangeRef = useRef(onChange);
+
+    // Keep the onChange ref up to date
+    useEffect(() => {
+        onChangeRef.current = onChange;
+    }, [onChange]);
 
     // Filter customers based on search query
     const filteredCustomers = MOCK_CUSTOMERS.filter((customer) =>
@@ -52,16 +60,17 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
-    // Notify parent of form changes
-    const notifyChange = (name: string, address: string, itemList: BillingItem[]) => {
-        if (onChange) {
-            onChange({
-                customerName: name,
-                customerAddress: address,
-                items: itemList as readonly BillingItem[],
+    // Notify parent of form changes whenever relevant state changes
+    useEffect(() => {
+        if (onChangeRef.current) {
+            onChangeRef.current({
+                customerName,
+                customerAddress,
+                items: items as readonly BillingItem[],
+                advance,
             });
         }
-    };
+    }, [customerName, customerAddress, items, advance]);
 
     const clearFieldError = (field: keyof FormErrors) => {
         if (errors[field]) {
@@ -77,7 +86,6 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             setCustomerAddress(customer.address);
             setSearchQuery(customer.name);
             setShowDropdown(false);
-            notifyChange(customer.name, customer.address, items);
             clearFieldError('customerName');
             clearFieldError('customerAddress');
         }
@@ -91,7 +99,6 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             setSelectedCustomerId('');
             setCustomerName('');
             setCustomerAddress('');
-            notifyChange('', '', items);
         }
     };
 
@@ -108,32 +115,32 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
         }
     };
 
-    const handleItemChange = (id: string, field: 'description' | 'price', value: string | number) => {
-        setItems((prev) => {
-            const updated = prev.map((item) =>
-                item.id === id ? { ...item, [field]: value } : item
-            );
-            notifyChange(customerName, customerAddress, updated);
-            return updated;
-        });
+    const handleItemChange = (id: string, field: 'description' | 'quantity' | 'rate', value: string | number) => {
+        setItems((prev) =>
+            prev.map((item) => {
+                if (item.id === id) {
+                    const updated = { ...item, [field]: value };
+                    // Recalculate amount when quantity or rate changes
+                    if (field === 'quantity' || field === 'rate') {
+                        const qty = field === 'quantity' ? Number(value) : item.quantity;
+                        const rt = field === 'rate' ? Number(value) : item.rate;
+                        updated.amount = qty * rt;
+                    }
+                    return updated;
+                }
+                return item;
+            })
+        );
         clearItemError(id);
     };
 
     const handleAddItem = () => {
-        setItems((prev) => {
-            const updated = [...prev, { id: crypto.randomUUID(), description: '', price: 0 }];
-            notifyChange(customerName, customerAddress, updated);
-            return updated;
-        });
+        setItems((prev) => [...prev, { id: crypto.randomUUID(), description: '', quantity: 1, rate: 0, amount: 0 }]);
     };
 
     const handleRemoveItem = (id: string) => {
         if (items.length > 1) {
-            setItems((prev) => {
-                const updated = prev.filter((item) => item.id !== id);
-                notifyChange(customerName, customerAddress, updated);
-                return updated;
-            });
+            setItems((prev) => prev.filter((item) => item.id !== id));
             clearItemError(id);
         }
     };
@@ -155,12 +162,14 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             let hasItems = false;
 
             items.forEach((item) => {
-                if (item.description.trim() && item.price > 0) {
+                if (item.description.trim() && item.quantity > 0 && item.rate > 0) {
                     hasItems = true;
                 } else if (!item.description.trim()) {
-                    itemErrors[item.id] = 'Item name is required';
-                } else if (item.price <= 0) {
-                    itemErrors[item.id] = 'Item price must be greater than 0';
+                    itemErrors[item.id] = 'Item description is required';
+                } else if (item.quantity <= 0) {
+                    itemErrors[item.id] = 'Quantity must be greater than 0';
+                } else if (item.rate <= 0) {
+                    itemErrors[item.id] = 'Rate must be greater than 0';
                 }
             });
 
@@ -181,12 +190,13 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
         setIsSubmitting(true);
 
         // Filter out empty items
-        const validItems = items.filter((item) => item.description.trim() && item.price > 0);
+        const validItems = items.filter((item) => item.description.trim() && item.quantity > 0 && item.rate > 0);
 
         const formData: BillingFormData = {
             customerName: customerName.trim(),
             customerAddress: customerAddress.trim(),
             items: validItems,
+            advance,
         };
 
         // Simulate API delay
@@ -283,7 +293,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                 <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                         <Label className="text-foreground font-medium">Items & Pricing *</Label>
-                        <p className="text-xs text-muted-foreground">Enter item details and set prices</p>
+                        <p className="text-xs text-muted-foreground">Enter item details, quantity and rates</p>
                     </div>
                     <span className="text-xs text-muted-foreground">{items.length} item(s)</span>
                 </div>
@@ -299,7 +309,9 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                             <BillingItemRow
                                 id={item.id}
                                 description={item.description}
-                                price={item.price}
+                                quantity={item.quantity}
+                                rate={item.rate}
+                                amount={item.amount}
                                 error={errors.items?.[item.id]}
                                 canRemove={items.length > 1}
                                 showLabels={index === 0}
@@ -319,6 +331,37 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                     <Plus className="w-4 h-4" />
                     Add Item
                 </Button>
+            </div>
+
+            {/* Totals Section */}
+            <div className="space-y-4 pt-4 border-t border-muted">
+                <div className="bg-primary/5 rounded-lg p-4 space-y-3">
+                    <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-foreground">Total:</span>
+                        <span className="text-lg font-bold text-foreground">
+                            {formatCurrency(items.reduce((sum, item) => sum + item.amount, 0))}
+                        </span>
+                    </div>
+                    <div className="flex justify-between items-center gap-4">
+                        <Label htmlFor="advance" className="text-sm font-medium text-foreground">Advance:</Label>
+                        <Input
+                            id="advance"
+                            type="number"
+                            placeholder="0.00"
+                            value={advance || ''}
+                            onChange={(e) => setAdvance(parseFloat(e.target.value) || 0)}
+                            className="w-40 text-right"
+                            min="0"
+                            step="0.01"
+                        />
+                    </div>
+                    <div className="flex justify-between items-center pt-2 border-t border-primary/20">
+                        <span className="text-sm font-semibold text-foreground">Due:</span>
+                        <span className="text-xl font-bold text-primary">
+                            {formatCurrency(items.reduce((sum, item) => sum + item.amount, 0) - advance)}
+                        </span>
+                    </div>
+                </div>
             </div>
 
             {/* Form Actions */}

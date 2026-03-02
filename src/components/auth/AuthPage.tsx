@@ -15,19 +15,13 @@ import { LoginForm } from './LoginForm';
 import LogoImage from '../../../assets/Logo.png';
 
 const BrandPanel = () => (
-    <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-secondary via-secondary to-primary/30">
+    <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-primary/20 via-primary/15 to-info/20">
         {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-full h-full"
-                style={{
-                    backgroundImage: `radial-gradient(circle at 25% 25%, rgba(99,102,241,0.3) 0%, transparent 50%),
-                                      radial-gradient(circle at 75% 75%, rgba(99,102,241,0.2) 0%, transparent 50%)`,
-                }}
-            />
+        <div className="absolute inset-0 opacity-40">
             <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary/30" />
                     </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#grid)" />
@@ -46,7 +40,7 @@ const BrandPanel = () => (
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="relative mb-12"
                 >
-                    <div className="w-32 h-32 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center p-4">
+                    <div className="w-32 h-32 rounded-3xl bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center p-4 shadow-lg">
                         <Image
                             src={LogoImage}
                             alt="Graphic Zone Logo"
@@ -59,17 +53,17 @@ const BrandPanel = () => (
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.6 }}
-                        className="absolute -top-3 -right-3 w-12 h-12 rounded-2xl bg-primary/20 backdrop-blur-sm border border-primary/20 flex items-center justify-center"
+                        className="absolute -top-3 -right-3 w-12 h-12 rounded-2xl bg-warning/30 backdrop-blur-sm border border-warning/40 flex items-center justify-center shadow-md"
                     >
-                        <Palette className="w-6 h-6 text-primary/70" />
+                        <Palette className="w-6 h-6 text-warning" />
                     </motion.div>
                     <motion.div
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.8 }}
-                        className="absolute -bottom-3 -left-3 w-12 h-12 rounded-2xl bg-success/20 backdrop-blur-sm border border-success/20 flex items-center justify-center"
+                        className="absolute -bottom-3 -left-3 w-12 h-12 rounded-2xl bg-success/30 backdrop-blur-sm border border-success/40 flex items-center justify-center shadow-md"
                     >
-                        <Package className="w-6 h-6 text-success/80" />
+                        <Package className="w-6 h-6 text-success" />
                     </motion.div>
                 </motion.div>
 
@@ -80,7 +74,7 @@ const BrandPanel = () => (
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-center max-w-sm"
                 >
-                    <h2 className="text-2xl xl:text-3xl font-bold text-white mb-4 leading-tight">
+                    <h2 className="text-2xl xl:text-3xl font-bold text-foreground mb-4 leading-tight">
                         আপনার প্রিন্ট, আপনার মতো।
                     </h2>
                     <p className="text-muted-foreground text-base leading-relaxed">
@@ -91,23 +85,29 @@ const BrandPanel = () => (
 
             {/* Bottom trust indicators */}
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex items-center gap-6 text-sm"
+                className="flex items-center gap-6 text-sm bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 backdrop-blur-md px-8 py-5 rounded-2xl border border-primary/40 shadow-xl"
             >
-                <div className="flex items-center gap-2 text-muted-foreground">
-                    <ShieldCheck className="w-4 h-4 text-success" />
+                <div className="flex items-center gap-2 text-foreground font-medium">
+                    <div className="w-8 h-8 rounded-lg bg-success/20 flex items-center justify-center">
+                        <ShieldCheck className="w-4 h-4 text-success" />
+                    </div>
                     <span>নিরাপদ</span>
                 </div>
-                <Separator orientation="vertical" className="h-4 bg-muted" />
-                <div className="flex items-center gap-2 text-muted-foreground">
-                    <Clock className="w-4 h-4 text-primary" />
+                <Separator orientation="vertical" className="h-5 bg-primary/50" />
+                <div className="flex items-center gap-2 text-foreground font-medium">
+                    <div className="w-8 h-8 rounded-lg bg-primary/30 flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-primary" />
+                    </div>
                     <span>২৪/৭ অ্যাক্সেস</span>
                 </div>
-                <Separator orientation="vertical" className="h-4 bg-muted" />
-                <div className="flex items-center gap-2 text-muted-foreground">
-                    <Truck className="w-4 h-4 text-warning" />
+                <Separator orientation="vertical" className="h-5 bg-primary/50" />
+                <div className="flex items-center gap-2 text-foreground font-medium">
+                    <div className="w-8 h-8 rounded-lg bg-warning/20 flex items-center justify-center">
+                        <Truck className="w-4 h-4 text-warning" />
+                    </div>
                     <span>অর্ডার ট্র্যাকিং</span>
                 </div>
             </motion.div>

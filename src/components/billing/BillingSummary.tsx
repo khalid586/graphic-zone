@@ -10,10 +10,11 @@ type BillingSummaryProps = {
 }
 
 const BillingSummary = ({ formData }: BillingSummaryProps) => {
-    const { customerName, customerAddress, items } = formData;
-    const validItems = items.filter((item) => item.description.trim() && item.price > 0);
+    const { customerName, customerAddress, items, advance } = formData;
+    const validItems = items.filter((item) => item.description.trim() && item.quantity > 0 && item.rate > 0);
     const itemCount = validItems.length;
-    const totalAmount = validItems.reduce((sum, item) => sum + item.price, 0);
+    const totalAmount = validItems.reduce((sum, item) => sum + item.amount, 0);
+    const dueAmount = totalAmount - advance;
 
     return (
         <motion.div
@@ -68,7 +69,7 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
                             {validItems.map((item, index) => (
                                 <div
                                     key={item.id}
-                                    className="text-sm text-foreground flex justify-between gap-3"
+                                    className="text-sm text-foreground space-y-1"
                                 >
                                     <div className="flex gap-2 flex-1 min-w-0">
                                         <span className="text-muted-foreground shrink-0">
@@ -76,9 +77,12 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
                                         </span>
                                         <span className="break-words">{item.description}</span>
                                     </div>
-                                    <span className="font-medium text-foreground shrink-0">
-                                        {formatCurrency(item.price)}
-                                    </span>
+                                    <div className="pl-5 text-xs text-muted-foreground flex justify-between">
+                                        <span>{item.quantity} × {formatCurrency(item.rate)}</span>
+                                        <span className="font-medium text-foreground">
+                                            {formatCurrency(item.amount)}
+                                        </span>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -87,16 +91,28 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
                     )}
                 </div>
 
-                {/* Total */}
+                {/* Total, Advance, and Due */}
                 {itemCount > 0 && (
-                    <div className="pt-3 border-t border-muted">
+                    <div className="pt-3 border-t border-muted space-y-2">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
                                 <DollarSign className="w-4 h-4 text-primary" />
                                 <span>Total</span>
                             </div>
-                            <span className="text-lg font-bold text-primary">
+                            <span className="text-lg font-bold text-foreground">
                                 {formatCurrency(totalAmount)}
+                            </span>
+                        </div>
+                        <div className="flex items-center justify-between text-sm">
+                            <span className="text-muted-foreground">Advance</span>
+                            <span className="font-medium text-success">
+                                {formatCurrency(advance)}
+                            </span>
+                        </div>
+                        <div className="flex items-center justify-between pt-2 border-t border-muted">
+                            <span className="text-sm font-semibold text-foreground">Due</span>
+                            <span className="text-lg font-bold text-primary">
+                                {formatCurrency(dueAmount)}
                             </span>
                         </div>
                     </div>

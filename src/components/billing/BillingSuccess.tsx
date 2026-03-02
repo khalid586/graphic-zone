@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { CheckCircle2, FileText, Printer, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { formatTime } from '@/lib/format';
+import { formatTime, formatCurrency } from '@/lib/format';
 import type { Bill } from '@/types/billing';
 
 type BillingSuccessProps = {
@@ -49,6 +49,7 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
 
             {/* Bill Details */}
             <div className="px-6 py-5 space-y-4 bg-background/50">
+                {/* Basic Info */}
                 <div className="bg-white rounded-lg border border-muted p-4 space-y-3">
                     <div className="flex items-center justify-between text-sm">
                         <span className="text-muted-foreground">Bill ID</span>
@@ -61,10 +62,6 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
                         <span className="font-medium text-foreground">{bill.customerName}</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                        <span className="text-muted-foreground">Items</span>
-                        <span className="font-medium text-foreground">{bill.items.length}</span>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
                         <span className="text-muted-foreground">Generated At</span>
                         <span className="font-medium text-foreground">
                             {formatTime(bill.createdAt)}
@@ -75,6 +72,50 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
                         <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-success/10 text-success">
                             {bill.status}
                         </span>
+                    </div>
+                </div>
+
+                {/* Items Breakdown */}
+                <div className="bg-white rounded-lg border border-muted p-4">
+                    <h3 className="text-sm font-semibold text-foreground mb-3">Items</h3>
+                    <div className="space-y-3">
+                        {bill.items.map((item, index) => (
+                            <div key={item.id} className="text-sm">
+                                <div className="flex items-start justify-between mb-1">
+                                    <span className="text-foreground font-medium">
+                                        {index + 1}. {item.description}
+                                    </span>
+                                    <span className="font-semibold text-foreground ml-2 shrink-0">
+                                        {formatCurrency(item.amount)}
+                                    </span>
+                                </div>
+                                <div className="text-xs text-muted-foreground pl-4">
+                                    {item.quantity} × {formatCurrency(item.rate)}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Totals */}
+                    <div className="mt-4 pt-4 border-t border-muted space-y-2">
+                        <div className="flex items-center justify-between text-sm">
+                            <span className="font-semibold text-foreground">Total</span>
+                            <span className="font-bold text-foreground">
+                                {formatCurrency(bill.total)}
+                            </span>
+                        </div>
+                        <div className="flex items-center justify-between text-sm">
+                            <span className="text-muted-foreground">Advance</span>
+                            <span className="font-medium text-success">
+                                {formatCurrency(bill.advance)}
+                            </span>
+                        </div>
+                        <div className="flex items-center justify-between text-sm pt-2 border-t border-muted">
+                            <span className="font-semibold text-foreground">Due</span>
+                            <span className="font-bold text-primary">
+                                {formatCurrency(bill.due)}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
