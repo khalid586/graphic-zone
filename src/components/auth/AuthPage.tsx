@@ -15,7 +15,7 @@ import { LoginForm } from './LoginForm';
 import LogoImage from '../../../assets/Logo.png';
 
 const BrandPanel = () => (
-    <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900">
+    <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-secondary via-secondary to-primary/30">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full"
@@ -59,17 +59,17 @@ const BrandPanel = () => (
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.6 }}
-                        className="absolute -top-3 -right-3 w-12 h-12 rounded-2xl bg-indigo-500/20 backdrop-blur-sm border border-indigo-400/20 flex items-center justify-center"
+                        className="absolute -top-3 -right-3 w-12 h-12 rounded-2xl bg-primary/20 backdrop-blur-sm border border-primary/20 flex items-center justify-center"
                     >
-                        <Palette className="w-6 h-6 text-indigo-300" />
+                        <Palette className="w-6 h-6 text-primary/70" />
                     </motion.div>
                     <motion.div
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.8 }}
-                        className="absolute -bottom-3 -left-3 w-12 h-12 rounded-2xl bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/20 flex items-center justify-center"
+                        className="absolute -bottom-3 -left-3 w-12 h-12 rounded-2xl bg-success/20 backdrop-blur-sm border border-success/20 flex items-center justify-center"
                     >
-                        <Package className="w-6 h-6 text-emerald-300" />
+                        <Package className="w-6 h-6 text-success/80" />
                     </motion.div>
                 </motion.div>
 
@@ -83,7 +83,7 @@ const BrandPanel = () => (
                     <h2 className="text-2xl xl:text-3xl font-bold text-white mb-4 leading-tight">
                         আপনার প্রিন্ট, আপনার মতো।
                     </h2>
-                    <p className="text-slate-400 text-base leading-relaxed">
+                    <p className="text-muted-foreground text-base leading-relaxed">
                         অর্ডার ট্র্যাক করুন, পেমেন্ট ম্যানেজ করুন এবং আপনার ডিজাইন অ্যাক্সেস করুন — সব একটি ড্যাশবোর্ড থেকে।
                     </p>
                 </motion.div>
@@ -96,18 +96,18 @@ const BrandPanel = () => (
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex items-center gap-6 text-sm"
             >
-                <div className="flex items-center gap-2 text-slate-400">
-                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <div className="flex items-center gap-2 text-muted-foreground">
+                    <ShieldCheck className="w-4 h-4 text-success" />
                     <span>নিরাপদ</span>
                 </div>
-                <Separator orientation="vertical" className="h-4 bg-slate-700" />
-                <div className="flex items-center gap-2 text-slate-400">
-                    <Clock className="w-4 h-4 text-indigo-400" />
+                <Separator orientation="vertical" className="h-4 bg-muted" />
+                <div className="flex items-center gap-2 text-muted-foreground">
+                    <Clock className="w-4 h-4 text-primary" />
                     <span>২৪/৭ অ্যাক্সেস</span>
                 </div>
-                <Separator orientation="vertical" className="h-4 bg-slate-700" />
-                <div className="flex items-center gap-2 text-slate-400">
-                    <Truck className="w-4 h-4 text-amber-400" />
+                <Separator orientation="vertical" className="h-4 bg-muted" />
+                <div className="flex items-center gap-2 text-muted-foreground">
+                    <Truck className="w-4 h-4 text-warning" />
                     <span>অর্ডার ট্র্যাকিং</span>
                 </div>
             </motion.div>
@@ -131,10 +131,10 @@ const AuthPage = () => {
                 >
                     {/* Heading */}
                     <div className="mb-8">
-                        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
+                        <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
                             আবার স্বাগতম
                         </h1>
-                        <p className="text-slate-500 text-sm">
+                        <p className="text-muted-foreground text-sm">
                             চালিয়ে যেতে আপনার অ্যাকাউন্টে সাইন ইন করুন।
                         </p>
                     </div>
@@ -143,13 +143,13 @@ const AuthPage = () => {
                     <LoginForm />
 
                     {/* Footer text */}
-                    <p className="text-center text-xs text-slate-400 mt-8">
+                    <p className="text-center text-xs text-muted-foreground mt-8">
                         চালিয়ে যাওয়ার মাধ্যমে, আপনি আমাদের{' '}
-                        <button type="button" className="text-indigo-600 hover:text-indigo-700 font-medium">
+                        <button type="button" className="text-primary hover:text-primary/90 font-medium">
                             সেবার শর্তাবলী
                         </button>{' '}
                         এবং{' '}
-                        <button type="button" className="text-indigo-600 hover:text-indigo-700 font-medium">
+                        <button type="button" className="text-primary hover:text-primary/90 font-medium">
                             গোপনীয়তা নীতি
                         </button>
                         তে সম্মত হচ্ছেন।

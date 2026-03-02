@@ -6,7 +6,7 @@ import { MOCK_USER, MOCK_ORDERS } from '@/data/profile';
 
 const ProfileDashboard = () => {
     return (
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-background">
             {/* Main content */}
             <main className="px-6 sm:px-8 py-6 sm:py-8">
                 <div className="max-w-7xl mx-auto space-y-6">

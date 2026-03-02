@@ -49,3 +49,30 @@ export interface ProcessStep {
     readonly title: string;
     readonly desc: string;
 }
+
+export interface ProjectChallenge {
+    readonly title: string;
+    readonly description: string;
+}
+
+export interface ProjectMaterials {
+    readonly paper: string;
+    readonly size: string;
+    readonly method: string;
+}
+
+export interface Project {
+    readonly id: number;
+    readonly title: string;
+    readonly category: string;
+    readonly client: string;
+    readonly date: string;
+    readonly heroImg: string;
+    readonly description: string;
+    readonly gallery: readonly string[];
+    readonly services: readonly string[];
+    readonly materials: ProjectMaterials;
+    readonly challenges: readonly ProjectChallenge[];
+    readonly tags: readonly string[];
+    readonly rating: number;
+}

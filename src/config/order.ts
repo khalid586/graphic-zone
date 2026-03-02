@@ -20,10 +20,10 @@ export interface StatusStyle {
 }
 
 export const ORDER_STATUS_STYLES: Readonly<Record<OrderStatus, StatusStyle>> = {
-    Completed: { bg: 'bg-emerald-50', text: 'text-emerald-700', dot: 'bg-emerald-500' },
-    Pending: { bg: 'bg-amber-50', text: 'text-amber-700', dot: 'bg-amber-500' },
-    Processing: { bg: 'bg-blue-50', text: 'text-blue-700', dot: 'bg-blue-500' },
-    Cancelled: { bg: 'bg-red-50', text: 'text-red-700', dot: 'bg-red-500' },
+    Completed: { bg: 'bg-success/10', text: 'text-success', dot: 'bg-success' },
+    Pending: { bg: 'bg-warning/20', text: 'text-warning', dot: 'bg-warning' },
+    Processing: { bg: 'bg-info/10', text: 'text-info', dot: 'bg-info' },
+    Cancelled: { bg: 'bg-destructive/10', text: 'text-destructive', dot: 'bg-destructive' },
 } as const;
 
 export const ORDER_STATUS_LABELS: Readonly<Record<OrderStatus, string>> = {
@@ -41,10 +41,10 @@ export interface PaymentStyle {
 }
 
 export const PAYMENT_STATUS_STYLES: Readonly<Record<PaymentStatus, PaymentStyle>> = {
-    Paid: { bg: 'bg-emerald-50', text: 'text-emerald-700' },
-    Unpaid: { bg: 'bg-red-50', text: 'text-red-700' },
-    Partial: { bg: 'bg-amber-50', text: 'text-amber-700' },
-    Refunded: { bg: 'bg-slate-100', text: 'text-slate-600' },
+    Paid: { bg: 'bg-success/10', text: 'text-success' },
+    Unpaid: { bg: 'bg-destructive/10', text: 'text-destructive' },
+    Partial: { bg: 'bg-warning/20', text: 'text-warning' },
+    Refunded: { bg: 'bg-muted', text: 'text-muted-foreground' },
 } as const;
 
 export const PAYMENT_STATUS_LABELS: Readonly<Record<PaymentStatus, string>> = {

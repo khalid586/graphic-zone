@@ -24,13 +24,13 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
         <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl border border-slate-200 shadow-lg max-w-md w-full mx-auto overflow-hidden"
+            className="bg-white rounded-2xl border border-muted shadow-lg max-w-md w-full mx-auto overflow-hidden"
         >
             {/* Header */}
-            <div className="relative bg-gradient-to-br from-green-50 to-emerald-50 px-6 py-8 text-center border-b border-green-100">
+            <div className="relative bg-gradient-to-br from-success/10 to-success/20 px-6 py-8 text-center border-b border-success/20">
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors"
+                    className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
                     aria-label="Close"
                 >
                     <X className="w-5 h-5" />
@@ -39,40 +39,40 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.1, type: 'spring' }}
-                    className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                    className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
-                    <CheckCircle2 className="w-8 h-8 text-green-600" />
+                    <CheckCircle2 className="w-8 h-8 text-success" />
                 </motion.div>
-                <h2 className="text-xl font-bold text-slate-900 mb-2">{title}</h2>
-                <p className="text-sm text-slate-600">{description}</p>
+                <h2 className="text-xl font-bold text-foreground mb-2">{title}</h2>
+                <p className="text-sm text-muted-foreground">{description}</p>
             </div>
 
             {/* Bill Details */}
-            <div className="px-6 py-5 space-y-4 bg-slate-50">
-                <div className="bg-white rounded-lg border border-slate-200 p-4 space-y-3">
+            <div className="px-6 py-5 space-y-4 bg-background/50">
+                <div className="bg-white rounded-lg border border-muted p-4 space-y-3">
                     <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-500">Bill ID</span>
-                        <span className="font-mono font-medium text-slate-900">
+                        <span className="text-muted-foreground">Bill ID</span>
+                        <span className="font-mono font-medium text-foreground">
                             {bill.id}
                         </span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-500">Customer</span>
-                        <span className="font-medium text-slate-900">{bill.customerName}</span>
+                        <span className="text-muted-foreground">Customer</span>
+                        <span className="font-medium text-foreground">{bill.customerName}</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-500">Items</span>
-                        <span className="font-medium text-slate-900">{bill.items.length}</span>
+                        <span className="text-muted-foreground">Items</span>
+                        <span className="font-medium text-foreground">{bill.items.length}</span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-500">Generated At</span>
-                        <span className="font-medium text-slate-900">
+                        <span className="text-muted-foreground">Generated At</span>
+                        <span className="font-medium text-foreground">
                             {formatTime(bill.createdAt)}
                         </span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-500">Status</span>
-                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        <span className="text-muted-foreground">Status</span>
+                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-success/10 text-success">
                             {bill.status}
                         </span>
                     </div>
@@ -80,7 +80,7 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
             </div>
 
             {/* Actions */}
-            <div className="px-6 py-4 bg-white border-t border-slate-200 flex flex-col gap-3">
+            <div className="px-6 py-4 bg-white border-t border-muted flex flex-col gap-3">
                 <Button
                     variant="destructive"
                     onClick={onClose}
@@ -91,7 +91,7 @@ const BillingSuccess = ({ bill, action, onCreateNew, onClose }: BillingSuccessPr
                 <div className="flex flex-col sm:flex-row gap-3">
                     <Button
                         onClick={onCreateNew}
-                        className="flex-1 bg-indigo-600 hover:bg-indigo-700"
+                        className="flex-1 bg-primary hover:bg-primary/90"
                     >
                         <FileText className="w-4 h-4" />
                         Create New Bill

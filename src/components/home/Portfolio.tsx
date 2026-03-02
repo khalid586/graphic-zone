@@ -7,12 +7,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 const Portfolio = () => (
-    <section id="portfolio" className="py-24 px-6 sm:px-8 bg-slate-50">
+    <section id="portfolio" className="py-24 px-6 sm:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                 <div>
-                    <h2 className="text-indigo-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-4">কেস স্টাডি</h2>
-                    <p className="text-4xl font-black text-slate-900">প্রমাণিত ফলাফল।</p>
+                    <h2 className="text-primary font-bold uppercase tracking-[0.3em] text-[10px] mb-4">কেস স্টাডি</h2>
+                    <p className="text-4xl font-black text-foreground">প্রমাণিত ফলাফল।</p>
                 </div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -28,13 +28,13 @@ const Portfolio = () => (
                             />
                         </div>
                         <CardContent className="p-8">
-                            <Badge className="bg-transparent border-0 text-indigo-600 text-[10px] font-bold uppercase tracking-widest mb-2 p-0 h-auto">
+                            <Badge className="bg-transparent border-0 text-primary text-[10px] font-bold uppercase tracking-widest mb-2 p-0 h-auto">
                                 {item.cat}
                             </Badge>
-                            <h3 className="text-xl font-bold text-slate-900 mb-4">{item.title}</h3>
+                            <h3 className="text-xl font-bold text-foreground mb-4">{item.title}</h3>
                             <div className="flex gap-1">
                                 {[1, 2, 3, 4, 5].map((i) => (
-                                    <Star key={i} className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                                    <Star key={i} className="w-3 h-3 text-warning fill-warning" />
                                 ))}
                             </div>
                         </CardContent>

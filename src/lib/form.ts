@@ -22,10 +22,10 @@ export type FieldValidator = (value: string) => string | null;
 // ── Input styling ─────────────────────────────────────────────────
 
 export const INPUT_BASE_CLASS =
-    'h-11 rounded-lg bg-slate-50 border-slate-200 placeholder:text-slate-400 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/20';
+    'h-11 rounded-lg bg-background border-muted placeholder:text-muted-foreground focus-visible:border-primary focus-visible:ring-primary/20';
 
 export const INPUT_ERROR_CLASS =
-    'border-red-400 focus-visible:border-red-400 focus-visible:ring-red-400/20';
+    'border-destructive focus-visible:border-destructive focus-visible:ring-destructive/20';
 
 /** Compose input className with optional error state. */
 export const inputClassName = (hasError: boolean): string =>

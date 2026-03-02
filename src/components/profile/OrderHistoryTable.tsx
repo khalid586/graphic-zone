@@ -59,8 +59,8 @@ const OrderHistoryTable = ({ orders }: OrderHistoryTableProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="bg-white rounded-2xl border border-slate-200 overflow-hidden"
-        >
+            className="bg-white rounded-2xl border border-muted overflow-hidden">
+
             <OrderSearchBar
                 search={search}
                 onSearchChange={setSearch}

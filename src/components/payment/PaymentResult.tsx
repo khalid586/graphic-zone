@@ -31,13 +31,13 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl border border-slate-200 overflow-hidden max-w-lg mx-auto"
-        >
+            className="bg-white rounded-2xl border border-muted overflow-hidden max-w-lg mx-auto">
+
             {/* Status header */}
             <div
                 className={`px-6 py-10 text-center ${isSuccess
-                    ? 'bg-gradient-to-br from-emerald-50 to-emerald-100/50'
-                    : 'bg-gradient-to-br from-red-50 to-red-100/50'
+                    ? 'bg-gradient-to-br from-success/10 to-success/20'
+                    : 'bg-gradient-to-br from-destructive/5 to-destructive/10'
                     }`}
             >
                 <motion.div
@@ -47,16 +47,16 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                     className="mb-5"
                 >
                     {isSuccess ? (
-                        <CheckCircle2 className="w-16 h-16 mx-auto text-emerald-500" strokeWidth={1.5} />
+                        <CheckCircle2 className="w-16 h-16 mx-auto text-success" strokeWidth={1.5} />
                     ) : (
-                        <XCircle className="w-16 h-16 mx-auto text-red-500" strokeWidth={1.5} />
+                        <XCircle className="w-16 h-16 mx-auto text-destructive" strokeWidth={1.5} />
                     )}
                 </motion.div>
                 <motion.h2
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className={`text-2xl font-bold mb-2 ${isSuccess ? 'text-emerald-900' : 'text-red-900'}`}
+                    className={`text-2xl font-bold mb-2 ${isSuccess ? 'text-success/90' : 'text-destructive/90'}`}
                 >
                     {isSuccess ? 'পেমেন্ট সফল!' : 'পেমেন্ট ব্যর্থ'}
                 </motion.h2>
@@ -64,7 +64,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className={`text-sm ${isSuccess ? 'text-emerald-700' : 'text-red-700'}`}
+                    className={`text-sm ${isSuccess ? 'text-success' : 'text-destructive'}`}
                 >
                     {isSuccess
                         ? 'আপনার পেমেন্ট সফলভাবে প্রক্রিয়া হয়েছে।'
@@ -73,29 +73,29 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
             </div>
 
             {/* Details */}
-            <div className="px-6 py-5 space-y-3 border-b border-slate-100">
+            <div className="px-6 py-5 space-y-3 border-b border-muted">
                 <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">অর্ডার আইডি</span>
-                    <span className="font-semibold text-indigo-600">{order.id}</span>
+                    <span className="text-muted-foreground">অর্ডার আইডি</span>
+                    <span className="font-semibold text-primary">{order.id}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">প্রকল্প</span>
-                    <span className="font-medium text-slate-900">{order.projectName}</span>
+                    <span className="text-muted-foreground">প্রকল্প</span>
+                    <span className="font-medium text-foreground">{order.projectName}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">পরিমাণ</span>
-                    <span className="font-bold text-slate-900">{formatCurrency(order.remainingDue)}</span>
+                    <span className="text-muted-foreground">পরিমাণ</span>
+                    <span className="font-bold text-foreground">{formatCurrency(order.remainingDue)}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">স্ট্যাটাস</span>
+                    <span className="text-muted-foreground">স্ট্যাটাস</span>
                     <span
                         className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold ${isSuccess
-                            ? 'bg-emerald-50 text-emerald-700'
-                            : 'bg-red-50 text-red-700'
+                            ? 'bg-success/10 text-success'
+                            : 'bg-destructive/10 text-destructive'
                             }`}
                     >
                         <span
-                            className={`w-1.5 h-1.5 rounded-full ${isSuccess ? 'bg-emerald-500' : 'bg-red-500'
+                            className={`w-1.5 h-1.5 rounded-full ${isSuccess ? 'bg-success' : 'bg-destructive'
                                 }`}
                         />
                         {isSuccess ? 'পরিশোধিত' : 'ব্যর্থ'}
@@ -103,8 +103,8 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                 </div>
                 {isSuccess && (
                     <div className="flex items-center justify-between text-sm">
-                        <span className="text-slate-500">ট্রান্যাকশন আইডি</span>
-                        <span className="font-mono text-xs text-slate-600">{transactionId}</span>
+                        <span className="text-muted-foreground">ট্রান্যাকশন আইডি</span>
+                        <span className="font-mono text-xs text-muted-foreground">{transactionId}</span>
                     </div>
                 )}
             </div>
@@ -115,7 +115,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                     <>
                         <Button
                             variant="outline"
-                            className="w-full h-11 rounded-xl border-slate-200 text-slate-700 font-semibold text-sm gap-2"
+                            className="w-full h-11 rounded-xl border-muted text-foreground font-semibold text-sm gap-2"
                         >
                             <Download className="w-4 h-4" /> রসিদ ডাউনলোড
                         </Button>
@@ -123,7 +123,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                             <Button
                                 variant="ghost"
                                 asChild
-                                className="flex-1 h-10 rounded-xl text-slate-500 text-sm gap-2"
+                                className="flex-1 h-10 rounded-xl text-muted-foreground text-sm gap-2"
                             >
                                 <Link href="/profile">
                                     <FileText className="w-4 h-4" /> আমার অর্ডার
@@ -132,7 +132,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                             <Button
                                 variant="ghost"
                                 asChild
-                                className="flex-1 h-10 rounded-xl text-slate-500 text-sm gap-2"
+                                className="flex-1 h-10 rounded-xl text-muted-foreground text-sm gap-2"
                             >
                                 <Link href="/">
                                     <Home className="w-4 h-4" /> হোম
@@ -144,7 +144,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                     <>
                         <Button
                             onClick={onRetry}
-                            className="w-full h-11 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-semibold text-sm gap-2 shadow-lg shadow-slate-900/20"
+                            className="w-full h-11 bg-secondary hover:bg-secondary/90 text-white rounded-xl font-semibold text-sm gap-2 shadow-lg shadow-secondary/20"
                         >
                             <RotateCcw className="w-4 h-4" /> আবার চেষ্টা করুন
                         </Button>
@@ -152,7 +152,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                             <Button
                                 variant="ghost"
                                 asChild
-                                className="flex-1 h-10 rounded-xl text-slate-500 text-sm gap-2"
+                                className="flex-1 h-10 rounded-xl text-muted-foreground text-sm gap-2"
                             >
                                 <Link href="/profile">
                                     <ArrowRight className="w-4 h-4" /> আমার অর্ডার
@@ -161,7 +161,7 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                             <Button
                                 variant="ghost"
                                 asChild
-                                className="flex-1 h-10 rounded-xl text-slate-500 text-sm gap-2"
+                                className="flex-1 h-10 rounded-xl text-muted-foreground text-sm gap-2"
                             >
                                 <Link href="/">
                                     <Home className="w-4 h-4" /> হোম

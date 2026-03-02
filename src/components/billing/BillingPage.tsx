@@ -61,7 +61,7 @@ const BillingPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-background">
             <div className="px-6 sm:px-8 py-8 sm:py-12">
                 <div className="max-w-7xl mx-auto">
                     {/* Page Header */}
@@ -71,12 +71,12 @@ const BillingPage = () => {
                         className="mb-8"
                     >
                         <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-                                <FileText className="w-5 h-5 text-indigo-600" />
+                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <FileText className="w-5 h-5 text-primary" />
                             </div>
-                            <h1 className="text-3xl font-bold text-slate-900">Create Bill</h1>
+                            <h1 className="text-3xl font-bold text-foreground">Create Bill</h1>
                         </div>
-                        <p className="text-slate-600 text-sm sm:text-base">
+                        <p className="text-muted-foreground text-sm sm:text-base">
                             Generate invoice for customer order
                         </p>
                     </motion.div>
@@ -112,7 +112,7 @@ const BillingPage = () => {
                             transition={{ delay: 0.1 }}
                             className="lg:col-span-2"
                         >
-                            <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-8">
+                            <div className="bg-white rounded-xl border border-muted shadow-sm p-6 sm:p-8">
                                 <BillingForm
                                     key={formKey}
                                     onSubmit={handleSubmit}

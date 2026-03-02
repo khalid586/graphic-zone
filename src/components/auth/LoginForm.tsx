@@ -55,7 +55,7 @@ const LoginForm = () => {
         <form onSubmit={handleSubmit} className="space-y-5">
             {/* User ID */}
             <div className="space-y-2">
-                <Label htmlFor="login-userId" className="text-slate-700 text-sm font-medium">
+                <Label htmlFor="login-userId" className="text-foreground text-sm font-medium">
                     ইউজার আইডি
                 </Label>
                 <Input
@@ -70,13 +70,13 @@ const LoginForm = () => {
                     className={inputClassName(!!errors.userId)}
                 />
                 {errors.userId && (
-                    <p className="text-xs text-red-500 mt-1">{errors.userId}</p>
+                    <p className="text-xs text-destructive mt-1">{errors.userId}</p>
                 )}
             </div>
 
             {/* Password */}
             <div className="space-y-2">
-                <Label htmlFor="login-password" className="text-slate-700 text-sm font-medium">
+                <Label htmlFor="login-password" className="text-foreground text-sm font-medium">
                     পাসওয়ার্ড
                 </Label>
                 <div className="relative">
@@ -95,13 +95,13 @@ const LoginForm = () => {
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
                         aria-label={showPassword ? 'পাসওয়ার্ড লুকান' : 'পাসওয়ার্ড দেখান'}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                     >
                         {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
                 </div>
                 {errors.password && (
-                    <p className="text-xs text-red-500 mt-1">{errors.password}</p>
+                    <p className="text-xs text-destructive mt-1">{errors.password}</p>
                 )}
             </div>
 
@@ -112,15 +112,15 @@ const LoginForm = () => {
                         type="checkbox"
                         checked={rememberMe}
                         onChange={(e) => setRememberMe(e.target.checked)}
-                        className="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 cursor-pointer accent-indigo-600"
+                        className="w-4 h-4 rounded border-muted text-primary focus:ring-primary/20 cursor-pointer accent-primary"
                     />
-                    <span className="text-sm text-slate-600 group-hover:text-slate-800 transition-colors">
+                    <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                         মনে রাখুন
                     </span>
                 </label>
                 {/* <button
                     type="button"
-                    className="text-sm text-indigo-600 hover:text-indigo-700 font-medium transition-colors"
+                    className="text-sm text-primary hover:text-primary/90 font-medium transition-colors"
                 >
                     পাসওয়ার্ড ভুলে গেছেন?
                 </button> */}
@@ -130,7 +130,7 @@ const LoginForm = () => {
             <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-11 bg-slate-900 hover:bg-slate-800 text-white rounded-lg font-semibold text-sm tracking-wide shadow-lg shadow-slate-900/20 transition-all duration-200"
+                className="w-full h-11 bg-secondary hover:bg-secondary/90 text-white rounded-lg font-semibold text-sm tracking-wide shadow-lg shadow-secondary/20 transition-all duration-200"
             >
                 {isLoading ? (
                     <span className="flex items-center gap-2">

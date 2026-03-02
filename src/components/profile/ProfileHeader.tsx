@@ -31,13 +31,13 @@ const StatCard = ({
     value: string;
     color: string;
 }) => (
-    <div className="flex items-center gap-3 bg-white rounded-xl border border-slate-200 p-4 min-w-[170px]">
+    <div className="flex items-center gap-3 bg-white rounded-xl border border-muted p-4 min-w-[170px]">
         <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${color}`}>
             <Icon className="w-5 h-5" />
         </div>
         <div>
-            <p className="text-lg font-bold text-slate-900 leading-tight">{value}</p>
-            <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">{label}</p>
+            <p className="text-lg font-bold text-foreground leading-tight">{value}</p>
+            <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">{label}</p>
         </div>
     </div>
 );
@@ -47,11 +47,11 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-900 rounded-2xl p-6 sm:p-8 relative overflow-hidden"
+        className="bg-gradient-to-r from-secondary via-secondary to-primary/30 rounded-2xl p-6 sm:p-8 relative overflow-hidden"
     >
         {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-indigo-500/10 skew-x-12 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-indigo-600/5 rounded-full -translate-x-1/2 translate-y-1/2" />
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 skew-x-12 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/5 rounded-full -translate-x-1/2 translate-y-1/2" />
 
         <div className="relative z-10">
             {/* Top row: avatar + info + edit button */}
@@ -66,7 +66,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-emerald-500 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-success rounded-full border-2 border-secondary flex items-center justify-center">
                         <div className="w-2 h-2 bg-white rounded-full" />
                     </div>
                 </div>
@@ -75,7 +75,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
                     <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1 truncate">
                         {user.name}
                     </h1>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 text-sm text-slate-400">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 text-sm text-muted-foreground">
                         <span className="flex items-center gap-1.5">
                             <Mail className="w-3.5 h-3.5" /> {user.email}
                         </span>
@@ -102,19 +102,19 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
                     icon={ShoppingBag}
                     label="মোট অর্ডার"
                     value={String(user.totalOrders)}
-                    color="bg-indigo-100 text-indigo-600"
+                    color="bg-primary/10 text-primary"
                 />
                 <StatCard
                     icon={DollarSign}
                     label="মোট খরচ"
                     value={formatCurrency(user.totalSpent)}
-                    color="bg-emerald-100 text-emerald-600"
+                    color="bg-success/10 text-success"
                 />
                 <StatCard
                     icon={Clock}
                     label="বাকি আছে"
                     value={String(user.pendingOrders)}
-                    color="bg-amber-100 text-amber-600"
+                    color="bg-warning/20 text-warning"
                 />
             </div>
         </div>

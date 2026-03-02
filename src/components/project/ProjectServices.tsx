@@ -1,0 +1,41 @@
+'use client';
+
+import { memo } from 'react';
+import { CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
+import { SectionLabel } from '@/components/ui/SectionLabel';
+import { Card, CardContent } from '@/components/ui/card';
+
+type ProjectServicesProps = {
+    services: readonly string[];
+}
+
+const ProjectServices = ({ services }: ProjectServicesProps) => (
+    <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mb-16"
+    >
+        <SectionLabel>আমরা যা করেছি</SectionLabel>
+        <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-8">প্রদত্ত সেবাসমূহ</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+            {services.map((service, idx) => (
+                <Card key={idx} className="flex-row items-center gap-4 p-5 rounded-2xl bg-background border border-muted hover:border-primary/30 hover:bg-primary/5 transition-all group shadow-none">
+                    <CardContent className="flex items-center gap-4 p-0">
+                        <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-all">
+                            <CheckCircle2 className="w-5 h-5" />
+                        </div>
+                        <span className="font-bold text-foreground">{service}</span>
+                    </CardContent>
+                </Card>
+            ))}
+        </div>
+    </motion.div>
+);
+
+const MemoizedProjectServices = memo(ProjectServices);
+export { MemoizedProjectServices as ProjectServices };
+
+

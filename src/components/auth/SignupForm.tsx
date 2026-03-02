@@ -84,7 +84,7 @@ const SignupForm = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
             {/* Full Name */}
             <div className="space-y-2">
-                <Label htmlFor="signup-name" className="text-slate-700 text-sm font-medium">
+                <Label htmlFor="signup-name" className="text-foreground text-sm font-medium">
                     পূর্ণ নাম
                 </Label>
                 <Input
@@ -99,13 +99,13 @@ const SignupForm = () => {
                     className={`${inputBaseClass} ${errors.fullName ? inputErrorClass : ''}`}
                 />
                 {errors.fullName && (
-                    <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>
+                    <p className="text-xs text-destructive mt-1">{errors.fullName}</p>
                 )}
             </div>
 
             {/* Email */}
             <div className="space-y-2">
-                <Label htmlFor="signup-email" className="text-slate-700 text-sm font-medium">
+                <Label htmlFor="signup-email" className="text-foreground text-sm font-medium">
                     ইমেইল
                 </Label>
                 <Input
@@ -120,13 +120,13 @@ const SignupForm = () => {
                     className={`${inputBaseClass} ${errors.email ? inputErrorClass : ''}`}
                 />
                 {errors.email && (
-                    <p className="text-xs text-red-500 mt-1">{errors.email}</p>
+                    <p className="text-xs text-destructive mt-1">{errors.email}</p>
                 )}
             </div>
 
             {/* Phone Number */}
             <div className="space-y-2">
-                <Label htmlFor="signup-phone" className="text-slate-700 text-sm font-medium">
+                <Label htmlFor="signup-phone" className="text-foreground text-sm font-medium">
                     ফোন নম্বর
                 </Label>
                 <Input
@@ -141,13 +141,13 @@ const SignupForm = () => {
                     className={`${inputBaseClass} ${errors.phone ? inputErrorClass : ''}`}
                 />
                 {errors.phone && (
-                    <p className="text-xs text-red-500 mt-1">{errors.phone}</p>
+                    <p className="text-xs text-destructive mt-1">{errors.phone}</p>
                 )}
             </div>
 
             {/* Password */}
             <div className="space-y-2">
-                <Label htmlFor="signup-password" className="text-slate-700 text-sm font-medium">
+                <Label htmlFor="signup-password" className="text-foreground text-sm font-medium">
                     পাসওয়ার্ড
                 </Label>
                 <div className="relative">
@@ -166,19 +166,19 @@ const SignupForm = () => {
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
                         aria-label={showPassword ? 'পাসওয়ার্ড লুকান' : 'পাসওয়ার্ড দেখান'}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                     >
                         {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
                 </div>
                 {errors.password && (
-                    <p className="text-xs text-red-500 mt-1">{errors.password}</p>
+                    <p className="text-xs text-destructive mt-1">{errors.password}</p>
                 )}
             </div>
 
             {/* Confirm Password */}
             <div className="space-y-2">
-                <Label htmlFor="signup-confirm" className="text-slate-700 text-sm font-medium">
+                <Label htmlFor="signup-confirm" className="text-foreground text-sm font-medium">
                     পাসওয়ার্ড নিশ্চিত করুন
                 </Label>
                 <div className="relative">
@@ -197,13 +197,13 @@ const SignupForm = () => {
                         type="button"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                         aria-label={showConfirmPassword ? 'পাসওয়ার্ড লুকান' : 'পাসওয়ার্ড দেখান'}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                     >
                         {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
                 </div>
                 {errors.confirmPassword && (
-                    <p className="text-xs text-red-500 mt-1">{errors.confirmPassword}</p>
+                    <p className="text-xs text-destructive mt-1">{errors.confirmPassword}</p>
                 )}
             </div>
 
@@ -211,7 +211,7 @@ const SignupForm = () => {
             <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-11 bg-slate-900 hover:bg-slate-800 text-white rounded-lg font-semibold text-sm tracking-wide shadow-lg shadow-slate-900/20 transition-all duration-200 mt-2"
+                className="w-full h-11 bg-secondary hover:bg-secondary/90 text-white rounded-lg font-semibold text-sm tracking-wide shadow-lg shadow-secondary/20 transition-all duration-200 mt-2"
             >
                 {isLoading ? (
                     <span className="flex items-center gap-2">

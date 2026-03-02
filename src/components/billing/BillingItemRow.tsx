@@ -34,12 +34,12 @@ const BillingItemRow = ({
             {showLabels && (
                 <div className="flex gap-2 items-center">
                     <div className="flex-1">
-                        <label className="text-xs font-medium text-slate-600 pl-1">
+                        <label className="text-xs font-medium text-muted-foreground pl-1">
                             Item Name
                         </label>
                     </div>
                     <div className="w-32">
-                        <label className="text-xs font-medium text-slate-600 pl-1">
+                        <label className="text-xs font-medium text-muted-foreground pl-1">
                             Price (৳)
                         </label>
                     </div>
@@ -56,11 +56,11 @@ const BillingItemRow = ({
                         value={description}
                         onChange={(e) => onChange(id, 'description', e.target.value)}
                         className={cn(
-                            error && 'border-red-500 focus-visible:ring-red-500/20'
+                            error && 'border-destructive focus-visible:ring-destructive/20'
                         )}
                         aria-invalid={!!error}
                     />
-                    {error && <p className="text-xs text-red-500 pl-1">{error}</p>}
+                    {error && <p className="text-xs text-destructive pl-1">{error}</p>}
                 </div>
                 <div className="w-32 space-y-1.5">
                     <Input
@@ -69,13 +69,13 @@ const BillingItemRow = ({
                         value={price || ''}
                         onChange={(e) => onChange(id, 'price', parseFloat(e.target.value) || 0)}
                         className={cn(
-                            priceError && 'border-red-500 focus-visible:ring-red-500/20'
+                            priceError && 'border-destructive focus-visible:ring-destructive/20'
                         )}
                         aria-invalid={!!priceError}
                         min="0"
                         step="0.01"
                     />
-                    {priceError && <p className="text-xs text-red-500 pl-1">{priceError}</p>}
+                    {priceError && <p className="text-xs text-destructive pl-1">{priceError}</p>}
                 </div>
                 {canRemove ? (
                     <Button
@@ -83,7 +83,7 @@ const BillingItemRow = ({
                         variant="ghost"
                         size="icon"
                         onClick={() => onRemove(id)}
-                        className="text-slate-400 hover:text-red-600 hover:bg-red-50 shrink-0 mt-0"
+                        className="text-muted-foreground hover:text-destructive hover:bg-destructive/10 shrink-0 mt-0"
                         title="Remove item"
                     >
                         <X className="w-4 h-4" />

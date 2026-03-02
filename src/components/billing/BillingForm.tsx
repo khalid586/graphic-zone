@@ -206,7 +206,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
         >
             {/* Customer Name */}
             <div className="space-y-2">
-                <Label htmlFor="customer-name" className="text-slate-700 font-medium">
+                <Label htmlFor="customer-name" className="text-foreground font-medium">
                     Customer Name *
                 </Label>
                 <div className="relative" ref={dropdownRef}>
@@ -220,46 +220,46 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                             onFocus={() => setShowDropdown(true)}
                             className={cn(
                                 'pr-10',
-                                errors.customerName && 'border-red-500'
+                                errors.customerName && 'border-destructive'
                             )}
                             aria-invalid={!!errors.customerName}
                         />
-                        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
                     </div>
                     {showDropdown && filteredCustomers.length > 0 && (
-                        <div className="absolute z-50 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-lg max-h-60 overflow-auto">
+                        <div className="absolute z-50 w-full mt-1 bg-white border border-muted rounded-md shadow-lg max-h-60 overflow-auto">
                             {filteredCustomers.map((customer) => (
                                 <button
                                     key={customer.id}
                                     type="button"
                                     onClick={() => handleCustomerSelect(customer.id)}
                                     className={cn(
-                                        'w-full px-3 py-2 text-left text-sm hover:bg-slate-100 flex items-center justify-between',
-                                        selectedCustomerId === customer.id && 'bg-slate-50'
+                                        'w-full px-3 py-2 text-left text-sm hover:bg-background flex items-center justify-between',
+                                        selectedCustomerId === customer.id && 'bg-background/50'
                                     )}
                                 >
                                     <span>{customer.name}</span>
                                     {selectedCustomerId === customer.id && (
-                                        <Check className="w-4 h-4 text-indigo-600" />
+                                        <Check className="w-4 h-4 text-primary" />
                                     )}
                                 </button>
                             ))}
                         </div>
                     )}
                     {showDropdown && searchQuery && filteredCustomers.length === 0 && (
-                        <div className="absolute z-50 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-lg p-3">
-                            <p className="text-sm text-slate-500 text-center">No customers found</p>
+                        <div className="absolute z-50 w-full mt-1 bg-white border border-muted rounded-md shadow-lg p-3">
+                            <p className="text-sm text-muted-foreground text-center">No customers found</p>
                         </div>
                     )}
                 </div>
                 {errors.customerName && (
-                    <p className="text-xs text-red-500 pl-1">{errors.customerName}</p>
+                    <p className="text-xs text-destructive pl-1">{errors.customerName}</p>
                 )}
             </div>
 
             {/* Customer Address */}
             <div className="space-y-2">
-                <Label htmlFor="customer-address" className="text-slate-700 font-medium">
+                <Label htmlFor="customer-address" className="text-foreground font-medium">
                     Customer Address *
                 </Label>
                 <Textarea
@@ -268,13 +268,13 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                     value={customerAddress}
                     readOnly
                     className={cn(
-                        'min-h-[100px] bg-slate-50 cursor-not-allowed',
-                        errors.customerAddress && 'border-red-500'
+                        'min-h-[100px] bg-background/50 cursor-not-allowed',
+                        errors.customerAddress && 'border-destructive'
                     )}
                     aria-invalid={!!errors.customerAddress}
                 />
                 {errors.customerAddress && (
-                    <p className="text-xs text-red-500 pl-1">{errors.customerAddress}</p>
+                    <p className="text-xs text-destructive pl-1">{errors.customerAddress}</p>
                 )}
             </div>
 
@@ -282,10 +282,10 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             <div className="space-y-3">
                 <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
-                        <Label className="text-slate-700 font-medium">Items & Pricing *</Label>
-                        <p className="text-xs text-slate-500">Enter item details and set prices</p>
+                        <Label className="text-foreground font-medium">Items & Pricing *</Label>
+                        <p className="text-xs text-muted-foreground">Enter item details and set prices</p>
                     </div>
-                    <span className="text-xs text-slate-500">{items.length} item(s)</span>
+                    <span className="text-xs text-muted-foreground">{items.length} item(s)</span>
                 </div>
 
                 <div className="space-y-3">
@@ -314,7 +314,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                     type="button"
                     variant="outline"
                     onClick={handleAddItem}
-                    className="w-full border-dashed hover:border-indigo-400 hover:bg-indigo-50 hover:text-indigo-700"
+                    className="w-full border-dashed hover:border-primary hover:bg-primary/10 hover:text-primary"
                 >
                     <Plus className="w-4 h-4" />
                     Add Item
@@ -322,7 +322,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             </div>
 
             {/* Form Actions */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-200">
+            <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-muted">
                 <Button
                     type="button"
                     variant="outline"
@@ -336,7 +336,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                 <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex-1 bg-indigo-600 hover:bg-indigo-700"
+                    className="flex-1 bg-primary hover:bg-primary/90"
                 >
                     <FileCheck className="w-4 h-4" />
                     {isSubmitting ? 'Generating...' : 'Generate Bill'}

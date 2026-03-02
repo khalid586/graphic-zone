@@ -19,13 +19,13 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
         <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-xl border border-slate-200 shadow-sm sticky top-6"
+            className="bg-white rounded-xl border border-muted shadow-sm sticky top-6"
         >
             {/* Header */}
-            <div className="border-b border-slate-200 px-5 py-4">
+            <div className="border-b border-muted px-5 py-4">
                 <div className="flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-indigo-600" />
-                    <h3 className="font-semibold text-slate-900">Bill Preview</h3>
+                    <FileText className="w-5 h-5 text-primary" />
+                    <h3 className="font-semibold text-foreground">Bill Preview</h3>
                 </div>
             </div>
 
@@ -33,33 +33,33 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
             <div className="px-5 py-4 space-y-4">
                 {/* Customer Name */}
                 <div className="space-y-1.5">
-                    <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+                    <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
                         <User className="w-3.5 h-3.5" />
                         <span>Customer</span>
                     </div>
-                    <p className="text-sm text-slate-900 pl-5">
+                    <p className="text-sm text-foreground pl-5">
                         {customerName.trim() || (
-                            <span className="text-slate-400 italic">No name entered</span>
+                            <span className="text-muted-foreground italic">No name entered</span>
                         )}
                     </p>
                 </div>
 
                 {/* Customer Address */}
                 <div className="space-y-1.5">
-                    <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+                    <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
                         <MapPin className="w-3.5 h-3.5" />
                         <span>Address</span>
                     </div>
-                    <p className="text-sm text-slate-900 pl-5 whitespace-pre-wrap">
+                    <p className="text-sm text-foreground pl-5 whitespace-pre-wrap">
                         {customerAddress.trim() || (
-                            <span className="text-slate-400 italic">No address entered</span>
+                            <span className="text-muted-foreground italic">No address entered</span>
                         )}
                     </p>
                 </div>
 
                 {/* Items */}
                 <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+                    <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
                         <Package className="w-3.5 h-3.5" />
                         <span>Items ({itemCount})</span>
                     </div>
@@ -68,34 +68,34 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
                             {validItems.map((item, index) => (
                                 <div
                                     key={item.id}
-                                    className="text-sm text-slate-700 flex justify-between gap-3"
+                                    className="text-sm text-foreground flex justify-between gap-3"
                                 >
                                     <div className="flex gap-2 flex-1 min-w-0">
-                                        <span className="text-slate-400 shrink-0">
+                                        <span className="text-muted-foreground shrink-0">
                                             {index + 1}.
                                         </span>
                                         <span className="break-words">{item.description}</span>
                                     </div>
-                                    <span className="font-medium text-slate-900 shrink-0">
+                                    <span className="font-medium text-foreground shrink-0">
                                         {formatCurrency(item.price)}
                                     </span>
                                 </div>
                             ))}
                         </div>
                     ) : (
-                        <p className="text-sm text-slate-400 italic pl-5">No items added</p>
+                        <p className="text-sm text-muted-foreground italic pl-5">No items added</p>
                     )}
                 </div>
 
                 {/* Total */}
                 {itemCount > 0 && (
-                    <div className="pt-3 border-t border-slate-200">
+                    <div className="pt-3 border-t border-muted">
                         <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
-                                <DollarSign className="w-4 h-4 text-indigo-600" />
+                            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                                <DollarSign className="w-4 h-4 text-primary" />
                                 <span>Total</span>
                             </div>
-                            <span className="text-lg font-bold text-indigo-600">
+                            <span className="text-lg font-bold text-primary">
                                 {formatCurrency(totalAmount)}
                             </span>
                         </div>
