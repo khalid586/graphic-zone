@@ -50,13 +50,13 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                 </div>
                 <div className="mt-8 md:mt-12 flex items-center gap-8 pt-8">
                     <div>
-                        <p className="text-2xl font-black text-foreground">৫,০০০+</p>
-                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">কর্পোরেট ক্লায়েন্ট</p>
+                        <p className="text-2xl font-black text-foreground">বিশ্বস্ত</p>
+                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">সেবা প্রদানকারী</p>
                     </div>
                     <Separator orientation="vertical" className="h-10 bg-border" />
                     <div>
-                        <p className="text-2xl font-black text-foreground">১২+</p>
-                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">বছরের অভিজ্ঞতা</p>
+                        <p className="text-2xl font-black text-foreground">অভিজ্ঞ</p>
+                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">প্রফেশনাল টিম</p>
                     </div>
                 </div>
             </motion.div>
@@ -64,7 +64,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative"
+                className="relative mb-12 md:mb-0"
             >
                 <div className="bg-white rounded-[2rem] shadow-2xl relative z-10">
                     <Image
