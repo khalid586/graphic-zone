@@ -22,3 +22,10 @@ export const PROCESS: ProcessStep[] = [
     { step: '০৩', title: 'প্রোডাকশন', desc: 'আধুনিক যন্ত্রপাতি ব্যবহার করে নিখুঁত প্রিন্টিং।' },
     { step: '০৪', title: 'ডেলিভারি', desc: 'মান পরীক্ষিত প্রিন্ট আপনার দোরগোড়ায় পৌঁছে দেওয়া হয়।' },
 ];
+
+export const SERVICE_OPTIONS = [
+    { value: 'bulk', label: 'বাল্ক ডিজিটাল প্রিন্টিং' },
+    { value: 'large', label: 'লার্জ ফরম্যাট সাইনেজ' },
+    { value: 'branding', label: 'কর্পোরেট ব্র্যান্ডিং' },
+    { value: 'editorial', label: 'এডিটোরিয়াল/ম্যাগাজিন' },
+] as const;
