@@ -14,7 +14,7 @@ type HeroProps = {
 }
 
 const Hero = ({ onCtaClick }: HeroProps = {}) => (
-    <section className="relative py-12 md:py-16 px-6 sm:px-8 bg-background overflow-hidden">
+    <section className="relative py-4 md:py-10 lg:py-14 xl:py-19 px-6 sm:px-8 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 translate-x-1/2" />
         <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -27,7 +27,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                 </Badge>
                 <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 leading-[1.1]">
                     আপনার ব্র্যান্ড বড় করুন <br />
-                    <span className="text-primary text-6xl md:text-7xl">গ্রাফিক জোন এর সাথে।</span>
+                    <span className="text-primary text-6xl md:text-7xl">গ্রাফিক জোন</span> এর সাথে
                 </h1>
                 <p className="text-lg text-muted-foreground mb-10 leading-relaxed max-w-xl">
                     উচ্চ-মানের <span className="text-primary font-bold">প্রিন্টিং , ব্র্যান্ডিং এবং লার্জ-ফরম্যাট </span> সমাধানে দেশব্যাপী কর্পোরেশনগুলোর আস্থা। আমরা মানসম্মত সেবা প্রদান করি।

@@ -28,11 +28,11 @@ const BrandPanel = () => (
             </svg>
         </div>
 
-        <div className="relative z-10 flex flex-col justify-between p-6 sm:p-10 lg:p-12 xl:p-16 w-full">
+        <div className="relative z-10 flex flex-col justify-between p-4 sm:p-6 lg:p-8 xl:p-10 w-full">
 
 
             {/* Center illustration */}
-            <div className="flex-1 flex flex-col items-center justify-center py-6 sm:py-8 lg:py-12">
+            <div className="flex-1 flex flex-col items-center justify-center py-4 sm:py-6 lg:py-8">
                 {/* Icon composition */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -85,12 +85,12 @@ const BrandPanel = () => (
 
 const AuthPage = () => {
     return (
-        <div className="min-h-screen flex flex-col lg:flex-row bg-white">
+        <div className="min-h-screen flex flex-col lg:flex-row bg-white md:-mt-16 lg:-mt-20">
             {/* Left — Brand Panel */}
             <BrandPanel />
 
             {/* Right — Auth Forms */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-8 lg:p-12">
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
