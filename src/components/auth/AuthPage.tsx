@@ -15,7 +15,7 @@ import { LoginForm } from './LoginForm';
 import LogoImage from '../../../assets/Logo.png';
 
 const BrandPanel = () => (
-    <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-primary/20 via-primary/15 to-info/20">
+    <div className="w-full lg:w-1/2 flex relative overflow-hidden bg-gradient-to-br from-primary/20 via-primary/15 to-info/20">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-40">
             <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -28,17 +28,17 @@ const BrandPanel = () => (
             </svg>
         </div>
 
-        <div className="relative z-10 flex flex-col justify-between p-12 xl:p-16 w-full">
+        <div className="relative z-10 flex flex-col justify-between p-6 sm:p-10 lg:p-12 xl:p-16 w-full">
 
 
             {/* Center illustration */}
-            < div className="flex-1 flex flex-col items-center justify-center py-12">
+            <div className="flex-1 flex flex-col items-center justify-center py-6 sm:py-8 lg:py-12">
                 {/* Icon composition */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="relative mb-12"
+                    className="relative mb-6 sm:mb-8 lg:mb-12"
                 >
                     <div className="w-32 h-32 rounded-3xl bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center p-4 shadow-lg">
                         <Image
@@ -117,12 +117,12 @@ const BrandPanel = () => (
 
 const AuthPage = () => {
     return (
-        <div className="min-h-screen flex bg-white">
+        <div className="min-h-screen flex flex-col lg:flex-row bg-white">
             {/* Left — Brand Panel */}
             <BrandPanel />
 
             {/* Right — Auth Forms */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-10 lg:p-16">
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-8 lg:p-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -130,7 +130,7 @@ const AuthPage = () => {
                     className="w-full max-w-md"
                 >
                     {/* Heading */}
-                    <div className="mb-8">
+                    <div className="mb-6">
                         <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
                             আবার স্বাগতম
                         </h1>

@@ -14,7 +14,7 @@ type HeroProps = {
 }
 
 const Hero = ({ onCtaClick }: HeroProps = {}) => (
-    <section className="relative py-24 md:py-32 px-6 sm:px-8 bg-background overflow-hidden">
+    <section className="relative py-12 md:py-16 px-6 sm:px-8 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 translate-x-1/2" />
         <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -37,7 +37,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                         onClick={onCtaClick ?? scrollToContact}
                         className="bg-secondary text-secondary-foreground px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-secondary/90 shadow-xl shadow-secondary/20 h-auto"
                     >
-                        বাল্ক অর্ডার করুন <ArrowRight className="w-4 h-4" />
+                        অর্ডার করুন <ArrowRight className="w-4 h-4" />
                     </Button>
                     <Button
                         asChild

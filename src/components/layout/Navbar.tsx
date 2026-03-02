@@ -49,7 +49,7 @@ const Navbar = ({ navItems, ctaLabel = 'কোটেশন চাই', ctaAction
             className={`sticky top-0 z-50 transition-all duration-300 px-6 sm:px-8 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white border-b border-muted'
                 }`}
         >
-            <div className="max-w-7xl mx-auto w-full flex justify-between items-center py-3 md:py-4">
+            <div className="max-w-7xl mx-auto w-full flex justify-between items-center py-2 md:py-3">
                 <Link href="/" className="flex items-center">
                     <Image
                         src={LogoImage}
