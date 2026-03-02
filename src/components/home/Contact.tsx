@@ -10,7 +10,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
 const Contact = () => {
-    const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+    const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState<string>('');
     const [formData, setFormData] = useState({
         companyName: '',
         address: '',
@@ -22,6 +23,7 @@ const Contact = () => {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setFormStatus('sending');
+        setErrorMessage('');
 
         try {
             const response = await fetch('/api/send-quotation', {
@@ -31,6 +33,8 @@ const Contact = () => {
                 },
                 body: JSON.stringify(formData),
             });
+
+            const data = await response.json();
 
             if (response.ok) {
                 setFormStatus('success');
@@ -44,12 +48,14 @@ const Contact = () => {
                 });
                 setTimeout(() => setFormStatus('idle'), 5000);
             } else {
-                throw new Error('Failed to send quotation');
+                setFormStatus('error');
+                setErrorMessage(data.details || data.error || 'কোটেশন পাঠাতে সমস্যা হয়েছে');
+                console.error('API Error:', data);
             }
         } catch (error) {
             console.error('Error submitting quotation:', error);
-            alert('কোটেশন পাঠাতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
-            setFormStatus('idle');
+            setFormStatus('error');
+            setErrorMessage('নেটওয়ার্ক সমস্যা। অনুগ্রহ করে আবার চেষ্টা করুন।');
         }
     };
 
@@ -115,6 +121,25 @@ const Contact = () => {
                                 <div>
                                     <p className="font-bold text-success text-sm sm:text-base">আপনার অনুরোধ সফলভাবে জমা হয়েছে!</p>
                                     <p className="text-xs sm:text-sm text-success/80 mt-1">আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।</p>
+                                </div>
+                            </div>
+                        )}
+                        {formStatus === 'error' && (
+                            <div className="mb-6 p-4 sm:p-5 bg-destructive/10 border border-destructive/30 rounded-xl flex items-start gap-3 animate-in slide-in-from-top-2">
+                                <div className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5">
+                                    <svg className="w-full h-full text-destructive" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p className="font-bold text-destructive text-sm sm:text-base">সমস্যা হয়েছে!</p>
+                                    <p className="text-xs sm:text-sm text-destructive/80 mt-1">{errorMessage}</p>
+                                    <button
+                                        onClick={() => setFormStatus('idle')}
+                                        className="text-xs font-bold text-destructive mt-2 underline hover:no-underline"
+                                    >
+                                        আবার চেষ্টা করুন
+                                    </button>
                                 </div>
                             </div>
                         )}
@@ -194,10 +219,10 @@ const Contact = () => {
                             </div> */}
                             <Button
                                 type="submit"
-                                disabled={formStatus !== 'idle'}
+                                disabled={formStatus === 'sending'}
                                 className="w-full bg-primary text-white py-4 sm:py-5 mt-8 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest hover:bg-primary/90 shadow-xl shadow-primary/20 h-auto disabled:opacity-50"
                             >
-                                {formStatus === 'idle' ? 'কোটেশন অনুরোধ জমা দিন' : formStatus === 'sending' ? 'প্রক্রিয়াকরণ হচ্ছে...' : 'অনুরোধ পাওয়া গেছে!'}
+                                {formStatus === 'sending' ? 'প্রক্রিয়াকরণ হচ্ছে...' : formStatus === 'success' ? 'সফলভাবে জমা হয়েছে!' : 'কোটেশন অনুরোধ জমা দিন'}
                             </Button>
                         </form>
                     </CardContent>
