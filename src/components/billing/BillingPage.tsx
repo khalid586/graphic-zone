@@ -12,6 +12,7 @@ const BillingPage = () => {
     const [formData, setFormData] = useState<BillingFormData>({
         customerName: '',
         customerAddress: '',
+        customerPhone: '',
         items: [{ id: crypto.randomUUID(), description: '', quantity: 1, rate: 0, amount: 0 }] as readonly BillingItem[],
         advance: 0,
     });
@@ -47,6 +48,7 @@ const BillingPage = () => {
         setFormData({
             customerName: '',
             customerAddress: '',
+            customerPhone: '',
             items: [{ id: crypto.randomUUID(), description: '', quantity: 1, rate: 0, amount: 0 }] as readonly BillingItem[],
             advance: 0,
         });
@@ -61,6 +63,7 @@ const BillingPage = () => {
         setFormData({
             customerName: '',
             customerAddress: '',
+            customerPhone: '',
             items: [{ id: crypto.randomUUID(), description: '', quantity: 1, rate: 0, amount: 0 }] as readonly BillingItem[],
             advance: 0,
         });

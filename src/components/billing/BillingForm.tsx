@@ -21,12 +21,14 @@ type BillingFormProps = {
 interface FormErrors {
     customerName?: string;
     customerAddress?: string;
+    customerPhone?: string;
     items?: Record<string, string>;
 }
 
 const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
     const [customerName, setCustomerName] = useState('');
     const [customerAddress, setCustomerAddress] = useState('');
+    const [customerPhone, setCustomerPhone] = useState('');
     const [selectedCustomerId, setSelectedCustomerId] = useState<string>('');
     const [searchQuery, setSearchQuery] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
@@ -66,11 +68,12 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             onChangeRef.current({
                 customerName,
                 customerAddress,
+                customerPhone,
                 items: items as readonly BillingItem[],
                 advance,
             });
         }
-    }, [customerName, customerAddress, items, advance]);
+    }, [customerName, customerAddress, customerPhone, items, advance]);
 
     const clearFieldError = (field: keyof FormErrors) => {
         if (errors[field]) {
@@ -84,10 +87,12 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             setSelectedCustomerId(customerId);
             setCustomerName(customer.name);
             setCustomerAddress(customer.address);
+            setCustomerPhone(customer.phone || '');
             setSearchQuery(customer.name);
             setShowDropdown(false);
             clearFieldError('customerName');
             clearFieldError('customerAddress');
+            clearFieldError('customerPhone');
         }
     };
 
@@ -99,6 +104,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             setSelectedCustomerId('');
             setCustomerName('');
             setCustomerAddress('');
+            setCustomerPhone('');
         }
     };
 
@@ -156,6 +162,10 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
             newErrors.customerAddress = 'Customer address is required';
         }
 
+        if (!customerPhone.trim()) {
+            newErrors.customerPhone = 'Customer phone is required';
+        }
+
         const itemErrors: Record<string, string> = {};
         let hasItems = false;
 
@@ -192,6 +202,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
         const formData: BillingFormData = {
             customerName: customerName.trim(),
             customerAddress: customerAddress.trim(),
+            customerPhone: customerPhone.trim(),
             items: validItems,
             advance,
         };
@@ -282,6 +293,30 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                 />
                 {errors.customerAddress && (
                     <p className="text-xs text-destructive pl-1">{errors.customerAddress}</p>
+                )}
+            </div>
+
+            {/* Customer Phone */}
+            <div className="space-y-2">
+                <Label htmlFor="customer-phone" className="text-foreground font-medium">
+                    Customer Phone *
+                </Label>
+                <Input
+                    id="customer-phone"
+                    type="tel"
+                    placeholder="Will auto-populate when you select a customer"
+                    value={customerPhone}
+                    onChange={(e) => {
+                        setCustomerPhone(e.target.value);
+                        clearFieldError('customerPhone');
+                    }}
+                    className={cn(
+                        errors.customerPhone && 'border-destructive'
+                    )}
+                    aria-invalid={!!errors.customerPhone}
+                />
+                {errors.customerPhone && (
+                    <p className="text-xs text-destructive pl-1">{errors.customerPhone}</p>
                 )}
             </div>
 

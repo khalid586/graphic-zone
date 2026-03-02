@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { CheckCircle2, FileText, Printer, X } from 'lucide-react';
+import { CheckCircle2, FileText, Printer, X, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { formatTime, formatCurrency } from '@/lib/format';
 import type { Bill } from '@/types/billing';
@@ -15,6 +15,28 @@ type BillingSuccessProps = {
 const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => {
     const title = 'Bill Generated Successfully';
     const description = 'The bill has been generated and is ready to be sent to the customer.';
+
+    // Create WhatsApp message
+    const createWhatsAppMessage = () => {
+        const itemsList = bill.items.map((item, idx) => 
+            `${idx + 1}. ${item.description}\n   ${item.quantity} × ${formatCurrency(item.rate)} = ${formatCurrency(item.amount)}`
+        ).join('\n\n');
+
+        return `*বিল তৈরি হয়েছে* ✅\n\n` +
+            `*বিল নং:* ${bill.id}\n` +
+            `*গ্রাহক:* ${bill.customerName}\n\n` +
+            `*পণ্য/সেবা:*\n${itemsList}\n\n` +
+            `*মোট:* ${formatCurrency(bill.total)}\n` +
+            `*এডভান্স:* ${formatCurrency(bill.advance)}\n` +
+            `*বাকি:* ${formatCurrency(bill.due)}\n\n` +
+            `ধন্যবাদ!`;
+    };
+
+    const whatsappUrl = () => {
+        const phone = bill.customerPhone.replace(/[^0-9+]/g, '');
+        const message = encodeURIComponent(createWhatsAppMessage());
+        return `https://wa.me/${phone}?text=${message}`;
+    };
 
     return (
         <>
@@ -164,6 +186,15 @@ const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => 
                             Print Bill
                         </Button>
                     </div>
+                    <Button
+                        asChild
+                        className="w-full bg-success hover:bg-success/90 text-white"
+                    >
+                        <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                            <MessageSquare className="w-4 h-4" />
+                            Send to WhatsApp
+                        </a>
+                    </Button>
                     <Button
                         variant="outline"
                         onClick={onClose}

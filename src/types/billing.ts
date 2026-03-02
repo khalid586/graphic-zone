@@ -15,6 +15,7 @@ export interface BillingItem {
 export interface BillingFormData {
     readonly customerName: string;
     readonly customerAddress: string;
+    readonly customerPhone: string;
     readonly items: readonly BillingItem[];
     readonly advance: number;
 }

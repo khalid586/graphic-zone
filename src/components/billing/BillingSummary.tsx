@@ -1,6 +1,6 @@
 'use client';
 
-import { FileText, User, MapPin, Package, DollarSign } from 'lucide-react';
+import { FileText, User, MapPin, Package, DollarSign, Phone } from 'lucide-react';
 import { motion } from 'motion/react';
 import { formatCurrency } from '@/lib/format';
 import type { BillingFormData } from '@/types/billing';
@@ -10,7 +10,7 @@ type BillingSummaryProps = {
 }
 
 const BillingSummary = ({ formData }: BillingSummaryProps) => {
-    const { customerName, customerAddress, items, advance } = formData;
+    const { customerName, customerAddress, customerPhone, items, advance } = formData;
     const validItems = items.filter((item) => item.description.trim() && item.quantity > 0 && item.rate > 0);
     const itemCount = validItems.length;
     const totalAmount = validItems.reduce((sum, item) => sum + item.amount, 0);
@@ -54,6 +54,19 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
                     <p className="text-sm text-foreground pl-5 whitespace-pre-wrap">
                         {customerAddress.trim() || (
                             <span className="text-muted-foreground italic">No address entered</span>
+                        )}
+                    </p>
+                </div>
+
+                {/* Customer Phone */}
+                <div className="space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <Phone className="w-3.5 h-3.5" />
+                        <span>Phone</span>
+                    </div>
+                    <p className="text-sm text-foreground pl-5">
+                        {customerPhone.trim() || (
+                            <span className="text-muted-foreground italic">No phone entered</span>
                         )}
                     </p>
                 </div>
