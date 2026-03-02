@@ -4,25 +4,19 @@ import { useState, type FormEvent } from 'react';
 import { Phone, Mail, MessageSquare, Upload, Facebook, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BRAND } from '@/config';
-import { SERVICE_OPTIONS } from '@/data/constants';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 
 const Contact = () => {
     const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success'>('idle');
     const [formData, setFormData] = useState({
         companyName: '',
-        email: '',
-        service: 'bulk',
-        budget: '',
+        address: '',
+        mobile: '',
+        workDescription: '',
+        quantity: '',
     });
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -33,9 +27,10 @@ const Contact = () => {
             // Clear form after showing success
             setFormData({
                 companyName: '',
-                email: '',
-                service: 'bulk',
-                budget: '',
+                address: '',
+                mobile: '',
+                workDescription: '',
+                quantity: '',
             });
             setTimeout(() => setFormStatus('idle'), 5000);
         }, 1500);
@@ -107,70 +102,73 @@ const Contact = () => {
                             </div>
                         )}
                         <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                                <div className="space-y-2">
-                                    <Label className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-wider sm:tracking-widest">
-                                        প্রতিষ্ঠানের নাম
-                                    </Label>
-                                    <Input
-                                        type="text"
-                                        required
-                                        value={formData.companyName}
-                                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                                        className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base"
-                                        placeholder="আপনার প্রতিষ্ঠান"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-wider sm:tracking-widest">
-                                        কাজের ইমেইল
-                                    </Label>
-                                    <Input
-                                        type="email"
-                                        required
-                                        value={formData.email}
-                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base"
-                                        placeholder="name@example.com"
-                                    />
-                                </div>
+                            <div className="space-y-2">
+                                <Label className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-wider sm:tracking-widest">
+                                    প্রতিষ্ঠানের নাম
+                                </Label>
+                                <Input
+                                    type="text"
+                                    required
+                                    value={formData.companyName}
+                                    onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                                    className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base"
+                                    placeholder="আপনার প্রতিষ্ঠান"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <Label className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-wider sm:tracking-widest">
+                                    ঠিকানা
+                                </Label>
+                                <Input
+                                    type="text"
+                                    required
+                                    value={formData.address}
+                                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                                    className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base"
+                                    placeholder="আপনার ঠিকানা"
+                                />
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                 <div className="space-y-2">
                                     <Label className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-wider sm:tracking-widest">
-                                        সেবার ধরন
+                                        মোবাইল
                                     </Label>
-                                    <Select
-                                        value={formData.service}
-                                        onValueChange={(value) => setFormData({ ...formData, service: value })}
-                                    >
-                                        <SelectTrigger className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm sm:text-base">
-                                            <SelectValue placeholder="একটি সেবা নির্বাচন করুন" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            {SERVICE_OPTIONS.map((option) => (
-                                                <SelectItem key={option.value} value={option.value}>
-                                                    {option.label}
-                                                </SelectItem>
-                                            ))}
-                                        </SelectContent>
-                                    </Select>
+                                    <Input
+                                        type="tel"
+                                        required
+                                        value={formData.mobile}
+                                        onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                                        className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base"
+                                        placeholder="০১XXXXXXXXX"
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <Label className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-wider sm:tracking-widest">
-                                        আপনার বাজেট (৳)
+                                        পরিমাণ
                                     </Label>
                                     <Input
                                         type="number"
                                         required
-                                        min="0"
+                                        min="1"
                                         step="1"
-                                        value={formData.budget}
-                                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                                        value={formData.quantity}
+                                        onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
                                         className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base"
-                                        placeholder="৫০০০"
+                                        placeholder="১০০"
                                     />
                                 </div>
+                            </div>
+                            <div className="space-y-2">
+                                <Label className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-wider sm:tracking-widest">
+                                    কাজের বিবরণ
+                                </Label>
+                                <Textarea
+                                    required
+                                    value={formData.workDescription}
+                                    onChange={(e) => setFormData({ ...formData, workDescription: e.target.value })}
+                                    className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto min-h-[100px] focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base resize-none"
+                                    placeholder="কাজের বিস্তারিত বিবরণ লিখুন..."
+                                />
                             </div>
                             {/* <div className="bg-primary/5 border-2 border-dashed border-primary/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center cursor-pointer hover:bg-primary/10 transition-all group">
                                 <Upload className="w-7 h-7 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />

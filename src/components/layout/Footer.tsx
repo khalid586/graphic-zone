@@ -12,9 +12,9 @@ const Footer = () => (
                     <Image
                         src={LogoImage}
                         alt="Graphic Zone Logo"
-                        width={160}
-                        height={160}
-                        className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-contain"
+                        width={200}
+                        height={200}
+                        className="w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-50 lg:h-50 object-contain"
                     />
                 </Link>
                 <div className="flex items-start gap-3 text-center md:text-left">

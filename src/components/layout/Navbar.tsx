@@ -54,9 +54,9 @@ const Navbar = ({ navItems, ctaLabel = 'কোটেশন চাই', ctaAction
                     <Image
                         src={LogoImage}
                         alt="Graphic Zone Logo"
-                        width={96}
-                        height={96}
-                        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
+                        width={128}
+                        height={128}
+                        className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain"
                         priority
                     />
                 </Link>
