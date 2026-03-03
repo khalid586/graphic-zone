@@ -7,17 +7,17 @@
 export const formatCurrency = (amount: number): string =>
     '৳' + amount.toLocaleString('en-BD');
 
-/** Format a date string to Bengali long format (e.g., "২৫ ফেব্রুয়ারি ২০২৬") */
+/** Format a date string to Bengali long format (e.g., "25 ফেব্রুয়ারি 2026") */
 export const formatDateLong = (dateStr: string): string =>
-    new Date(dateStr).toLocaleDateString('bn-BD', {
+    new Date(dateStr).toLocaleDateString('en-US', {
         day: 'numeric',
         month: 'long',
         year: 'numeric',
     });
 
-/** Format a date string to Bengali short format (e.g., "২৫ ফেব্রু ২০২৬") */
+/** Format a date string to Bengali short format (e.g., "25 ফেব্রু 2026") */
 export const formatDateShort = (dateStr: string): string =>
-    new Date(dateStr).toLocaleDateString('bn-BD', {
+    new Date(dateStr).toLocaleDateString('en-US', {
         day: 'numeric',
         month: 'short',
         year: 'numeric',
@@ -37,7 +37,7 @@ export const formatTime = (date: Date): string =>
 
 /** Format a Date object to date and time string */
 export const formatDateTime = (date: Date): string =>
-    date.toLocaleDateString('bn-BD', {
+    date.toLocaleDateString('en-US', {
         day: 'numeric',
         month: 'short',
         year: 'numeric',

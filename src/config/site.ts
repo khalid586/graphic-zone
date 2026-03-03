@@ -17,8 +17,8 @@ export const BRAND = {
     tagline: 'ডিজাইন ও প্রিন্টিং সমাধান',
     contactEmail: 'graphiczonecumilla@gmail.com',
     contactEmailSecondary: 'shariartuhin91@gmail.com',
-    contactPhone: '+৮৮ ০১৩১২৫৯৪২৯২',
-    contactPhoneSecondary: '+৮৮ ০১৯১২৫৯৪২৯২',
+    contactPhone: '+88 01312594292',
+    contactPhoneSecondary: '+88 01912594292',
     whatsappUrl: 'https://wa.me/8801312594292',
     address: {
         street: 'Victoria College Road',
@@ -48,7 +48,7 @@ export interface NavItem {
 export const PRIMARY_NAV: readonly NavItem[] = [
     { label: 'হোম', action: '/' },
     { label: 'সেবাসমূহ', action: '/#services' },
-    { label: 'পোর্টফোলিও', action: '/#portfolio' },
+    { label: 'আমাদের কাজসমূহ', action: '/#portfolio' },
     { label: 'প্রক্রিয়া', action: '/#process' },
     { label: 'যোগাযোগ', action: '/#contact' },
 ] as const;

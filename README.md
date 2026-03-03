@@ -302,7 +302,7 @@ All components are optimized for mobile-first design with progressive enhancemen
 ### Contact Information
 
 - **Address**: Victoria College Road, Kandirpar, Cumilla 3500, Bangladesh
-- **Phone**: +৮৮ ০১৩১২৫৯৪২৯২ / +৮৮ ০১৯১২৫৯৪২৯২
+- **Phone**: +88 01312594292 / +88 01912594292
 - **Email**: graphiczonecumilla@gmail.com
 - **WhatsApp**: [Message Us](https://wa.me/8801312594292)
 - **Facebook**: [facebook.com/graphiczonecumilla](https://facebook.com/graphiczonecumilla)

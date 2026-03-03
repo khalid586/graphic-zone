@@ -181,7 +181,7 @@ const Contact = () => {
                                         value={formData.mobile}
                                         onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
                                         className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base"
-                                        placeholder="০১XXXXXXXXX"
+                                        placeholder="01XXXXXXXXX"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -196,7 +196,7 @@ const Contact = () => {
                                         value={formData.quantity}
                                         onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
                                         className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base"
-                                        placeholder="১০০"
+                                        placeholder="100"
                                     />
                                 </div>
                             </div>
