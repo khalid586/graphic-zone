@@ -45,3 +45,22 @@ export const formatDateTime = (date: Date): string =>
         minute: '2-digit',
         hour12: true,
     });
+
+/**
+ * Convert Bengali numerals (০-৯) to English numerals (0-9)
+ * Used for parsing user input that may contain Bengali digits
+ * 
+ * @example
+ * bengaliToEnglish('০১৩১২৫৯৪২৯২') // '01312594292'
+ * bengaliToEnglish('১০০') // '100'
+ */
+export const bengaliToEnglish = (str: string): string => {
+    if (!str) return str;
+    const bengaliNumerals = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+    const englishNumerals = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    let result = str.toString();
+    bengaliNumerals.forEach((bengali, index) => {
+        result = result.replace(new RegExp(bengali, 'g'), englishNumerals[index]);
+    });
+    return result;
+};

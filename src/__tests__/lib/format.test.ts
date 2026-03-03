@@ -4,6 +4,7 @@ import {
     formatDateLong,
     formatDateShort,
     generateTransactionId,
+    bengaliToEnglish,
 } from '@/lib/format';
 
 describe('formatCurrency', () => {
@@ -54,5 +55,44 @@ describe('generateTransactionId', () => {
         const id = generateTransactionId();
         const body = id.replace('TXN-', '');
         expect(body).toMatch(/^[A-Z0-9-]+$/);
+    });
+});
+
+describe('bengaliToEnglish', () => {
+    it('converts Bengali numerals to English numerals', () => {
+        expect(bengaliToEnglish('০১২৩৪৫৬৭৮৯')).toBe('0123456789');
+    });
+
+    it('converts a Bengali mobile number', () => {
+        expect(bengaliToEnglish('০১৩১২৫৯৪২৯২')).toBe('01312594292');
+    });
+
+    it('converts a Bengali quantity', () => {
+        expect(bengaliToEnglish('১০০')).toBe('100');
+        expect(bengaliToEnglish('৫০০')).toBe('500');
+    });
+
+    it('handles mixed Bengali and English text', () => {
+        expect(bengaliToEnglish('পরিমাণ: ১০০ টি')).toBe('পরিমাণ: 100 টি');
+    });
+
+    it('handles strings without Bengali numerals', () => {
+        expect(bengaliToEnglish('123')).toBe('123');
+        expect(bengaliToEnglish('hello')).toBe('hello');
+    });
+
+    it('handles empty strings', () => {
+        expect(bengaliToEnglish('')).toBe('');
+    });
+
+    it('handles null/undefined values gracefully', () => {
+        // @ts-expect-error testing runtime behavior
+        expect(bengaliToEnglish(null)).toBe(null);
+        // @ts-expect-error testing runtime behavior
+        expect(bengaliToEnglish(undefined)).toBe(undefined);
+    });
+
+    it('preserves non-numeric Bengali characters', () => {
+        expect(bengaliToEnglish('ঢাকা ১০০০')).toBe('ঢাকা 1000');
     });
 });

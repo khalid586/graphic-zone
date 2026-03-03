@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
-
-
+import { bengaliToEnglish } from '@/lib/format';
+import { appError } from '@/lib/result';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -18,18 +18,6 @@ export async function POST(request: NextRequest) {
 
         const body = await request.json();
         let { companyName, address, mobile, workDescription, quantity } = body;
-
-        // Convert Bengali numerals to English numerals
-        const bengaliToEnglish = (str: string) => {
-            if (!str) return str;
-            const bengaliNumerals = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-            const englishNumerals = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-            let result = str.toString();
-            bengaliNumerals.forEach((bengali, index) => {
-                result = result.replace(new RegExp(bengali, 'g'), englishNumerals[index]);
-            });
-            return result;
-        };
 
         // Convert Bengali numerals in mobile and quantity
         if (mobile) mobile = bengaliToEnglish(mobile);
@@ -79,21 +67,24 @@ export async function POST(request: NextRequest) {
     } catch (error) {
         console.error('Error sending email:', error);
 
-        // Provide more detailed error info
-        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        // Log full error details server-side
         const errorDetails = error instanceof Error && 'response' in error
             ? JSON.stringify(error)
             : String(error);
-
         console.error('Detailed error:', errorDetails);
 
-        return NextResponse.json(
-            {
+        // Only expose sensitive error messages in development
+        const clientError = process.env.NODE_ENV === 'development'
+            ? {
                 error: 'Failed to send email',
-                details: errorMessage,
-                debug: process.env.NODE_ENV === 'development' ? errorDetails : undefined
-            },
-            { status: 500 }
-        );
+                details: error instanceof Error ? error.message : 'Unknown error',
+                debug: errorDetails
+            }
+            : {
+                error: 'Failed to send email',
+                details: 'An internal error occurred. Please try again later.'
+            };
+
+        return NextResponse.json(clientError, { status: 500 });
     }
 }
