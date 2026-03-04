@@ -14,9 +14,9 @@ type HeroProps = {
 }
 
 const Hero = ({ onCtaClick }: HeroProps = {}) => (
-    <section className="relative py-4 md:py-10 lg:h-screen lg:flex lg:items-center lg:-mt-36 px-6 sm:px-8 bg-background overflow-hidden">
+    <section className="relative min-h-screen flex items-center -mt-20 px-6 sm:px-8 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 translate-x-1/2" />
-        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center w-full">
+        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center w-full pt-20">
             <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -35,13 +35,13 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                 <div className="flex flex-col sm:flex-row gap-4">
                     <Button
                         onClick={onCtaClick ?? scrollToContact}
-                        className="bg-secondary text-secondary-foreground px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-secondary/90 shadow-xl shadow-secondary/20 h-auto"
+                        className="bg-secondary text-secondary-foreground px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:shadow-2xl hover:scale-105 border-2 border-secondary/30 transition-all duration-300 shadow-xl h-auto"
                     >
                         অর্ডার করুন <ArrowRight className="w-4 h-4" />
                     </Button>
                     <Button
                         asChild
-                        className="bg-success text-success-foreground px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-success/90 shadow-xl shadow-success/20 h-auto"
+                        className="bg-success text-success-foreground px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:shadow-2xl hover:scale-105 border-2 border-success/30 transition-all duration-300 shadow-xl h-auto"
                     >
                         <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                             <MessageCircle className="w-4 h-4" /> হোয়াটসঅ্যাপে যোগাযোগ
@@ -66,7 +66,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="relative mb-12 md:mb-0"
             >
-                <div className="bg-white rounded-[2rem] shadow-2xl relative z-10">
+                <div className="bg-white rounded-[2rem] shadow-2xl shadow-primary/10 border-2 border-primary/30 relative z-10 p-3">
                     <Image
                         src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&h=600&fit=crop&q=80"
                         width={800}
@@ -76,7 +76,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                         priority
                     />
                 </div>
-                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-primary text-primary-foreground p-4 md:p-8 rounded-xl md:rounded-2xl shadow-xl z-20">
+                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-primary text-primary-foreground p-4 md:p-8 rounded-xl md:rounded-2xl shadow-2xl border-2 border-white z-20">
                     <ShieldCheck className="w-6 h-6 md:w-10 md:h-10 mb-2 md:mb-4" />
                     <p className="font-bold text-sm md:text-xl">১০০% মানসম্মত</p>
                     <p className="text-primary-foreground/80 text-[10px] md:text-xs">ম্যানুয়াল পরিদর্শন নিশ্চিত</p>

@@ -10,10 +10,11 @@ const Portfolio = () => (
             <div className="mb-12">
                 <h2 className="text-primary font-bold uppercase tracking-[0.3em] text-[10px] mb-3">কেস স্টাডি</h2>
                 <p className="text-3xl sm:text-4xl font-black text-foreground">আমাদের কাজসমূহ</p>
+                <div className="w-20 h-1 bg-primary/40 mt-4 rounded-full"></div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {PORTFOLIO.map((item) => (
-                    <Card key={item.id} className="group overflow-hidden hover:shadow-lg transition-shadow rounded-2xl border p-0 gap-0">
+                    <Card key={item.id} className="group overflow-hidden hover:shadow-2xl hover:shadow-primary/15 transition-all duration-300 rounded-3xl border-2 border-primary/30 hover:border-primary/50 hover:scale-105 p-0 gap-0 shadow-lg shadow-primary/5">
                         <div className="aspect-[4/3] overflow-hidden">
                             <Image
                                 src={item.img}

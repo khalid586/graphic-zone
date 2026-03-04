@@ -5,7 +5,7 @@ import { BRAND } from '@/config';
 import LogoImage from '../../../assets/Logo.png';
 
 const Footer = () => (
-    <footer className="bg-secondary text-muted-foreground py-16 px-6 sm:px-8 border-t border-white/5">
+    <footer className="bg-secondary text-muted-foreground py-16 px-6 sm:px-8 border-t-2 border-primary/40 shadow-2xl shadow-primary/5">
         <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-12">
                 <Link href="/" className="flex mx-auto md:mx-0">

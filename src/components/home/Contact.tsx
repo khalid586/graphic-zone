@@ -60,7 +60,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-secondary text-white relative overflow-hidden">
+        <section id="contact" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-secondary text-white relative overflow-hidden border-t-2 border-primary/40">
             <div className="absolute bottom-0 left-0 w-full h-1/2 bg-primary/10 blur-[120px] rounded-full translate-y-1/2" />
             <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-20">
                 <div>
@@ -70,7 +70,7 @@ const Contact = () => {
                     </p>
                     <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
                         <div className="flex items-start sm:items-center gap-4 sm:gap-6">
-                            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-primary border border-white/10 flex-shrink-0">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-primary border-2 border-primary/30 flex-shrink-0">
                                 <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
                             <div className="min-w-0">
@@ -84,7 +84,7 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="flex items-start sm:items-center gap-4 sm:gap-6">
-                            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-primary border border-white/10 flex-shrink-0">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-primary border-2 border-primary/30 flex-shrink-0">
                                 <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
                             <div className="min-w-0">
@@ -96,13 +96,13 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                        <Button asChild className="bg-success text-white px-4 sm:px-6 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest hover:bg-success/90 h-auto w-full sm:w-auto">
+                        <Button asChild className="bg-success text-white px-4 sm:px-6 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest hover:shadow-lg border-2 border-success/30 hover:scale-105 transition-all duration-300 h-auto w-full sm:w-auto">
                             <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                                 <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
                                 <span className="whitespace-nowrap">হোয়াটসঅ্যাপ</span>
                             </a>
                         </Button>
-                        <Button asChild className="bg-info text-white px-4 sm:px-6 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest hover:bg-info/90 h-auto w-full sm:w-auto">
+                        <Button asChild className="bg-info text-white px-4 sm:px-6 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest hover:shadow-lg border-2 border-info/30 hover:scale-105 transition-all duration-300 h-auto w-full sm:w-auto">
                             <a href={BRAND.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                                 <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
                                 <span className="whitespace-nowrap">ফেসবুক পেজ</span>
@@ -110,7 +110,7 @@ const Contact = () => {
                         </Button>
                     </div>
                 </div>
-                <Card className="rounded-2xl sm:rounded-[2.5rem] p-0 border-0 shadow-2xl overflow-hidden gap-0">
+                <Card className="rounded-2xl sm:rounded-[2.5rem] p-0 border-2 border-primary/40 shadow-2xl shadow-primary/20 overflow-hidden gap-0 bg-white">
                     <CardHeader className="p-6 pb-0 sm:p-8 sm:pb-0 md:p-10 md:pb-0 lg:p-12 lg:pb-0">
                         <CardTitle className="text-xl sm:text-2xl font-bold">কোটেশন অনুরোধ করুন</CardTitle>
                     </CardHeader>

@@ -21,6 +21,7 @@ const Services = ({ onLearnMore }: { onLearnMore?: () => void }) => (
             <div className="text-center mb-20">
                 <h2 className="text-primary font-bold uppercase tracking-[0.3em] text-[10px] mb-4">আমাদের দক্ষতা</h2>
                 <p className="text-4xl font-black text-foreground">কর্পোরেট সেবা স্যুট</p>
+                <div className="w-20 h-1 bg-primary/40 mx-auto mt-4 rounded-full"></div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {SERVICES.map((service) => {
@@ -28,7 +29,7 @@ const Services = ({ onLearnMore }: { onLearnMore?: () => void }) => (
                     return (
                         <Card
                             key={service.id}
-                            className="p-10 rounded-3xl bg-background border border-muted hover:bg-white hover:shadow-2xl hover:shadow-primary/10 transition-all group shadow-none gap-0"
+                            className="p-10 rounded-3xl bg-white border-2 border-primary/30 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 hover:scale-105 transition-all duration-300 group shadow-lg shadow-primary/5 gap-0"
                         >
                             <CardContent className="p-0">
                                 <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all">

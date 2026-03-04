@@ -27,6 +27,16 @@
   background: #94a3b8;
 }
 
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll offset for anchor navigation with sticky navbar */
+section[id] {
+  scroll-margin-top: 120px;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
