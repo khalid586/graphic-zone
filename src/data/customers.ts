@@ -15,7 +15,7 @@ export const MOCK_CUSTOMERS: Customer[] = [
         id: 'CUST-001',
         name: 'Zenith Corporation',
         address: 'House #12, Road #5\nBlock B, Banani\nDhaka - 1213',
-        phone: '+880 1712 345 678',
+        phone: '01330950308',
         email: 'info@zenithcorp.com',
     },
     {
