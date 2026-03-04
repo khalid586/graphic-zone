@@ -8,13 +8,15 @@ export const MOCK_USER: UserProfile = {
     memberSince: 'March, 2024',
     totalOrders: 47,
     totalSpent: 2_845_000,
+    totalPaid: 2_338_000,
+    dueAmount: 507_000,
     pendingOrders: 3,
 };
 
 export const MOCK_ORDERS: Order[] = [
     {
         id: 'GZ-2026-0147',
-        projectName: 'বার্ষিক প্রতিবেদন — জেনিথ কর্প',
+        clientName: 'জেনিথ কর্প',
         orderDate: '2026-02-18',
         status: 'Processing',
         paymentStatus: 'Paid',
@@ -23,7 +25,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0139',
-        projectName: 'বিজনেস কার্ড — টেকহাব',
+        clientName: 'টেকহাব',
         orderDate: '2026-02-12',
         status: 'Completed',
         paymentStatus: 'Paid',
@@ -32,7 +34,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0134',
-        projectName: 'ইভেন্ট ব্যানার — ঢাকা সামিট',
+        clientName: 'ঢাকা সামিট',
         orderDate: '2026-02-08',
         status: 'Completed',
         paymentStatus: 'Paid',
@@ -41,7 +43,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0128',
-        projectName: 'ব্রোশিওর — গ্রীনলিফ অর্গানিক্স',
+        clientName: 'গ্রীনলিফ অর্গানিক্স',
         orderDate: '2026-02-01',
         status: 'Pending',
         paymentStatus: 'Unpaid',
@@ -50,7 +52,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0121',
-        projectName: 'ফ্লায়ার ডিজাইন — ফিটলাইফ জিম',
+        clientName: 'ফিটলাইফ জিম',
         orderDate: '2026-01-25',
         status: 'Completed',
         paymentStatus: 'Paid',
@@ -59,7 +61,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0115',
-        projectName: 'প্যাকেজ লেবেল — অ্যাকুয়াপিউর',
+        clientName: 'অ্যাকুয়াপিউর',
         orderDate: '2026-01-18',
         status: 'Cancelled',
         paymentStatus: 'Refunded',
@@ -68,7 +70,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2026-0108',
-        projectName: 'স্টিকার শীট — কিডোপ্লে',
+        clientName: 'কিডোপ্লে',
         orderDate: '2026-01-10',
         status: 'Completed',
         paymentStatus: 'Paid',
@@ -77,7 +79,7 @@ export const MOCK_ORDERS: Order[] = [
     },
     {
         id: 'GZ-2025-0302',
-        projectName: 'ওয়াল ক্যালেন্ডার — হরাইজন ব্যাংক',
+        clientName: 'হরাইজন ব্যাংক',
         orderDate: '2025-12-20',
         status: 'Pending',
         paymentStatus: 'Partial',

@@ -48,8 +48,8 @@ const OrderSummaryCard = ({ order }: OrderSummaryCardProps) => (
                 <div className="flex items-center gap-2.5">
                     <Package className="w-4 h-4 text-muted-foreground" />
                     <div>
-                        <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">প্রকল্প</p>
-                        <p className="text-sm font-semibold text-foreground">{order.projectName}</p>
+                        <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">ক্লায়েন্ট</p>
+                        <p className="text-sm font-semibold text-foreground">{order.clientName}</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-2.5">

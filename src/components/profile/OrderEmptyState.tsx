@@ -5,8 +5,8 @@ const OrderEmptyState = () => (
         <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mb-4">
             <FileText className="w-8 h-8 text-muted-foreground" />
         </div>
-        <p className="text-sm font-medium text-muted-foreground">কোনো অর্ডার পাওয়া যায়নি</p>
-        <p className="text-xs text-muted-foreground mt-1">আপনার সার্চ বা ফিল্টার পরিবর্তন করে দেখুন।</p>
+        <p className="text-sm font-medium text-muted-foreground">No orders found</p>
+        <p className="text-xs text-muted-foreground mt-1">Try adjusting your search or filters.</p>
     </div>
 );
 

@@ -20,7 +20,7 @@ describe('MOCK_ORDERS', () => {
     it('each order has required fields', () => {
         MOCK_ORDERS.forEach((o) => {
             expect(o.id).toBeTruthy();
-            expect(o.projectName).toBeTruthy();
+            expect(o.clientName).toBeTruthy();
             expect(o.orderDate).toBeTruthy();
             expect(['Completed', 'Pending', 'Processing', 'Cancelled']).toContain(o.status);
             expect(['Paid', 'Unpaid', 'Partial', 'Refunded']).toContain(o.paymentStatus);

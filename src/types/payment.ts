@@ -31,7 +31,7 @@ export type PaymentState = (typeof PAYMENT_STATES)[keyof typeof PAYMENT_STATES];
 
 export interface PaymentOrder {
     readonly id: string;
-    readonly projectName: string;
+    readonly clientName: string;
     readonly totalAmount: number;
     readonly paidAmount: number;
     readonly remainingDue: number;

@@ -27,10 +27,10 @@ export const ORDER_STATUS_STYLES: Readonly<Record<OrderStatus, StatusStyle>> = {
 } as const;
 
 export const ORDER_STATUS_LABELS: Readonly<Record<OrderStatus, string>> = {
-    Completed: 'সম্পন্ন',
-    Pending: 'বাকি',
-    Processing: 'প্রক্রিয়াকরণ',
-    Cancelled: 'বাতিল',
+    Completed: 'Completed',
+    Pending: 'Pending',
+    Processing: 'Processing',
+    Cancelled: 'Cancelled',
 } as const;
 
 // ── Payment status ────────────────────────────────────────────────
@@ -48,10 +48,10 @@ export const PAYMENT_STATUS_STYLES: Readonly<Record<PaymentStatus, PaymentStyle>
 } as const;
 
 export const PAYMENT_STATUS_LABELS: Readonly<Record<PaymentStatus, string>> = {
-    Paid: 'পরিশোধিত',
-    Unpaid: 'অপরিশোধিত',
-    Partial: 'আংশিক',
-    Refunded: 'রিফান্ডেড',
+    Paid: 'Paid',
+    Unpaid: 'Unpaid',
+    Partial: 'Partial',
+    Refunded: 'Refunded',
 } as const;
 
 // ── Filter helpers ────────────────────────────────────────────────
@@ -67,11 +67,11 @@ export const ORDER_FILTERS: readonly OrderFilterType[] = [
 ] as const;
 
 export const ORDER_FILTER_LABELS: Readonly<Record<OrderFilterType, string>> = {
-    All: 'সব',
-    Completed: 'সম্পন্ন',
-    Pending: 'বাকি',
-    Processing: 'প্রক্রিয়াকরণ',
-    Cancelled: 'বাতিল',
+    All: 'All',
+    Completed: 'Completed',
+    Pending: 'Pending',
+    Processing: 'Processing',
+    Cancelled: 'Cancelled',
 } as const;
 
 // ── Sort ──────────────────────────────────────────────────────────

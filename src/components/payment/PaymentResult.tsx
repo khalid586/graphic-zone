@@ -79,8 +79,8 @@ const PaymentResult = ({ state, order, onRetry }: PaymentResultProps) => {
                     <span className="font-semibold text-primary">{order.id}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">প্রকল্প</span>
-                    <span className="font-medium text-foreground">{order.projectName}</span>
+                    <span className="text-muted-foreground">ক্লায়েন্ট</span>
+                    <span className="font-medium text-foreground">{order.clientName}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">পরিমাণ</span>

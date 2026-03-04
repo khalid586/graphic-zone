@@ -27,27 +27,27 @@ const OrderTable = memo(({
             <table className="w-full" role="table">
                 <thead>
                     <tr className="bg-background text-left text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                        <th scope="col" className="px-6 py-3">অর্ডার আইডি</th>
-                        <th scope="col" className="px-6 py-3">প্রকল্পের নাম</th>
-                        <th scope="col" className="px-6 py-3">আইটেম সংখ্যা</th>
+                        <th scope="col" className="px-6 py-3">Order ID</th>
+                        <th scope="col" className="px-6 py-3">Client Name</th>
+                        <th scope="col" className="px-6 py-3">Items</th>
                         <th scope="col" className="px-6 py-3">
                             <button
                                 onClick={() => onToggleSort('orderDate')}
                                 className="flex items-center gap-1 hover:text-foreground transition-colors"
-                                aria-label="তারিখ অনুযায়ী সাজান"
+                                aria-label="Sort by date"
                             >
-                                তারিখ <ArrowUpDown className="w-3 h-3" />
+                                DATE <ArrowUpDown className="w-3 h-3" />
                             </button>
                         </th>
-                        <th scope="col" className="px-6 py-3">স্ট্যাটাস</th>
-                        <th scope="col" className="px-6 py-3">পেমেন্ট</th>
+                        <th scope="col" className="px-6 py-3">Order Status</th>
+                        <th scope="col" className="px-6 py-3">Payment Status</th>
                         <th scope="col" className="px-6 py-3">
                             <button
                                 onClick={() => onToggleSort('totalAmount')}
                                 className="flex items-center gap-1 hover:text-foreground transition-colors"
-                                aria-label="পরিমাণ অনুযায়ী সাজান"
+                                aria-label="Sort by amount"
                             >
-                                পরিমাণ <ArrowUpDown className="w-3 h-3" />
+                                AMOUNT <ArrowUpDown className="w-3 h-3" />
                             </button>
                         </th>
                     </tr>
@@ -62,10 +62,10 @@ const OrderTable = memo(({
                                     <span className="text-sm font-semibold text-primary">{order.id}</span>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <span className="text-sm font-medium text-foreground">{order.projectName}</span>
+                                    <span className="text-sm font-medium text-foreground">{order.clientName}</span>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <span className="text-sm text-muted-foreground">{order.items.toLocaleString()}টি</span>
+                                    <span className="text-sm text-muted-foreground">{order.items.toLocaleString()}</span>
                                 </td>
                                 <td className="px-6 py-4 text-sm text-muted-foreground">{formatDate(order.orderDate)}</td>
                                 <td className="px-6 py-4">
@@ -97,7 +97,7 @@ const OrderTable = memo(({
                         <div className="flex items-start justify-between mb-3">
                             <div className="min-w-0 flex-1">
                                 <p className="text-sm font-semibold text-primary">{order.id}</p>
-                                <p className="text-sm font-medium text-foreground mt-0.5 truncate">{order.projectName}</p>
+                                <p className="text-sm font-medium text-foreground mt-0.5 truncate">{order.clientName}</p>
                             </div>
                             <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold shrink-0 ${sc.bg} ${sc.text}`}>
                                 <span className={`w-1.5 h-1.5 rounded-full ${sc.dot}`} />
@@ -106,21 +106,21 @@ const OrderTable = memo(({
                         </div>
                         <div className="grid grid-cols-2 gap-3 text-sm">
                             <div>
-                                <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">তারিখ</p>
+                                <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Date</p>
                                 <p className="text-muted-foreground">{formatDate(order.orderDate)}</p>
                             </div>
                             <div>
-                                <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">পরিমাণ</p>
+                                <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Amount</p>
                                 <p className="font-semibold text-foreground">{formatCurrency(order.totalAmount)}</p>
                             </div>
                             <div>
-                                <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">পেমেন্ট</p>
+                                <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Payment</p>
                                 <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold mt-0.5 ${pc.bg} ${pc.text}`}>
                                     {paymentLabels[order.paymentStatus]}
                                 </span>
                             </div>
                             <div>
-                                <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">আইটেম</p>
+                                <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Items</p>
                                 <p className="text-muted-foreground">{order.items.toLocaleString()}</p>
                             </div>
                         </div>

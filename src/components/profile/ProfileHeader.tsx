@@ -83,7 +83,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
                             <Phone className="w-3.5 h-3.5" /> {user.phone}
                         </span>
                         <span className="flex items-center gap-1.5">
-                            <CalendarDays className="w-3.5 h-3.5" /> সদস্য হয়েছেন {user.memberSince} থেকে
+                            <CalendarDays className="w-3.5 h-3.5" /> Member since {user.memberSince}
                         </span>
                     </div>
                 </div>
@@ -92,27 +92,39 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => (
                     variant="outline"
                     className="self-start bg-white/10 border-white/15 text-white hover:bg-white/20 hover:text-white rounded-lg text-xs font-semibold uppercase tracking-wider gap-2 shrink-0"
                 >
-                    <Pencil className="w-3.5 h-3.5" /> প্রোফাইল সম্পাদনা
+                    <Pencil className="w-3.5 h-3.5" /> Edit Profile
                 </Button>
             </div>
 
             {/* Stats row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                 <StatCard
                     icon={ShoppingBag}
-                    label="মোট অর্ডার"
+                    label="Total Orders"
                     value={String(user.totalOrders)}
                     color="bg-primary/10 text-primary"
                 />
                 <StatCard
                     icon={DollarSign}
-                    label="মোট খরচ"
+                    label="Total Amount"
                     value={formatCurrency(user.totalSpent)}
+                    color="bg-blue-500/10 text-blue-600"
+                />
+                <StatCard
+                    icon={DollarSign}
+                    label="Paid Amount"
+                    value={formatCurrency(user.totalPaid)}
                     color="bg-success/10 text-success"
                 />
                 <StatCard
+                    icon={DollarSign}
+                    label="Due Amount"
+                    value={formatCurrency(user.dueAmount)}
+                    color="bg-destructive/10 text-destructive"
+                />
+                <StatCard
                     icon={Clock}
-                    label="বাকি আছে"
+                    label="Pending Orders"
                     value={String(user.pendingOrders)}
                     color="bg-warning/20 text-warning"
                 />

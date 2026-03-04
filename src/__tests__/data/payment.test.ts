@@ -4,7 +4,7 @@ import { MOCK_PAYMENT_ORDER, PAYMENT_METHODS } from '@/data/payment';
 describe('MOCK_PAYMENT_ORDER', () => {
     it('has required fields', () => {
         expect(MOCK_PAYMENT_ORDER.id).toBeTruthy();
-        expect(MOCK_PAYMENT_ORDER.projectName).toBeTruthy();
+        expect(MOCK_PAYMENT_ORDER.clientName).toBeTruthy();
         expect(MOCK_PAYMENT_ORDER.totalAmount).toBeGreaterThan(0);
         expect(MOCK_PAYMENT_ORDER.paidAmount).toBeGreaterThanOrEqual(0);
         expect(MOCK_PAYMENT_ORDER.remainingDue).toBeGreaterThan(0);

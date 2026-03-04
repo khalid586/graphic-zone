@@ -30,7 +30,7 @@ const OrderHistoryTable = ({ orders }: OrderHistoryTableProps) => {
             .filter((o) => {
                 const matchesSearch =
                     o.id.toLowerCase().includes(lowerSearch) ||
-                    o.projectName.toLowerCase().includes(lowerSearch);
+                    o.clientName.toLowerCase().includes(lowerSearch);
                 const matchesFilter = filter === 'All' || o.status === filter;
                 return matchesSearch && matchesFilter;
             })

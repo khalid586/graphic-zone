@@ -2,7 +2,7 @@ import type { PaymentOrder, PaymentMethodOption } from '@/types/payment';
 
 export const MOCK_PAYMENT_ORDER: PaymentOrder = {
     id: 'GZ-2026-0128',
-    projectName: 'ব্রোশিওর — গ্রীনলিফ অর্গানিক্স',
+    clientName: 'গ্রীনলিফ অর্গানিক্স',
     totalAmount: 97_500,
     paidAmount: 0,
     remainingDue: 97_500,

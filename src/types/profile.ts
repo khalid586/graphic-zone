@@ -33,7 +33,7 @@ export type ActivityIcon = (typeof ACTIVITY_ICONS)[keyof typeof ACTIVITY_ICONS];
 
 export interface Order {
     readonly id: string;
-    readonly projectName: string;
+    readonly clientName: string;
     readonly orderDate: string;
     readonly status: OrderStatus;
     readonly paymentStatus: PaymentStatus;
@@ -57,5 +57,7 @@ export interface UserProfile {
     readonly memberSince: string;
     readonly totalOrders: number;
     readonly totalSpent: number;
+    readonly totalPaid: number;
+    readonly dueAmount: number;
     readonly pendingOrders: number;
 }
