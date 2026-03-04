@@ -23,9 +23,9 @@ const Footer = () => (
                             <MapPin className="w-5 h-5 text-primary/80 flex" />
                             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">আমাদের ঠিকানা</p>
                         </div>
-                        <p className="text-white font-semibold">{BRAND.address.street}</p>
-                        <p className="text-muted-foreground">{BRAND.address.area}, {BRAND.address.city}</p>
-                        <p className="text-muted-foreground">{BRAND.address.postalCode}</p>
+                        {/* <p className="text-white font-semibold">{BRAND.address.street}</p> */}
+                        <p className="text-white font-semibold">{BRAND.address.area}, {BRAND.address.city}</p>
+                        <p className="text-white font-semibold">{BRAND.address.postalCode}</p>
                     </div>
                 </div>
             </div>

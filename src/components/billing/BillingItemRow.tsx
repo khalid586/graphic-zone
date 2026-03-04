@@ -2,6 +2,7 @@
 
 import { X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { formatCurrency } from '@/lib/format';
@@ -66,15 +67,16 @@ const BillingItemRow = ({
                     <label className="text-xs font-medium text-muted-foreground pl-1">
                         Description
                     </label>
-                    <Input
-                        type="text"
+                    <Textarea
                         placeholder="e.g., Business Cards - Matte Finish"
                         value={description}
                         onChange={(e) => onChange(id, 'description', e.target.value)}
                         className={cn(
+                            'min-h-[40px] resize-y',
                             error && 'border-destructive focus-visible:ring-destructive/20'
                         )}
                         aria-invalid={!!error}
+                        rows={1}
                     />
                     {error && <p className="text-xs text-destructive pl-1">{error}</p>}
                 </div>
@@ -139,15 +141,16 @@ const BillingItemRow = ({
             {/* Desktop Layout */}
             <div className="hidden sm:flex gap-2 items-start">
                 <div className="flex-1 space-y-1.5">
-                    <Input
-                        type="text"
+                    <Textarea
                         placeholder="e.g., Business Cards - Matte Finish"
                         value={description}
                         onChange={(e) => onChange(id, 'description', e.target.value)}
                         className={cn(
+                            'min-h-[40px] resize-y',
                             error && 'border-destructive focus-visible:ring-destructive/20'
                         )}
                         aria-invalid={!!error}
+                        rows={1}
                     />
                     {error && <p className="text-xs text-destructive pl-1">{error}</p>}
                 </div>

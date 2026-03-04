@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { Phone, Mail, MessageSquare, Upload, Facebook, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MessageSquare, Upload, Facebook, CheckCircle2, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BRAND } from '@/config';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -92,6 +92,16 @@ const Contact = () => {
                                 <a href={`mailto:${BRAND.contactEmail}`} className="text-lg sm:text-xl font-bold  transition-colors block break-all">
                                     {BRAND.contactEmail}
                                 </a>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-4 sm:gap-6">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-primary border-2 border-primary/30 flex-shrink-0">
+                                <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </div>
+                            <div className="min-w-0">
+                                <p className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">আমাদের ঠিকানা</p>
+                                {/* <p className="text-lg sm:text-xl font-bold">{BRAND.address.street}</p> */}
+                                <p className="text-lg sm:text-xl font-bold">{BRAND.address.area}, {BRAND.address.city} {BRAND.address.postalCode}</p>
                             </div>
                         </div>
                     </div>
