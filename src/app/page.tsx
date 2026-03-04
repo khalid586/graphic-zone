@@ -1,4 +1,4 @@
-import { Hero, Services, Portfolio, Process, Contact } from '@/components/home';
+import { Hero, Marquee, Services, Portfolio, Process, Contact } from '@/components/home';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +9,7 @@ const HomePage = () => {
     return (
         <div className="bg-white text-foreground scroll-smooth">
             <Hero />
+            <Marquee />
             <Services />
             <Portfolio />
             <Process />

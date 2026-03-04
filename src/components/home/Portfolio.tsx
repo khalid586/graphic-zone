@@ -14,13 +14,13 @@ const Portfolio = () => (
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {PORTFOLIO.map((item) => (
-                    <Card key={item.id} className="group overflow-hidden hover:shadow-2xl hover:shadow-primary/15 transition-all duration-300 rounded-3xl border-2 border-primary/30 hover:border-primary/50 hover:scale-105 p-0 gap-0 shadow-lg shadow-primary/5">
+                    <Card key={item.id} className="group overflow-hidden transition-all duration-400 ease-in-out rounded-3xl border-b-4 border-transparent hover:border-b-4 hover:border-b-primary p-0 gap-0">
                         <div className="aspect-[4/3] overflow-hidden">
                             <Image
                                 src={item.img}
                                 width={800}
                                 height={600}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                className="w-full h-full object-cover transition-transform duration-500"
                                 alt={item.title}
                             />
                         </div>

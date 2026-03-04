@@ -29,7 +29,7 @@ export default function RootLayout({
     return (
         <html lang="bn" className={`${hindSiliguri.variable} ${manrope.variable}`}>
             <body className="font-sans antialiased">
-                <div className="min-h-screen selection:bg-primary selection:text-white flex flex-col">
+                <div className="min-h-screen selection:bg-primary selection:text-white flex flex-col px-4 md:px-6 lg:px-8">
                     <a
                         href="#main-content"
                         className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-primary focus:text-white focus:rounded-br-xl focus:outline-none"

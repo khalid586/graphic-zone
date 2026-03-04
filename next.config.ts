@@ -11,6 +11,26 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'images.unsplash.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'via.placeholder.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'www.adobe.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'img-prod-cms-rt-microsoft-com.akamaized.net',
+            },
+            {
+                protocol: 'https',
+                hostname: 'www.google.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'upload.wikimedia.org',
+            },
         ],
     },
     async headers() {
