@@ -69,7 +69,7 @@ const Contact = () => {
                         আসুন আপনার পরবর্তী <br /> ক্যাম্পেইন নিয়ে আলোচনা করি।
                     </p>
                     <div className="space-y-6 sm:space-y-8 mb-8 sm:mb-12">
-                        <div className="flex items-start sm:items-center gap-4 sm:gap-6">
+                        <div className="flex items-center gap-4 sm:gap-6">
                             <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-primary border-2 border-primary/30 flex-shrink-0">
                                 <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
@@ -83,7 +83,7 @@ const Contact = () => {
                                 </a>
                             </div>
                         </div>
-                        <div className="flex items-start sm:items-center gap-4 sm:gap-6">
+                        <div className="flex items-center gap-4 sm:gap-6">
                             <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-primary border-2 border-primary/30 flex-shrink-0">
                                 <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
@@ -94,7 +94,7 @@ const Contact = () => {
                                 </a>
                             </div>
                         </div>
-                        <div className="flex items-start gap-4 sm:gap-6">
+                        <div className="flex items-center gap-4 sm:gap-6">
                             <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center text-primary border-2 border-primary/30 flex-shrink-0">
                                 <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
