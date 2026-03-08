@@ -88,7 +88,7 @@ const BillingSummary = ({ formData }: BillingSummaryProps) => {
                                         <span className="text-muted-foreground shrink-0">
                                             {index + 1}.
                                         </span>
-                                        <span className="break-words">{item.description}</span>
+                                        <span className="break-words whitespace-pre-wrap">{item.description}</span>
                                     </div>
                                     <div className="pl-5 text-xs text-muted-foreground flex justify-between">
                                         <span>{item.quantity} × {formatCurrency(item.rate)}</span>

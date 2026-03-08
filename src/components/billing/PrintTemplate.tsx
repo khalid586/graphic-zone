@@ -270,7 +270,7 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                     ${bill.items.map((item, index) => `
                         <div class="item">
                             <div class="item-content">
-                                <div class="item-title">${index + 1}. ${item.description}</div>
+                                <div class="item-title">${index + 1}. ${item.description.replace(/\n/g, '<br>')}</div>
                                 <div class="item-details">${item.quantity} × ${formatCurrency(item.rate)}</div>
                             </div>
                             <div class="item-amount">${formatCurrency(item.amount)}</div>

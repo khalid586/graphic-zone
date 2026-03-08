@@ -13,7 +13,7 @@ export const BillItems = ({ bill }: BillItemsProps) => {
                 {bill.items.map((item, index) => (
                     <div key={item.id} className="text-sm">
                         <div className="flex items-start justify-between mb-1">
-                            <span className="text-foreground font-medium">
+                            <span className="text-foreground font-medium whitespace-pre-wrap">
                                 {index + 1}. {item.description}
                             </span>
                             <span className="font-semibold text-foreground ml-2 shrink-0">
