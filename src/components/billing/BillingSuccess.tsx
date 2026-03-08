@@ -27,48 +27,38 @@ const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => 
 
         const invoiceHTML = generatePrintHTML({ bill, logoDataUrl });
 
-        // mobile detection - many mobile browsers either block popups or
-        // ignore window.print calls, so we fall back to a safer navigation.
-        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
-        // helper to navigate current tab to invoice; user can then use the
-        // browser's share/print button and come back via history.
-        const navigateToInvoice = () => {
-            const uri = 'data:text/html;charset=utf-8,' + encodeURIComponent(invoiceHTML);
-            window.location.href = uri;
-        };
-
+        // try to open new window first; if that fails we'll write directly
+        // to the current document (safe fallback on mobile or when popups
+        // are blocked).
         try {
-            if (isMobile) {
-                // opening a blank tab is often blocked, so just navigate current
-                // page; losing state is acceptable on mobile since printing is
-                // the last action.
-                navigateToInvoice();
-                return;
-            }
+            const printWindow = window.open('', '_blank');
+            if (printWindow) {
+                printWindow.document.write(invoiceHTML);
+                printWindow.document.close();
 
-            const printWindow = window.open('', '_blank', 'width=800,height=600');
-            if (!printWindow) {
-                // popups disabled - fallback to same-tab navigation
-                navigateToInvoice();
-                return;
-            }
-
-            printWindow.document.write(invoiceHTML);
-            printWindow.document.close();
-
-            setTimeout(() => {
-                try {
-                    printWindow.focus();
-                    printWindow.print();
-                    printWindow.close();
-                } catch (error) {
-                    alert('Print failed. Please try again.');
+                if (!/Mobi|Android/i.test(navigator.userAgent)) {
+                    // only auto-invoke printing on desktop; mobile UIs
+                    // usually pop up their own share/print dialog.
+                    setTimeout(() => {
+                        try {
+                            printWindow.focus();
+                            printWindow.print();
+                            printWindow.close();
+                        } catch (error) {
+                            alert('Print failed. Please try again.');
+                        }
+                    }, 500);
                 }
-            }, 500);
+            } else {
+                // fallback: replace current page content with invoice HTML
+                document.open();
+                document.write(invoiceHTML);
+                document.close();
+            }
         } catch (error) {
-            // ultimately fall back to same-tab if anything goes wrong
-            navigateToInvoice();
+            document.open();
+            document.write(invoiceHTML);
+            document.close();
         }
     };
 
@@ -76,7 +66,7 @@ const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => 
         <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl border border-muted shadow-lg w-full mx-auto overflow-hidden max-h-[90vh] flex flex-col"
+            className="bg-white rounded-2xl border border-muted shadow-lg w-full mx-auto overflow-auto max-h-[90vh] flex flex-col"
             style={{ maxWidth: '440px' }}
         >
             {/* Header */}
