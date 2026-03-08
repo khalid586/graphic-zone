@@ -36,19 +36,19 @@ const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => 
                 printWindow.document.write(invoiceHTML);
                 printWindow.document.close();
 
-                if (!/Mobi|Android/i.test(navigator.userAgent)) {
-                    // only auto-invoke printing on desktop; mobile UIs
-                    // usually pop up their own share/print dialog.
-                    setTimeout(() => {
-                        try {
-                            printWindow.focus();
-                            printWindow.print();
+                setTimeout(() => {
+                    try {
+                        printWindow.focus();
+                        printWindow.print();
+                        // On mobile, closing immediately can cancel the print dialog (e.g., iOS Safari). 
+                        // So we leave the window open or the user can close it.
+                        if (!/Mobi|Android/i.test(navigator.userAgent)) {
                             printWindow.close();
-                        } catch (error) {
-                            alert('Print failed. Please try again.');
                         }
-                    }, 500);
-                }
+                    } catch (error) {
+                        alert('Print failed. Please try again.');
+                    }
+                }, 500);
             } else {
                 // fallback: replace current page content with invoice HTML
                 document.open();
