@@ -17,7 +17,7 @@ describe('SectionLabel', () => {
     it('has correct styling classes', () => {
         render(<SectionLabel>স্টাইল</SectionLabel>);
         const el = screen.getByText('স্টাইল');
-        expect(el.className).toContain('text-indigo-600');
+        expect(el.className).toContain('text-primary');
         expect(el.className).toContain('uppercase');
     });
 });
