@@ -15,6 +15,7 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
         <!DOCTYPE html>
         <html>
         <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <title>Bill - ${bill.id}</title>
             <style>
                 @page {
@@ -31,6 +32,7 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                     background: #f8f9fa;
                 }
                 .container {
+                    width: 100%;
                     max-width: 600px;
                     margin: 0 auto;
                     background: white;

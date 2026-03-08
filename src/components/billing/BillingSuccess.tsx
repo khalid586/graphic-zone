@@ -23,28 +23,41 @@ const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => 
     const description = 'The bill has been generated and is ready to be sent to the customer.';
 
     const handlePrint = () => {
+        if (typeof window === 'undefined') return;
+
+        const invoiceHTML = generatePrintHTML({ bill, logoDataUrl });
+
+        // detect mobile user agent; mobile browsers often block popup windows and
+        // printing from a new window may not work reliably. Instead open in a
+        // plain tab and let the user use the browser's share/print features.
+        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
         try {
-            const printWindow = window.open('', '_blank', 'width=800,height=600');
+            const printWindow = isMobile
+                ? window.open('about:blank', '_blank') // size hints ignored on mobile
+                : window.open('', '_blank', 'width=800,height=600');
+
             if (!printWindow) {
                 alert('Please allow popups for this site to print invoices.');
                 return;
             }
 
-            const invoiceHTML = generatePrintHTML({ bill, logoDataUrl });
-
             printWindow.document.write(invoiceHTML);
             printWindow.document.close();
 
-            // Wait for images to load before printing
-            setTimeout(() => {
-                try {
-                    printWindow.focus();
-                    printWindow.print();
-                    printWindow.close();
-                } catch (error) {
-                    alert('Print failed. Please try again.');
-                }
-            }, 500);
+            if (!isMobile) {
+                // only attempt to auto-print on desktop; mobile devices typically
+                // show their own print/share UI and calling print() may be ignored.
+                setTimeout(() => {
+                    try {
+                        printWindow.focus();
+                        printWindow.print();
+                        printWindow.close();
+                    } catch (error) {
+                        alert('Print failed. Please try again.');
+                    }
+                }, 500);
+            }
         } catch (error) {
             alert('Failed to open print window. Please check your popup blocker settings.');
         }
