@@ -48,7 +48,7 @@ export interface NavItem {
 export const PRIMARY_NAV: readonly NavItem[] = [
     { label: 'হোম', action: '/' },
     { label: 'সেবাসমূহ', action: '/#services' },
-    { label: 'আমাদের কাজসমূহ', action: '/#portfolio' },
+    { label: 'সরবরাহকৃত সেবাসমূহ', action: '/#portfolio' },
     { label: 'প্রক্রিয়া', action: '/#process' },
     { label: 'যোগাযোগ', action: '/#contact' },
 ] as const;

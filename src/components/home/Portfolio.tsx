@@ -9,7 +9,7 @@ const Portfolio = () => (
         <div className="max-w-7xl mx-auto">
             <div className="mb-12">
                 <h2 className="text-primary font-bold uppercase tracking-[0.3em] text-[10px] mb-3">কেস স্টাডি</h2>
-                <p className="text-3xl sm:text-4xl font-black text-foreground">আমাদের কাজসমূহ</p>
+                <p className="text-3xl sm:text-4xl font-black text-foreground">সরবরাহকৃত সেবাসমূহ</p>
                 <div className="w-20 h-1 bg-primary/40 mt-4 rounded-full"></div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
