@@ -27,39 +27,48 @@ const BillingSuccess = ({ bill, onCreateNew, onClose }: BillingSuccessProps) => 
 
         const invoiceHTML = generatePrintHTML({ bill, logoDataUrl });
 
-        // detect mobile user agent; mobile browsers often block popup windows and
-        // printing from a new window may not work reliably. Instead open in a
-        // plain tab and let the user use the browser's share/print features.
+        // mobile detection - many mobile browsers either block popups or
+        // ignore window.print calls, so we fall back to a safer navigation.
         const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-        try {
-            const printWindow = isMobile
-                ? window.open('about:blank', '_blank') // size hints ignored on mobile
-                : window.open('', '_blank', 'width=800,height=600');
+        // helper to navigate current tab to invoice; user can then use the
+        // browser's share/print button and come back via history.
+        const navigateToInvoice = () => {
+            const uri = 'data:text/html;charset=utf-8,' + encodeURIComponent(invoiceHTML);
+            window.location.href = uri;
+        };
 
+        try {
+            if (isMobile) {
+                // opening a blank tab is often blocked, so just navigate current
+                // page; losing state is acceptable on mobile since printing is
+                // the last action.
+                navigateToInvoice();
+                return;
+            }
+
+            const printWindow = window.open('', '_blank', 'width=800,height=600');
             if (!printWindow) {
-                alert('Please allow popups for this site to print invoices.');
+                // popups disabled - fallback to same-tab navigation
+                navigateToInvoice();
                 return;
             }
 
             printWindow.document.write(invoiceHTML);
             printWindow.document.close();
 
-            if (!isMobile) {
-                // only attempt to auto-print on desktop; mobile devices typically
-                // show their own print/share UI and calling print() may be ignored.
-                setTimeout(() => {
-                    try {
-                        printWindow.focus();
-                        printWindow.print();
-                        printWindow.close();
-                    } catch (error) {
-                        alert('Print failed. Please try again.');
-                    }
-                }, 500);
-            }
+            setTimeout(() => {
+                try {
+                    printWindow.focus();
+                    printWindow.print();
+                    printWindow.close();
+                } catch (error) {
+                    alert('Print failed. Please try again.');
+                }
+            }, 500);
         } catch (error) {
-            alert('Failed to open print window. Please check your popup blocker settings.');
+            // ultimately fall back to same-tab if anything goes wrong
+            navigateToInvoice();
         }
     };
 
