@@ -1,4 +1,4 @@
-import { Hero, Marquee, Services, Portfolio, Process, Contact } from '@/components/home';
+import { Hero, Marquee, Services, Portfolio, Process, WhyUs, Contact } from '@/components/home';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,6 +13,7 @@ const HomePage = () => {
             <Services />
             <Portfolio />
             <Process />
+            <WhyUs />
             <Contact />
         </div>
     );
