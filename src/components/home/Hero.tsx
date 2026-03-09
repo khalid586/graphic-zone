@@ -14,7 +14,7 @@ type HeroProps = {
 }
 
 const Hero = ({ onCtaClick }: HeroProps = {}) => (
-    <section className="relative min-h-screen flex items-center mt-4 sm:-mt-20 px-6 sm:px-8 bg-background overflow-hidden">
+    <section className="relative min-h-screen flex items-center mt-8 sm:-mt-20 px-6 sm:px-8 bg-background overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 translate-x-1/2" />
         <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center w-full pt-10 sm:pt-20">
             <motion.div

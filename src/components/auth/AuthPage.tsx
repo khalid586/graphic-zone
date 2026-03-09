@@ -15,95 +15,86 @@ import { LoginForm } from './LoginForm';
 import LogoImage from '../../../assets/Logo.png';
 
 const BrandPanel = () => (
-    <div className="w-full lg:w-1/2 flex relative overflow-hidden bg-gradient-to-br from-primary/20 via-primary/15 to-info/20">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-40">
+    <div className="w-full flex relative items-center justify-center pt-8 pb-4 px-4 lg:p-12 min-h-min lg:min-h-[calc(100vh-80px)]">
+        {/* Simple background pattern */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
             <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <pattern id="simple-grid" width="40" height="40" patternUnits="userSpaceOnUse">
                         <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary/30" />
                     </pattern>
                 </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
+                <rect width="100%" height="100%" fill="url(#simple-grid)" />
             </svg>
         </div>
 
-        <div className="relative z-10 flex flex-col justify-between p-4 sm:p-6 lg:p-8 xl:p-10 w-full">
+        <div className="relative z-10 flex flex-col items-center justify-center w-full">
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-6 lg:mb-10"
+            >
+                {/* Logo as it is */}
+                <Image
+                    src={LogoImage}
+                    alt="Graphic Zone Logo"
+                    width={350}
+                    height={150}
+                    className="w-56 sm:w-64 lg:w-80 h-auto object-contain"
+                    priority
+                />
+            </motion.div>
 
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-center w-full max-w-sm mx-auto"
+            >
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 leading-tight text-foreground">
+                    আপনার প্রিন্ট, <span className="text-primary">আপনার মতো।</span>
+                </h2>
 
-            {/* Center illustration */}
-            <div className="flex-1 flex flex-col items-center justify-center py-4 sm:py-6 lg:py-8">
-                {/* Icon composition */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="relative mb-6 sm:mb-8 lg:mb-12"
-                >
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center p-3 sm:p-4 shadow-lg">
-                        <Image
-                            src={LogoImage}
-                            alt="Graphic Zone Logo"
-                            width={64}
-                            height={64}
-                            className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
-                        />
+                <div className="hidden sm:flex flex-col gap-3 mt-6">
+                    <div className="flex items-center justify-center gap-3 text-muted-foreground">
+                        <Clock className="w-5 h-5 text-primary" />
+                        <p className="text-sm font-bold">দ্রুততম সময়ে ডেলিভারি</p>
                     </div>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                        className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-warning/30 backdrop-blur-sm border border-warning/40 flex items-center justify-center shadow-md"
-                    >
-                        <Palette className="w-5 h-5 sm:w-6 sm:h-6 text-warning" />
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.8 }}
-                        className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-success/30 backdrop-blur-sm border border-success/40 flex items-center justify-center shadow-md"
-                    >
-                        <Package className="w-5 h-5 sm:w-6 sm:h-6 text-success" />
-                    </motion.div>
-                </motion.div>
-
-                {/* Marketing text */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-center max-w-sm px-4"
-                >
-                    <h2 className="text-xl sm:text-2xl xl:text-3xl font-bold text-foreground mb-3 sm:mb-4 leading-tight">
-                        আপনার প্রিন্ট, আপনার মতো।
-                    </h2>
-                </motion.div>
-            </div>
+                    <div className="flex items-center justify-center gap-3 text-muted-foreground">
+                        <ShieldCheck className="w-5 h-5 text-primary" />
+                        <p className="text-sm font-bold">শতভাগ রঙের নিশ্চয়তা</p>
+                    </div>
+                </div>
+            </motion.div>
         </div>
-    </div >
+    </div>
 );
 
 const AuthPage = () => {
     return (
-        <div className="min-h-screen flex flex-col lg:flex-row bg-white md:-mt-16 lg:-mt-20">
+        <div className="min-h-screen flex flex-col lg:flex-row bg-primary/5 -mt-24 pt-28 lg:-mt-28 lg:pt-32 pb-12">
             {/* Left — Brand Panel */}
-            <BrandPanel />
+            <div className="lg:px-8 w-full lg:w-1/2 flex justify-center items-center">
+                <div className="w-full max-w-2xl mx-4 lg:mx-0">
+                    <BrandPanel />
+                </div>
+            </div>
 
             {/* Right — Auth Forms */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-4 pt-2 sm:p-8 relative">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-full max-w-md"
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full max-w-md bg-white p-6 sm:p-10 rounded-[2rem] shadow-xl shadow-primary/5 border border-primary/10"
                 >
-                    {/* Heading */}
-                    <div className="mb-6">
-                        <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
-                            আবার স্বাগতম
+                    <div className="mb-8 text-center lg:text-left">
+                        <h1 className="text-2xl sm:text-3xl font-black text-foreground mb-2">
+                            স্বাগতম
                         </h1>
-                        <p className="text-muted-foreground text-sm">
-                            চালিয়ে যেতে আপনার অ্যাকাউন্টে সাইন ইন করুন।
+                        <p className="text-muted-foreground text-sm font-bold">
+                            চালিয়ে যেতে আপনার অ্যাকাউন্টে সাইন ইন করুন
                         </p>
                     </div>
 
@@ -111,15 +102,16 @@ const AuthPage = () => {
                     <LoginForm />
 
                     {/* Footer text */}
-                    <p className="text-center text-xs text-muted-foreground mt-8">
+                    <p className="text-center text-[13px] text-muted-foreground mt-8 font-bold leading-relaxed">
                         চালিয়ে যাওয়ার মাধ্যমে, আপনি আমাদের{' '}
-                        <button type="button" className="text-primary hover:text-primary/90 font-medium">
+                        <br className="sm:hidden" />
+                        <Link href="/" className="text-primary hover:text-primary/80 transition-colors">
                             সেবার শর্তাবলী
-                        </button>{' '}
+                        </Link>{' '}
                         এবং{' '}
-                        <button type="button" className="text-primary hover:text-primary/90 font-medium">
+                        <Link href="/" className="text-primary hover:text-primary/80 transition-colors">
                             গোপনীয়তা নীতি
-                        </button>
+                        </Link>
                         তে সম্মত হচ্ছেন।
                     </p>
                 </motion.div>
