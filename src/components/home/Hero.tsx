@@ -45,7 +45,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                         আপনার ব্র্যান্ড{' '}
                         <span className="relative inline-block">
                             <span className="relative z-10 text-primary">বড় করুন</span>
-                            <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary/30 rounded-full" />
+                            {/* <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary/30 rounded-full" /> */}
                         </span>
                         <br />
                         <span className="text-primary">গ্রাফিক জোন</span>
