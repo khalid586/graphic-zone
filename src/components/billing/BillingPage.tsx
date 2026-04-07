@@ -10,6 +10,7 @@ import type { BillingFormData, BillingItem, Bill } from '@/types/billing';
 
 const BillingPage = () => {
     const [formData, setFormData] = useState<BillingFormData>({
+        customerId: '',
         customerName: '',
         customerAddress: '',
         customerPhone: '',
@@ -46,6 +47,7 @@ const BillingPage = () => {
 
     const handleCreateNew = () => {
         setFormData({
+            customerId: '',
             customerName: '',
             customerAddress: '',
             customerPhone: '',
@@ -61,6 +63,7 @@ const BillingPage = () => {
         setShowSuccess(false);
         // Clear the form data
         setFormData({
+            customerId: '',
             customerName: '',
             customerAddress: '',
             customerPhone: '',
