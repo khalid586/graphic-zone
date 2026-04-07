@@ -66,6 +66,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
     useEffect(() => {
         if (onChangeRef.current) {
             onChangeRef.current({
+                customerId: selectedCustomerId,
                 customerName,
                 customerAddress,
                 customerPhone,
@@ -73,7 +74,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
                 advance,
             });
         }
-    }, [customerName, customerAddress, customerPhone, items, advance]);
+    }, [selectedCustomerId, customerName, customerAddress, customerPhone, items, advance]);
 
     const clearFieldError = (field: keyof FormErrors) => {
         if (errors[field]) {
@@ -200,6 +201,7 @@ const BillingForm = ({ onSubmit, onChange }: BillingFormProps) => {
         const validItems = items.filter((item) => item.description.trim() && item.quantity > 0 && item.rate > 0);
 
         const formData: BillingFormData = {
+            customerId: selectedCustomerId,
             customerName: customerName.trim(),
             customerAddress: customerAddress.trim(),
             customerPhone: customerPhone.trim(),

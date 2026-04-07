@@ -80,6 +80,7 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                     font-size: 14px;
                     opacity: 0.9;
                     font-weight: 300;
+                    color: #000000;
                 }
                 .header .subtitle {
                     font-size: 12px;
@@ -106,31 +107,28 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                     background: white;
                 }
                 .info-grid {
-                    display: table;
-                    width: 100%;
-                    border-collapse: collapse;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 15px;
                 }
                 .info-row {
-                    display: table-row;
-                }
-                .info-row:nth-child(even) {
-                    background: #f8fafc;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: baseline;
+                    gap: 8px;
                 }
                 .info-label {
-                    display: table-cell;
-                    padding: 6px 10px;
                     font-weight: 600;
                     color: #475569;
-                    border-bottom: 1px solid #e2e8f0;
-                    width: 40%;
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    min-width: 80px;
                 }
                 .info-value {
-                    display: table-cell;
-                    padding: 6px 10px;
                     color: #1e293b;
-                    border-bottom: 1px solid #e2e8f0;
                     font-weight: 500;
-                    text-align: right;
+                    font-size: 13px;
                 }
 
                 .items-section {
@@ -241,8 +239,8 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 <div class="header">
                     <div class="header-content">
                         ${logoHtml}
-                        <p>Cumilla, Bangladesh</p>
-                        <p class="subtitle">Professional Printing & Design Solutions</p>
+                        <p>Kandirpar, Cumilla, Bangladesh</p>
+                        <p class="subtitle">01312594292 | 01912594292</p>
                     </div>
                 </div>
 
@@ -253,20 +251,20 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 <div class="bill-info">
                     <div class="info-grid">
                         <div class="info-row">
-                            <div class="info-label">Bill ID</div>
-                            <div class="info-value">${bill.id}</div>
+                            <div class="info-label">Customer ID</div>
+                            <div class="info-value">${bill.customerId || 'N/A'}</div>
                         </div>
                         <div class="info-row">
-                            <div class="info-label">Customer</div>
+                            <div class="info-label">Customer Name</div>
                             <div class="info-value">${bill.customerName}</div>
                         </div>
                         <div class="info-row">
-                            <div class="info-label">Generated At</div>
-                            <div class="info-value">${formatTime(bill.createdAt)}</div>
+                            <div class="info-label">Date of Billing</div>
+                            <div class="info-value">${new Date(bill.createdAt).toLocaleDateString('en-GB')}</div>
                         </div>
                         <div class="info-row">
-                            <div class="info-label">Status</div>
-                            <div class="info-value">${bill.status}</div>
+                            <div class="info-label">Phone (Customer)</div>
+                            <div class="info-value">${bill.customerPhone || 'N/A'}</div>
                         </div>
                     </div>
                 </div>
