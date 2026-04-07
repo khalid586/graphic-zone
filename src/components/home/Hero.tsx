@@ -48,7 +48,8 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                             <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary/30 rounded-full" />
                         </span>
                         <br />
-                        <span className="text-primary">গ্রাফিক জোন</span>{' '}
+                        <span className="text-primary">গ্রাফিক জোন</span>
+                        <br />
                         <span className="text-foreground/70 text-4xl md:text-5xl xl:text-6xl">এর সাথে</span>
                     </h1>
 
