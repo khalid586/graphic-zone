@@ -2,16 +2,25 @@
 
 import Image from 'next/image';
 
-// Real brand logos - you can replace with your actual client logos
+// Client logos from assets folder
 const CLIENT_LOGOS = [
-    { name: 'Adobe', logo: 'https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg' },
-    { name: 'Microsoft', logo: 'https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31' },
-    { name: 'Google', logo: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png' },
-    { name: 'Amazon', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
-    { name: 'Apple', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
-    { name: 'Nike', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg' },
-    { name: 'Coca-Cola', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg' },
-] as const;
+    { name: 'Alif', logo: require('../../../assets/company logos/Alif.png') },
+    { name: 'Apex', logo: require('../../../assets/company logos/Apex.png') },
+    { name: 'Aviary', logo: require('../../../assets/company logos/Aviary.png') },
+    { name: 'Bandhu Battery', logo: require('../../../assets/company logos/Bandhu Battery.png') },
+    { name: 'Bangla Food', logo: require('../../../assets/company logos/Bangla Food.png') },
+    { name: 'Ctg Shamity', logo: require('../../../assets/company logos/Ctg Shamity].png') },
+    { name: 'G Tech', logo: require('../../../assets/company logos/G Tech.png') },
+    { name: 'Kazi', logo: require('../../../assets/company logos/Kazi.png') },
+    { name: 'NDF', logo: require('../../../assets/company logos/NDF.png') },
+    { name: 'Orbit', logo: require('../../../assets/company logos/Orbit.png') },
+    { name: 'Rising Sun', logo: require('../../../assets/company logos/Rising Sun.png') },
+    { name: 'Samatat', logo: require('../../../assets/company logos/Samatat.png') },
+    { name: 'Shabimok', logo: require('../../../assets/company logos/Shabimok.png') },
+    { name: 'Swadesh Polly', logo: require('../../../assets/company logos/Swadesh Polly.png') },
+    { name: 'Taimiyans', logo: require('../../../assets/company logos/Taimiyans.png') },
+    { name: 'Tajmahal', logo: require('../../../assets/company logos/Tajmahal.png') },
+];
 
 const Marquee = () => {
     return (
