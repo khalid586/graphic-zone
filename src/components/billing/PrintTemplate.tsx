@@ -11,6 +11,11 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
         ? `<img src="${logoDataUrl}" alt="Graphic Zone Logo" class="logo" />`
         : `<h1>🖨️ Graphic Zone</h1>`;
 
+    // Generate QR code URL using external service
+    const websiteUrl = 'https://graphiczonebd.com';
+    const encodedUrl = encodeURIComponent(websiteUrl);
+    const qrCodeUrl = `https://quickchart.io/qr?text=${encodedUrl}&size=100&format=png`;
+
     return `
         <!DOCTYPE html>
         <html>
@@ -43,9 +48,13 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 .header {
                     background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
                     color: white;
-                    padding: 15px 20px;
-                    text-align: center;
+                    padding: 15px 20px 15px 20px;
                     position: relative;
+                    text-align: center;
+                    min-height: 110px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
                 .header::before {
                     content: '';
@@ -61,6 +70,25 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                     position: relative;
                     z-index: 1;
                     text-align: center;
+                    flex: none;
+                }
+                .header-qr {
+                    position: absolute;
+                    right: 15px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 2;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .header-qr img {
+                    width: 95px;
+                    height: 95px;
+                    background: white;
+                    padding: 4px;
+                    border-radius: 4px;
+                    border: 2px solid #fff;
                 }
                 .header .logo {
                     max-width: 200px;
@@ -241,6 +269,9 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                         ${logoHtml}
                         <p>Kandirpar, Cumilla, Bangladesh</p>
                         <p class="subtitle">01312594292 | 01912594292</p>
+                    </div>
+                    <div class="header-qr">
+                        <img src="${qrCodeUrl}" alt="Visit Graphic Zone" />
                     </div>
                 </div>
 
