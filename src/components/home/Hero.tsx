@@ -37,7 +37,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.9, ease: 'easeOut' }}
                 >
-                    <Badge className="bg-primary/10 text-primary border-0 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest mb-6 gap-2 w-fit">
+                    <Badge className="bg-primary/10 text-primary border-0 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest mb-1 gap-2 w-fit">
                         <Zap className="w-3 h-3" /> এন্টারপ্রাইজ প্রিন্টিং সমাধান
                     </Badge>
 
