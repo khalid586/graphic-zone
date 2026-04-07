@@ -286,15 +286,15 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                             <div class="info-value">${bill.customerId || 'N/A'}</div>
                         </div>
                         <div class="info-row">
-                            <div class="info-label">Customer Name</div>
-                            <div class="info-value">${bill.customerName}</div>
-                        </div>
-                        <div class="info-row">
                             <div class="info-label">Date of Billing</div>
                             <div class="info-value">${new Date(bill.createdAt).toLocaleDateString('en-GB')}</div>
                         </div>
                         <div class="info-row">
-                            <div class="info-label">Phone (Customer)</div>
+                            <div class="info-label">Customer Name</div>
+                            <div class="info-value">${bill.customerName}</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Phone</div>
                             <div class="info-value">${bill.customerPhone || 'N/A'}</div>
                         </div>
                     </div>
