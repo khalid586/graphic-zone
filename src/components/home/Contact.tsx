@@ -206,7 +206,7 @@ const Contact = () => {
                                         value={formData.quantity}
                                         onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
                                         className="bg-background border-muted rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 h-auto focus-visible:ring-primary/20 focus-visible:border-primary text-sm sm:text-base"
-                                        placeholder="100"
+                                        placeholder="1000"
                                     />
                                 </div>
                             </div>
