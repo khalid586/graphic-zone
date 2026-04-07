@@ -43,7 +43,7 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 .header {
                     background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
                     color: white;
-                    padding: 30px 20px;
+                    padding: 15px 20px;
                     text-align: center;
                     position: relative;
                 }
@@ -69,9 +69,9 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                     margin-bottom: 10px;
                 }
                 .header h1 {
-                    font-size: 28px;
+                    font-size: 20px;
                     font-weight: bold;
-                    margin: 0 0 8px 0;
+                    margin: 0 0 4px 0;
                     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
                     letter-spacing: 1px;
                 }
@@ -89,12 +89,12 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
 
                 .invoice-title {
                     background: #f1f5f9;
-                    padding: 20px;
+                    padding: 10px 20px;
                     text-align: center;
                     border-bottom: 2px solid #e2e8f0;
                 }
                 .invoice-title h2 {
-                    font-size: 20px;
+                    font-size: 16px;
                     font-weight: bold;
                     margin: 0;
                     color: #1e293b;
@@ -102,7 +102,7 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 }
 
                 .bill-info {
-                    padding: 25px 20px;
+                    padding: 12px 20px;
                     background: white;
                 }
                 .info-grid {
@@ -118,7 +118,7 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 }
                 .info-label {
                     display: table-cell;
-                    padding: 12px 15px;
+                    padding: 6px 10px;
                     font-weight: 600;
                     color: #475569;
                     border-bottom: 1px solid #e2e8f0;
@@ -126,7 +126,7 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 }
                 .info-value {
                     display: table-cell;
-                    padding: 12px 15px;
+                    padding: 6px 10px;
                     color: #1e293b;
                     border-bottom: 1px solid #e2e8f0;
                     font-weight: 500;
@@ -134,8 +134,10 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 }
 
                 .items-section {
-                    padding: 25px 20px;
+                    padding: 30px 20px;
                     background: #fafbfc;
+                    flex-grow: 1;
+                    min-height: 300px;
                 }
                 .items-header {
                     font-size: 16px;
@@ -148,35 +150,37 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 .item {
                     display: flex;
                     justify-content: space-between;
-                    align-items: flex-start;
-                    padding: 15px 0;
+                    align-items: center;
+                    padding: 12px 0;
                     border-bottom: 1px solid #e2e8f0;
-                    margin-bottom: 10px;
+                    margin-bottom: 8px;
+                    gap: 15px;
                 }
                 .item:last-child {
                     border-bottom: none;
                     margin-bottom: 0;
                 }
-                .item-content {
-                    flex: 1;
-                }
                 .item-title {
                     font-weight: 600;
                     color: #1e293b;
-                    margin-bottom: 4px;
                     font-size: 13px;
+                    flex: 1;
                 }
                 .item-details {
                     font-size: 11px;
                     color: #64748b;
-                    font-style: italic;
+                    font-weight: 500;
+                    white-space: nowrap;
+                    text-align: center;
+                    min-width: 80px;
                 }
                 .item-amount {
                     font-weight: bold;
                     color: #dc2626;
                     font-size: 14px;
                     text-align: right;
-                    min-width: 80px;
+                    white-space: nowrap;
+                    min-width: 70px;
                 }
 
                 .totals-section {
@@ -212,9 +216,9 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                 .footer {
                     background: #1e293b;
                     color: white;
-                    padding: 20px;
+                    padding: 15px 20px;
                     text-align: center;
-                    font-size: 12px;
+                    font-size: 11px;
                     font-weight: 300;
                 }
                 .footer-content {
@@ -271,10 +275,8 @@ export const generatePrintHTML = ({ bill, logoDataUrl }: PrintTemplateProps): st
                     <h3 class="items-header">📦 Items & Services</h3>
                     ${bill.items.map((item, index) => `
                         <div class="item">
-                            <div class="item-content">
-                                <div class="item-title">${index + 1}. ${item.description.replace(/\n/g, '<br>')}</div>
-                                <div class="item-details">${item.quantity} × ${formatCurrency(item.rate)}</div>
-                            </div>
+                            <div class="item-title">${index + 1}. ${item.description.replace(/\n/g, '<br>')}</div>
+                            <div class="item-details">${item.quantity} × ${formatCurrency(item.rate)}</div>
                             <div class="item-amount">${formatCurrency(item.amount)}</div>
                         </div>
                     `).join('')}

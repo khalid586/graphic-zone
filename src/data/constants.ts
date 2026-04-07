@@ -1,10 +1,10 @@
 import type { ServiceItem, PortfolioItem, ProcessStep } from '../types';
 
 export const SERVICES: ServiceItem[] = [
-    { id: 'branding', title: 'ব্র্যান্ড আইডেন্টিটি', desc: 'লোগো ডিজাইন, স্টেশনারি এবং ব্র্যান্ড গাইডলাইন যা আপনার উপস্থিতি সংজ্ঞায়িত করে।', icon: 'Layout' },
-    { id: 'printing', title: 'ডিজিটাল প্রিন্ট', desc: 'প্রিমিয়াম ফিনিশ সহ উচ্চ-মানের বিজনেস কার্ড, ফ্লায়ার এবং ব্রোশিওর।', icon: 'Printer' },
-    { id: 'banners', title: 'লার্জ ফরম্যাট', desc: 'ভিনাইল ব্যানার, এক্স-স্ট্যান্ড এবং দোকানের সাইনবোর্ড যা দৃষ্টি আকর্ষণ করে।', icon: 'Image' },
-    { id: 'magazines', title: 'এডিটোরিয়াল', desc: 'ম্যাগাজিন এবং বার্ষিক প্রতিবেদনের জন্য পেশাদার লেআউট এবং প্রিন্টিং।', icon: 'FileText' },
+    { id: 'stationery', title: 'অফিস ও কর্পোরেট স্টেশনারি', desc: 'ভিজিটিং কার্ড, লেটারহেড, খাম, প্যাড এবং অন্যান্য কর্পোরেট ডকুমেন্ট।', icon: 'Layout' },
+    { id: 'marketing', title: 'মার্কেটিং ও প্রচারমূলক উপকরণ', desc: 'পোস্টার, ফ্লায়ার, লিফলেট, ব্রোশিওর এবং ব্যানার যা আপনার ব্র্যান্ড প্রচার করে।', icon: 'Image' },
+    { id: 'publications', title: 'বই ও প্রকাশনা', desc: 'বই, ম্যাগাজিন, জার্নাল এবং নিউজলেটারের জন্য পেশাদার প্রিন্টিং সেবা।', icon: 'FileText' },
+    { id: 'cards', title: 'গ্রিটিং ও উদযাপন কার্ড', desc: 'বিয়ের কার্ড, দাওয়াত কার্ড, জন্মদিন এবং শুভেচ্ছা কার্ড।', icon: 'Printer' },
 ];
 
 export const PORTFOLIO: PortfolioItem[] = [
