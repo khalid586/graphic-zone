@@ -13,7 +13,7 @@ export interface BillingItem {
 }
 
 export interface BillingFormData {
-    readonly customerId?: string;
+    readonly customerId: string;
     readonly customerName: string;
     readonly customerAddress: string;
     readonly customerPhone: string;
@@ -23,7 +23,6 @@ export interface BillingFormData {
 
 export interface Bill extends BillingFormData {
     readonly id: string;
-    readonly customerId: string;
     readonly status: BillStatus;
     readonly total: number;
     readonly due: number; // total - advance
