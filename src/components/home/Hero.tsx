@@ -102,7 +102,7 @@ const Hero = ({ onCtaClick }: HeroProps = {}) => (
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-[2rem] transform rotate-3 scale-105" />
                         <div className="bg-white rounded-[2rem] shadow-2xl shadow-primary/15 border-2 border-primary/20 relative z-10 p-3 overflow-hidden">
                             <Image
-                                src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&h=600&fit=crop&q=80"
+                                src="/hero-image.jpeg"
                                 width={800}
                                 height={600}
                                 className="w-full h-full object-cover rounded-[1.5rem]"
