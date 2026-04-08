@@ -74,7 +74,7 @@ const Contact = () => {
                                 <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
                             <div className="min-w-0">
-                                <p className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">সরাসরি লাইন</p>
+                                <p className="text-[9px] sm:text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">বিস্তারিত জানতে কল করুন</p>
                                 <a href={`tel:${BRAND.contactPhone.replace(/[^+0-9]/g, '')}`} className="text-lg sm:text-xl font-bold  transition-colors block break-all">
                                     {BRAND.contactPhone}
                                 </a>
